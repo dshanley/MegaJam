@@ -46,17 +46,21 @@
     // create and set up the audio session
     AVAudioSession* audioSession = [AVAudioSession sharedInstance];
     [audioSession setDelegate:self];
-    [audioSession setCategory: AVAudioSessionCategoryPlayAndRecord error: nil];
-    [audioSession setActive: YES error: nil];
+    
+    NSError *setupError = nil;
+    [audioSession setCategory: AVAudioSessionCategoryPlayAndRecord error:&setupError];
+    BOOL isActive = [audioSession setActive: YES error: nil];
     
     // set up for bluetooth microphone input
     UInt32 allowBluetoothInput = 1;
+    /*
     OSStatus stat = AudioSessionSetProperty (
                                              kAudioSessionProperty_OverrideCategoryEnableBluetoothInput,
                                              sizeof (allowBluetoothInput),
                                              &allowBluetoothInput
                                              );
-    NSLog(@"status = %x", stat);    // problem if this is not zero
+     */
+   // NSLog(@"status = %x", stat);    // problem if this is not zero
     
     // check the audio route
     UInt32 size = sizeof(CFStringRef);
@@ -70,8 +74,15 @@
     CFBundleRef mainBundle = CFBundleGetMainBundle();
     CFURLRef        soundFileURLRef;
     SystemSoundID   soundFileObject;
-    soundFileURLRef  = CFBundleCopyResourceURL (mainBundle,CFSTR ("you_talkin"),CFSTR ("wav"),NULL);
-    AudioServicesCreateSystemSoundID (soundFileURLRef,&soundFileObject);
+    //soundFileURLRef  = CFBundleCopyResourceURL (mainBundle,CFSTR ("you_talkin"),CFSTR ("wav"),NULL);
+    NSString *const resourceDir = [[NSBundle mainBundle] resourcePath];
+    NSString *const fullPath = [resourceDir stringByAppendingPathComponent:@"you_talkin.aiff"];
+    NSURL *const url = [NSURL fileURLWithPath:fullPath];
+    //BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:url.absoluteString];
+    NSError *error = nil;
+    BOOL exists = [url checkResourceIsReachableAndReturnError:&error];
+    OSStatus err = AudioServicesCreateSystemSoundID ((__bridge CFURLRef)url,&soundFileObject);
+    NSError *playError = [NSError errorWithDomain:NSOSStatusErrorDomain code:err userInfo:nil];
     AudioServicesPlaySystemSound (soundFileObject);     // should play into headset
 }
 
