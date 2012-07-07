@@ -1,395 +1,0 @@
-TMegaJam
-v5
-r1
-cCheck dependencies
-cProcessInfoPlistFile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/Info.plist MegaJam/MegaJam-Info.plist
-cCpResource /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist build/Debug-iphoneos/MegaJam.app/ResourceRules.plist
-cProcessPCH /var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch.pth MegaJam/MegaJam-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/main.o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWAppDelegate.o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWAppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWViewController.o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cLd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/MegaJam normal armv7
-cGenerateDSYMFile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app.dSYM /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/MegaJam
-cCopyStringsFile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/en.lproj/InfoPlist.strings MegaJam/en.lproj/InfoPlist.strings
-cCompileStoryboard /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPhone.storyboard
-cCompileStoryboard /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPad.storyboard
-cCpResource Resources/you_talkin.wav build/Debug-iphoneos/MegaJam.app/you_talkin.wav
-cProcessProductPackaging "/Users/dshanley/Library/MobileDevice/Provisioning Profiles/EAA9C085-D7E1-481D-A48E-01F779FB36FA.mobileprovision" /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/embedded.mobileprovision
-cProcessProductPackaging "/Users/dshanley/Library/MobileDevice/Provisioning Profiles/EAA9C085-D7E1-481D-A48E-01F779FB36FA.mobileprovision" /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/embedded.mobileprovision
-cTouch /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app
-cProcessProductPackaging /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam.xcent
-cCodeSign /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk
-c000000004FE2D9130000000000000110
-t1340266771
-s272
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist
-c000000004FE5256E00000000000001A7
-t1340417390
-s423
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist
-c000000004FE5256E00000000000001E5
-t1340417390
-s485
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
-c000000004FE5257200000000001D8370
-t1340417394
-s1934192
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
-c000000004FE52571000000000038FE40
-t1340417393
-s3735104
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/CoreAudio.framework/CoreAudio
-c000000004FE525720000000000082AB0
-t1340417394
-s535216
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004FE52573000000000018E440
-t1340417395
-s1631296
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004FE525760000000000311C60
-t1340417398
-s3218528
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004FE5257600000000000015F7
-t1340417398
-s5623
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004FE5257D0000000000000E8D
-t1340417405
-s3725
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004FE5257E00000000008A6610
-t1340417406
-s9070096
-
-N/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/usr/include/Availability.h
-c000000004FE525870000000000001B54
-t1340417415
-s6996
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/MegaJam-Prefix.pch
-c000000004FF7E750000000000000013D
-t1341646672
-s317
-i<Availability.h>
-i<UIKit/UIKit.h>
-i<Foundation/Foundation.h>
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWAppDelegate.m
-c000000004FF7E75000000000000007E1
-t1341646672
-s2017
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m
-c000000004FF874120000000000000B32
-t1341682706
-s2866
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/InfoPlist.strings
-c000000004FF7E750000000000000002D
-t1341646672
-s45
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPad.storyboard
-c000000004FF7E7500000000000000620
-t1341646672
-s1568
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPhone.storyboard
-c000000004FF7E75000000000000005F7
-t1341646672
-s1527
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/main.m
-c000000004FF7E7500000000000000157
-t1341646672
-s343
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/Resources/you_talkin.wav
-c000000004FF7E8F00000000000009BAA
-t1341647088
-s39850
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app.dSYM
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/Info.plist
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/MegaJam
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/PkgInfo
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/ResourceRules.plist
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/embedded.mobileprovision
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/en.lproj/InfoPlist.strings
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/en.lproj/MainStoryboard_iPad.storyboardc
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/en.lproj/MainStoryboard_iPhone.storyboardc
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/you_talkin.wav
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam.xcent
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/MegaJam.LinkFileList
-c000000004FF8741200000000000001B5
-t1341682706
-s437
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWAppDelegate.o
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWViewController.o
-t2
-s0
-
-N/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/main.o
-t2
-s0
-
-N/Users/dshanley/Library/MobileDevice/Provisioning Profiles/EAA9C085-D7E1-481D-A48E-01F779FB36FA.mobileprovision
-c000000004EB9A0C00000000000007780
-t1320788160
-s30592
-
-N/var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch.pth
-t2
-s0
-
-N/var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-gbnblelmmirsvggbdyxhktcvyzqk/MegaJam-Prefix.pch.pth
-t2
-s0
-
-NMegaJam/MegaJam-Info.plist
-c000000004FF7E750000000000000064C
-t1341646672
-s1612
-
-CBuild AST from /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWAppDelegate.m
-r0
-
-CBuild AST from /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m
-r0
-
-CBuild AST from /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/main.m
-r0
-
-CCheck dependencies
-r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies1adf3392aba8b541^65ff6892aba8b541^---0#1#0#--18"Check dependencies36"822B2340-2279-4BB2-B91D-E7E79E996B16-
-
-CCodeSign /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app
-s363375508.547494
-e363375508.880944
-r1
-xCodeSign
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection41"CodeSign build/Debug-iphoneos/MegaJam.app8a398c94aba8b541^e338fc94aba8b541^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/0000000000000000^894"CodeSign build/Debug-iphoneos/MegaJam.app    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv CODESIGN_ALLOCATE /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/codesign --force --sign 3834b9764f24a8ab230a60fe51e982c7f55e4895 --resource-rules=/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/ResourceRules.plist --entitlements /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam.xcent /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app36"8BEA23E8-18D8-42C9-861E-A97ECCFAAAAD-
-
-CCompileC build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWAppDelegate.o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWAppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s363375506.979672
-e363375507.087548
-r1
-xCompileC
-xbuild/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWAppDelegate.o
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWAppDelegate.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Compile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWAppDelegate.me3fbfa92aba8b541^0aa11793aba8b541^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWAppDelegate.m0000000000000000^3501"CompileC build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWAppDelegate.o MegaJam/NXWAppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode45-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.0 -iquote /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-generated-files.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-own-target-headers.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-all-target-headers.hmap -iquote /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-project-headers.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/include -I/Applications/Xcode45-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/DerivedSources/armv7 -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/DerivedSources -F/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos -include /var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch -MMD -MT dependencies -MF /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWAppDelegate.d --serialize-diagnostics /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWAppDelegate.dia -c /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWAppDelegate.m -o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWAppDelegate.o36"148F83F5-870F-4416-8900-205FCA85016C-
-
-CCompileC build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWViewController.o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s363375506.980019
-e363375507.321433
-r1
-xCompileC
-xbuild/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWViewController.o
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-o/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m:59:23: warning: format specifies type 'unsigned int' but the argument has type 'OSStatus' (aka 'long') [-Wformat]
-o    NSLog(@"status = %x", stat);    // problem if this is not zero
-o                     ~^   ~~~~
-o                     %lx
-o/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m:64:14: warning: unused variable 'result' [-Wunused-variable]
-o    OSStatus result = AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &size, &route);
-o             ^
-o2 warnings generated.
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Compile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.md107fb92aba8b541^0a495293aba8b541^-609"/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m:59:23: warning: format specifies type 'unsigned int' but the argument has type 'OSStatus' (aka 'long') [-Wformat]    NSLog(@"status = %x", stat);    // problem if this is not zero                     ~^   ~~~~                     %lx/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m:64:14: warning: unused variable 'result' [-Wunused-variable]    OSStatus result = AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &size, &route);             ^2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@86"Format specifies type 'unsigned int' but the argument has type 'OSStatus' (aka 'long')-363375507#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@104"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m0000000000000000^58#22#58#22#1877#0#19"Format String Issue3(3@104"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m0000000000000000^58#26#58#30#1881#0#3@104"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m0000000000000000^58#21#58#23#1876#2#3@104"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m0000000000000000^58#21#58#23#1876#2#-2@24"Unused variable 'result'-363375507#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@104"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m0000000000000000^63#13#63#13#2031#0#19"Unused Entity Issue--0#0#0#-19%DVTDocumentLocation4@104"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m0000000000000000^3519"CompileC build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWViewController.o MegaJam/NXWViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode45-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.0 -iquote /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-generated-files.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-own-target-headers.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-all-target-headers.hmap -iquote /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-project-headers.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/include -I/Applications/Xcode45-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/DerivedSources/armv7 -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/DerivedSources -F/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos -include /var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch -MMD -MT dependencies -MF /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWViewController.d --serialize-diagnostics /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWViewController.dia -c /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/NXWViewController.m -o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/NXWViewController.o36"2C7F20EE-FA1C-4420-ABD2-3AF3A2F191BD-
-
-CCompileC build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/main.o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s363375506.979608
-e363375507.083777
-r1
-xCompileC
-xbuild/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/main.o
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/main.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/main.m16fcfa92aba8b541^897e1593aba8b541^---0#0#0#-19%DVTDocumentLocation2@91"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/main.m0000000000000000^3441"CompileC build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/main.o MegaJam/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode45-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.0 -iquote /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-generated-files.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-own-target-headers.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-all-target-headers.hmap -iquote /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-project-headers.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/include -I/Applications/Xcode45-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/DerivedSources/armv7 -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/DerivedSources -F/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos -include /var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch -MMD -MT dependencies -MF /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/main.d --serialize-diagnostics /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/main.dia -c /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/main.m -o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/main.o36"2FBAC1E8-2405-4279-A7A0-8F9224506388-
-
-CCompileStoryboard /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPad.storyboard
-s363375507.535729
-e363375507.839100
-r1
-xCompileStoryboard
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPad.storyboard
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"CompileStoryboard MegaJam/en.lproj/MainStoryboard_iPad.storyboardd7328993aba8b541^44153e94aba8b541^---0#0#0#-19%DVTDocumentLocation2@124"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPad.storyboard0000000000000000^982"CompileStoryboard MegaJam/en.lproj/MainStoryboard_iPad.storyboard    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.0    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode45-DP2.app/Contents/Developer/usr/bin/..    /Applications/Xcode45-DP2.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/en.lproj/MainStoryboard_iPad.storyboardc /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPad.storyboard --sdk /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk36"804A68BA-BA95-49DD-A26C-F2D3B03DE872-
-
-CCompileStoryboard /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPhone.storyboard
-s363375507.535332
-e363375508.358273
-r1
-xCompileStoryboard
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPhone.storyboard
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection67"CompileStoryboard MegaJam/en.lproj/MainStoryboard_iPhone.storyboard581d8993aba8b541^23869194aba8b541^---0#0#0#-19%DVTDocumentLocation2@126"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPhone.storyboard0000000000000000^988"CompileStoryboard MegaJam/en.lproj/MainStoryboard_iPhone.storyboard    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.0    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode45-DP2.app/Contents/Developer/usr/bin/..    /Applications/Xcode45-DP2.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/en.lproj/MainStoryboard_iPhone.storyboardc /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/MainStoryboard_iPhone.storyboard --sdk /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk36"97947217-D9B2-41FA-9DD8-3EF2C86303B3-
-
-CCopyStringsFile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/en.lproj/InfoPlist.strings MegaJam/en.lproj/InfoPlist.strings
-s363375507.535302
-e363375508.241199
-r1
-xCopyStringsFile
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/en.lproj/InfoPlist.strings
-xMegaJam/en.lproj/InfoPlist.strings
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy MegaJam/en.lproj/InfoPlist.strings9f1c8993aba8b541^575b9194aba8b541^---0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/en.lproj/InfoPlist.strings0000000000000000^610"CopyStringsFile build/Debug-iphoneos/MegaJam.app/en.lproj/InfoPlist.strings MegaJam/en.lproj/InfoPlist.strings    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/en.lproj -- MegaJam/en.lproj/InfoPlist.strings36"310BBBF2-F135-4690-9A10-2C8666BB1FDB-
-
-CCpResource /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist build/Debug-iphoneos/MegaJam.app/ResourceRules.plist
-s363375506.418923
-e363375506.451588
-r1
-xCpResource
-x/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist
-xbuild/Debug-iphoneos/MegaJam.app/ResourceRules.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Copy build/Debug-iphoneos/MegaJam.app/ResourceRules.plist59506c92aba8b541^62ba7492aba8b541^---0#0#0#-19%DVTDocumentLocation2@129"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/ResourceRules.plist000000000080d041^794"CpResource /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist build/Debug-iphoneos/MegaJam.app/ResourceRules.plist    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app36"A6CDC424-CBDF-4B22-846E-8B77ECC0FA29-
-
-CCpResource Resources/you_talkin.wav build/Debug-iphoneos/MegaJam.app/you_talkin.wav
-s363375507.536929
-e363375507.553863
-r1
-xCpResource
-xResources/you_talkin.wav
-xbuild/Debug-iphoneos/MegaJam.app/you_talkin.wav
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection52"Copy build/Debug-iphoneos/MegaJam.app/you_talkin.wav6e888993aba8b541^c2883d94aba8b541^---0#0#0#-19%DVTDocumentLocation2@124"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/you_talkin.wav000000000080d041^644"CpResource Resources/you_talkin.wav build/Debug-iphoneos/MegaJam.app/you_talkin.wav    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/Resources/you_talkin.wav /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app36"972E9301-24EE-4D7D-880F-30297FABD6FC-
-
-CGenerateDSYMFile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app.dSYM /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/MegaJam
-s363375507.474675
-e363375507.515182
-r1
-xGenerateDSYMFile
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app.dSYM
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/MegaJam
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"Generating /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app.dSYMe5977993aba8b541^c5e28393aba8b541^---0#0#0#-19%DVTDocumentLocation2@114"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app.dSYM000000000080d041^674"GenerateDSYMFile build/Debug-iphoneos/MegaJam.app.dSYM build/Debug-iphoneos/MegaJam.app/MegaJam    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode45-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/MegaJam -o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app.dSYM36"BB1D460E-6107-4157-9184-544114343880-
-
-CLd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/MegaJam normal armv7
-s363375507.328320
-e363375507.464368
-r1
-xLd
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/MegaJam
-xnormal
-xarmv7
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection106"Link /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/MegaJamb8235493aba8b541^29e87693aba8b541^---0#0#0#--1237"Ld build/Debug-iphoneos/MegaJam.app/MegaJam normal armv7    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv IPHONEOS_DEPLOYMENT_TARGET 5.0    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode45-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7 -isysroot /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -L/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos -F/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos -filelist /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/Objects-normal/armv7/MegaJam.LinkFileList -dead_strip -fobjc-arc -fobjc-link-runtime -miphoneos-version-min=5.0 -framework AudioToolbox -framework CoreAudio -framework AVFoundation -framework UIKit -framework Foundation -framework CoreGraphics -o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/MegaJam36"BF80DAF3-96C4-423B-A010-99CDBC225953-
-
-CProcessInfoPlistFile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/Info.plist MegaJam/MegaJam-Info.plist
-s363375506.413790
-e363375506.452596
-r1
-xProcessInfoPlistFile
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/Info.plist
-xMegaJam/MegaJam-Info.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection34"Process MegaJam/MegaJam-Info.plist37506c92aba8b541^12bd7492aba8b541^---0#0#0#-19%DVTDocumentLocation2@103"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/MegaJam-Info.plist0000000000000000^826"ProcessInfoPlistFile build/Debug-iphoneos/MegaJam.app/Info.plist MegaJam/MegaJam-Info.plist    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility MegaJam/MegaJam-Info.plist -genpkginfo /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/ResourceRules.plist -o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/Info.plist36"312DF8E2-3852-480F-AF7B-810B42A061EB-
-
-CProcessPCH /Volumes/Backroom/tmp/MegaJam-dpmntsvoqdagiggajznewqkncfem/Index/PrecompiledHeaders/MegaJam-Prefix-cdzroadupuxatzgwmpmtvskgmexm_ast/MegaJam-Prefix.pch.pth MegaJam/MegaJam-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
-r0
-
-CProcessPCH /Volumes/Backroom/tmp/MegaJam-dpmntsvoqdagiggajznewqkncfem/Index/PrecompiledHeaders/MegaJam-Prefix-ekmkfzsyewstbwfqpcxgnbfophzp_ast/MegaJam-Prefix.pch.pth MegaJam/MegaJam-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
-r0
-
-CProcessPCH /var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch.pth MegaJam/MegaJam-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s363375506.462016
-e363375506.951618
-r1
-xProcessPCH
-x/var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch.pth
-xMegaJam/MegaJam-Prefix.pch
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Precompile MegaJam/MegaJam-Prefix.pch56627692aba8b541^2c9df392aba8b541^---0#0#0#-19%DVTDocumentLocation2@103"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/MegaJam-Prefix.pch0000000000000000^3457"ProcessPCH /var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch.pth MegaJam/MegaJam-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode45-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.0 -iquote /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-generated-files.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-own-target-headers.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-all-target-headers.hmap -iquote /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam-project-headers.hmap -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/include -I/Applications/Xcode45-DP2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/DerivedSources/armv7 -I/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/DerivedSources -F/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos --serialize-diagnostics /var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch.dia -c /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/MegaJam/MegaJam-Prefix.pch -o /var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-bruqgjwpcxzanwezlzcdtknjvciv/MegaJam-Prefix.pch.d36"F86BEB61-737F-4120-BE0D-56FD9417E44D-
-
-CProcessPCH /var/folders/c3/d3pdytjn2qx27p50jcng47rw0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/MegaJam-Prefix-gbnblelmmirsvggbdyxhktcvyzqk/MegaJam-Prefix.pch.pth MegaJam/MegaJam-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-r0
-
-CProcessProductPackaging "/Users/dshanley/Library/MobileDevice/Provisioning Profiles/EAA9C085-D7E1-481D-A48E-01F779FB36FA.mobileprovision" /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/embedded.mobileprovision
-s363375508.410599
-e363375508.416749
-r1
-xProcessProductPackaging
-x/Users/dshanley/Library/MobileDevice/Provisioning Profiles/EAA9C085-D7E1-481D-A48E-01F779FB36FA.mobileprovision
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/embedded.mobileprovision
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection195"ProcessProductPackaging "/Users/dshanley/Library/MobileDevice/Provisioning Profiles/EAA9C085-D7E1-481D-A48E-01F779FB36FA.mobileprovision" build/Debug-iphoneos/MegaJam.app/embedded.mobileprovisionb0376994aba8b541^b0909194aba8b541^---0#0#0#-19%DVTDocumentLocation2@134"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/embedded.mobileprovision0000000000000000^736"ProcessProductPackaging "/Users/dshanley/Library/MobileDevice/Provisioning Profiles/EAA9C085-D7E1-481D-A48E-01F779FB36FA.mobileprovision" build/Debug-iphoneos/MegaJam.app/embedded.mobileprovision    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility "/Users/dshanley/Library/MobileDevice/Provisioning Profiles/EAA9C085-D7E1-481D-A48E-01F779FB36FA.mobileprovision" -o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app/embedded.mobileprovision36"345A499A-2343-43D1-8B88-4C216AA3167D-
-
-CProcessProductPackaging /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam.xcent
-s363375508.496567
-e363375508.516755
-r1
-xProcessProductPackaging
-x/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam.xcent
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection213"ProcessProductPackaging /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam.xcent8fa97f94aba8b541^7c989194aba8b541^---0#0#0#-19%DVTDocumentLocation2@139"file://localhost/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam.xcent000000000080d041^798"ProcessProductPackaging /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam.xcent    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility /Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist -entitlements -format xml -o /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/MegaJam.build/Debug-iphoneos/MegaJam.build/MegaJam.xcent36"540EBFFE-042D-430A-B8E5-8EF1D727758F-
-
-CTouch /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app
-s363375508.452320
-e363375508.483562
-r1
-xTouch
-x/Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Touch /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.appf6ee7394aba8b541^a3939194aba8b541^---0#0#0#--423"Touch build/Debug-iphoneos/MegaJam.app    cd /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam    setenv PATH "/Applications/Xcode45-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode45-DP2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/dshanley/Development/CrowdCompass/tmp/MegaJam/MegaJam/build/Debug-iphoneos/MegaJam.app36"8501A4D2-D530-4C56-A9D7-46184057C596-
-
