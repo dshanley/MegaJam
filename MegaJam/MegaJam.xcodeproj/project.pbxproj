@@ -1,0 +1,323 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5AF4C54615A81ED00055D1A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54515A81ED00055D1A0 /* UIKit.framework */; };
+		5AF4C54815A81ED00055D1A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54715A81ED00055D1A0 /* Foundation.framework */; };
+		5AF4C54A15A81ED00055D1A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54915A81ED00055D1A0 /* CoreGraphics.framework */; };
+		5AF4C55015A81ED00055D1A0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AF4C54E15A81ED00055D1A0 /* InfoPlist.strings */; };
+		5AF4C55215A81ED00055D1A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55115A81ED00055D1A0 /* main.m */; };
+		5AF4C55615A81ED00055D1A0 /* NXWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55515A81ED00055D1A0 /* NXWAppDelegate.m */; };
+		5AF4C55915A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */; };
+		5AF4C55C15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */; };
+		5AF4C55F15A81ED00055D1A0 /* NXWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55E15A81ED00055D1A0 /* NXWViewController.m */; };
+		5AF4C56715A820A20055D1A0 /* you_talkin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5AF4C56615A820A20055D1A0 /* you_talkin.wav */; };
+		5AF4C56915A820E00055D1A0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56815A820E00055D1A0 /* AVFoundation.framework */; };
+		5AF4C56C15A826310055D1A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56A15A826310055D1A0 /* AudioToolbox.framework */; };
+		5AF4C56D15A826310055D1A0 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56B15A826310055D1A0 /* CoreAudio.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5AF4C54115A81ED00055D1A0 /* MegaJam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MegaJam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF4C54515A81ED00055D1A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5AF4C54715A81ED00055D1A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5AF4C54915A81ED00055D1A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5AF4C54D15A81ED00055D1A0 /* MegaJam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MegaJam-Info.plist"; sourceTree = "<group>"; };
+		5AF4C54F15A81ED00055D1A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5AF4C55115A81ED00055D1A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5AF4C55315A81ED00055D1A0 /* MegaJam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MegaJam-Prefix.pch"; sourceTree = "<group>"; };
+		5AF4C55415A81ED00055D1A0 /* NXWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXWAppDelegate.h; sourceTree = "<group>"; };
+		5AF4C55515A81ED00055D1A0 /* NXWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXWAppDelegate.m; sourceTree = "<group>"; };
+		5AF4C55815A81ED00055D1A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		5AF4C55B15A81ED00055D1A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		5AF4C55D15A81ED00055D1A0 /* NXWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NXWViewController.h; sourceTree = "<group>"; };
+		5AF4C55E15A81ED00055D1A0 /* NXWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NXWViewController.m; sourceTree = "<group>"; };
+		5AF4C56615A820A20055D1A0 /* you_talkin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = you_talkin.wav; sourceTree = "<group>"; };
+		5AF4C56815A820E00055D1A0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5AF4C56A15A826310055D1A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5AF4C56B15A826310055D1A0 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AF4C53E15A81ED00055D1A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF4C56C15A826310055D1A0 /* AudioToolbox.framework in Frameworks */,
+				5AF4C56D15A826310055D1A0 /* CoreAudio.framework in Frameworks */,
+				5AF4C56915A820E00055D1A0 /* AVFoundation.framework in Frameworks */,
+				5AF4C54615A81ED00055D1A0 /* UIKit.framework in Frameworks */,
+				5AF4C54815A81ED00055D1A0 /* Foundation.framework in Frameworks */,
+				5AF4C54A15A81ED00055D1A0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5AF4C53615A81ED00055D1A0 = {
+			isa = PBXGroup;
+			children = (
+				5AF4C54B15A81ED00055D1A0 /* MegaJam */,
+				5AF4C54415A81ED00055D1A0 /* Frameworks */,
+				5AF4C54215A81ED00055D1A0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5AF4C54215A81ED00055D1A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AF4C54115A81ED00055D1A0 /* MegaJam.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AF4C54415A81ED00055D1A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AF4C56A15A826310055D1A0 /* AudioToolbox.framework */,
+				5AF4C56B15A826310055D1A0 /* CoreAudio.framework */,
+				5AF4C56815A820E00055D1A0 /* AVFoundation.framework */,
+				5AF4C54515A81ED00055D1A0 /* UIKit.framework */,
+				5AF4C54715A81ED00055D1A0 /* Foundation.framework */,
+				5AF4C54915A81ED00055D1A0 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5AF4C54B15A81ED00055D1A0 /* MegaJam */ = {
+			isa = PBXGroup;
+			children = (
+				5AF4C56515A820A20055D1A0 /* Resources */,
+				5AF4C55415A81ED00055D1A0 /* NXWAppDelegate.h */,
+				5AF4C55515A81ED00055D1A0 /* NXWAppDelegate.m */,
+				5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */,
+				5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */,
+				5AF4C55D15A81ED00055D1A0 /* NXWViewController.h */,
+				5AF4C55E15A81ED00055D1A0 /* NXWViewController.m */,
+				5AF4C54C15A81ED00055D1A0 /* Supporting Files */,
+			);
+			path = MegaJam;
+			sourceTree = "<group>";
+		};
+		5AF4C54C15A81ED00055D1A0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AF4C54D15A81ED00055D1A0 /* MegaJam-Info.plist */,
+				5AF4C54E15A81ED00055D1A0 /* InfoPlist.strings */,
+				5AF4C55115A81ED00055D1A0 /* main.m */,
+				5AF4C55315A81ED00055D1A0 /* MegaJam-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AF4C56515A820A20055D1A0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5AF4C56615A820A20055D1A0 /* you_talkin.wav */,
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AF4C54015A81ED00055D1A0 /* MegaJam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AF4C56215A81ED00055D1A0 /* Build configuration list for PBXNativeTarget "MegaJam" */;
+			buildPhases = (
+				5AF4C53D15A81ED00055D1A0 /* Sources */,
+				5AF4C53E15A81ED00055D1A0 /* Frameworks */,
+				5AF4C53F15A81ED00055D1A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MegaJam;
+			productName = MegaJam;
+			productReference = 5AF4C54115A81ED00055D1A0 /* MegaJam.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AF4C53815A81ED00055D1A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NXW;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = CrowdComapss;
+			};
+			buildConfigurationList = 5AF4C53B15A81ED00055D1A0 /* Build configuration list for PBXProject "MegaJam" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5AF4C53615A81ED00055D1A0;
+			productRefGroup = 5AF4C54215A81ED00055D1A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AF4C54015A81ED00055D1A0 /* MegaJam */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5AF4C53F15A81ED00055D1A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF4C55015A81ED00055D1A0 /* InfoPlist.strings in Resources */,
+				5AF4C55915A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard in Resources */,
+				5AF4C55C15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard in Resources */,
+				5AF4C56715A820A20055D1A0 /* you_talkin.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5AF4C53D15A81ED00055D1A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF4C55215A81ED00055D1A0 /* main.m in Sources */,
+				5AF4C55615A81ED00055D1A0 /* NXWAppDelegate.m in Sources */,
+				5AF4C55F15A81ED00055D1A0 /* NXWViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5AF4C54E15A81ED00055D1A0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AF4C54F15A81ED00055D1A0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AF4C55815A81ED00055D1A0 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AF4C55B15A81ED00055D1A0 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5AF4C56015A81ED00055D1A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5AF4C56115A81ED00055D1A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AF4C56315A81ED00055D1A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MegaJam/MegaJam-Prefix.pch";
+				INFOPLIST_FILE = "MegaJam/MegaJam-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5AF4C56415A81ED00055D1A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MegaJam/MegaJam-Prefix.pch";
+				INFOPLIST_FILE = "MegaJam/MegaJam-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AF4C53B15A81ED00055D1A0 /* Build configuration list for PBXProject "MegaJam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AF4C56015A81ED00055D1A0 /* Debug */,
+				5AF4C56115A81ED00055D1A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AF4C56215A81ED00055D1A0 /* Build configuration list for PBXNativeTarget "MegaJam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AF4C56315A81ED00055D1A0 /* Debug */,
+				5AF4C56415A81ED00055D1A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5AF4C53815A81ED00055D1A0 /* Project object */;
+}

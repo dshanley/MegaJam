@@ -1,0 +1,18 @@
+# Ignore the multiple build scripts
+*.sh
+
+# Ignore custom.properties, everyone should have there own
+custom.properties
+
+*/build/*
+
+Tumbleweed/Tumbleweed.xcodeproj/project.xcworkspace/
+Tumbleweed/Tumbleweed.xcodeproj/xcuserdata/
+
+*.DS_Store
+*.swp
+
+
+
+
+
