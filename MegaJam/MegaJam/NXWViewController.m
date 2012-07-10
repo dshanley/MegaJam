@@ -15,14 +15,19 @@
 
 @interface NXWViewController ()
 
+
 @end
 
 
 @implementation NXWViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Vibrate
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background@2x"]];
     
@@ -66,6 +71,8 @@
     imageViewBackground.image = [UIImage imageNamed:@"speaker1@2x"];
     [self.view addSubview:imageViewBackground];
     
+    
+    // TODO: Make this a property so that we can conditinally add and remove this pulsating effect.
     //image 2
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 320, 330, 285/2)];
     imageView.image = [UIImage imageNamed:@"speaker2@2x.png"];
@@ -141,6 +148,10 @@
     OSStatus err = AudioServicesCreateSystemSoundID ((__bridge CFURLRef)url,&soundFileObject);
     NSError *playError = [NSError errorWithDomain:NSOSStatusErrorDomain code:err userInfo:nil];
     AudioServicesPlaySystemSound (soundFileObject);     // should play into headset
+    
+    AudioServicesAddSystemSoundCompletion(soundFileObject, NULL, NULL, playSoundFinished, (__bridge_retained void *)self);
+    
+    // TODO: Start pulsating here
 }
 
 - (void)pauseAudio {
@@ -153,6 +164,14 @@
     UISlider *slider = (UISlider *) sender;
     float value = slider.value;
     NSLog(@"Slider value = %f", value);
+}
+                                          
+static void playSoundFinished (SystemSoundID soundID, void *data) {
+    //Cleanup
+    AudioServicesRemoveSystemSoundCompletion(soundID);
+    AudioServicesDisposeSystemSoundID(soundID);
+    
+    // TODO: Stop Pulsating
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
