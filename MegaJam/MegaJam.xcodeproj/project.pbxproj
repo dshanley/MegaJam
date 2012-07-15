@@ -37,6 +37,7 @@
 		C97D99DB15B33D89005A6028 /* volume-high@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D99D315B33D89005A6028 /* volume-high@2x.png */; };
 		C97D99DC15B33D89005A6028 /* volume-low.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D99D415B33D89005A6028 /* volume-low.png */; };
 		C97D99DD15B33D89005A6028 /* volume-low@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D99D515B33D89005A6028 /* volume-low@2x.png */; };
+		C97D9A2C15B3446D005A6028 /* NXWBlueBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D9A2B15B3446D005A6028 /* NXWBlueBackgroundView.m */; };
 		C9F32FC415ABD78E00B460DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F32FC315ABD78E00B460DE /* QuartzCore.framework */; };
 		C9F32FD315ABF1F900B460DE /* bkg-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F32FD215ABF1F900B460DE /* bkg-blue@2x.png */; };
 		C9F32FD615ABF2EC00B460DE /* fpo-grill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F32FD415ABF2EC00B460DE /* fpo-grill@2x.png */; };
@@ -79,6 +80,8 @@
 		C97D99D315B33D89005A6028 /* volume-high@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-high@2x.png"; sourceTree = "<group>"; };
 		C97D99D415B33D89005A6028 /* volume-low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-low.png"; sourceTree = "<group>"; };
 		C97D99D515B33D89005A6028 /* volume-low@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-low@2x.png"; sourceTree = "<group>"; };
+		C97D9A2A15B3446D005A6028 /* NXWBlueBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXWBlueBackgroundView.h; sourceTree = "<group>"; };
+		C97D9A2B15B3446D005A6028 /* NXWBlueBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXWBlueBackgroundView.m; sourceTree = "<group>"; };
 		C9F32FC315ABD78E00B460DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C9F32FD215ABF1F900B460DE /* bkg-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bkg-blue@2x.png"; sourceTree = "<group>"; };
 		C9F32FD415ABF2EC00B460DE /* fpo-grill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fpo-grill@2x.png"; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 			children = (
 				5AF4C56515A820A20055D1A0 /* Resources */,
 				5AF4C55415A81ED00055D1A0 /* NXWAppDelegate.h */,
+				C97D9A2A15B3446D005A6028 /* NXWBlueBackgroundView.h */,
+				C97D9A2B15B3446D005A6028 /* NXWBlueBackgroundView.m */,
 				5AF4C55515A81ED00055D1A0 /* NXWAppDelegate.m */,
 				5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */,
 				5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */,
@@ -277,6 +282,7 @@
 				5AF4C55215A81ED00055D1A0 /* main.m in Sources */,
 				5AF4C55615A81ED00055D1A0 /* NXWAppDelegate.m in Sources */,
 				5AF4C55F15A81ED00055D1A0 /* NXWViewController.m in Sources */,
+				C97D9A2C15B3446D005A6028 /* NXWBlueBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
