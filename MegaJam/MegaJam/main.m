@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "NXWAppDelegate.h"
+#import "MJAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([NXWAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MJAppDelegate class]));
     }
 }

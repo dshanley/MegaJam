@@ -1,5 +1,5 @@
 //
-//  NXWAppDelegate.h
+//  MJAppDelegate.h
 //  MegaJam
 //
 //  Created by Dave Shanley on 7/7/12.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NXWAppDelegate : UIResponder <UIApplicationDelegate>
+@interface MJAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

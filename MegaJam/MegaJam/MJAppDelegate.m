@@ -1,14 +1,14 @@
 //
-//  NXWAppDelegate.m
+//  MJAppDelegate.m
 //  MegaJam
 //
 //  Created by Dave Shanley on 7/7/12.
 //  Copyright (c) 2012 CrowdComapss. All rights reserved.
 //
 
-#import "NXWAppDelegate.h"
+#import "MJAppDelegate.h"
 
-@implementation NXWAppDelegate
+@implementation MJAppDelegate
 
 @synthesize window = _window;
 

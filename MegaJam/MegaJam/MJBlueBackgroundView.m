@@ -1,20 +1,27 @@
 //
-//  NXWBlueBackgroundView.m
+//  MJBlueBackgroundView.m
 //  MegaJam
 //
 //  Created by Robert Corlett on 7/15/12.
 //  Copyright (c) 2012 CrowdComapss. All rights reserved.
 //
 
-#import "NXWBlueBackgroundView.h"
+#import "MJBlueBackgroundView.h"
+#import <QuartzCore/QuartzCore.h>
 
-@implementation NXWBlueBackgroundView
+@implementation MJBlueBackgroundView
+
+@synthesize controller = _controller;
+@synthesize grillActive = _grillActive;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.controller = [[MJViewController alloc] init];
+        
+        self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
+        self.grillActive.image = [UIImage imageNamed:@"fpo-grill"];
     }
     return self;
 }
@@ -30,7 +37,7 @@
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeCustom];
     playButton.frame = CGRectMake(164, 144, 100, 100);
     [playButton setImage:[UIImage imageNamed:@"play-up"] forState:UIControlStateNormal];
-    [playButton addTarget:self action:@selector(playAudio) forControlEvents:UIControlEventTouchUpInside];
+    [playButton addTarget:self action:@selector(playPressed) forControlEvents:UIControlEventTouchUpInside];
     [playButton sizeToFit];
     
     [self addSubview:playButton];
@@ -38,15 +45,15 @@
     //Pause Button
     UIButton *pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
     pauseButton.frame = CGRectMake(56, 144, 100, 100);
-    [pauseButton setImage:[UIImage imageNamed:@"pause-up"] forState:UIControlStateNormal];
-    [pauseButton addTarget:self action:@selector(pauseAudio) forControlEvents:UIControlEventTouchUpInside];
+    [pauseButton setImage:[UIImage imageNamed:@"pause-down"] forState:UIControlStateNormal];
+    [pauseButton addTarget:self action:@selector(pausePressed) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:pauseButton];
     
     //Volume Slider
     CGRect frame = CGRectMake(40, 270, 240, 10);
     UISlider *volumeSlider = [[UISlider alloc] initWithFrame:frame];
-    [volumeSlider addTarget:self action:@selector(adjustVolume:) forControlEvents:UIControlEventValueChanged];
+    [volumeSlider addTarget:self.controller action:@selector(adjustVolume:) forControlEvents:UIControlEventValueChanged];
     [volumeSlider setBackgroundColor:[UIColor clearColor]];
     volumeSlider.minimumValue = 0.0;
     volumeSlider.maximumValue = 100.0;
@@ -62,7 +69,7 @@
     
     //Speaker Grill Image
     UIImageView *imageViewBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-    imageViewBackground.image = [UIImage imageNamed:@"fpo-grill"];
+    imageViewBackground.image = [UIImage imageNamed:@"blue-grill-flat"];
     
     //    CATransition *rippleAnimation = [CATransition animation];
     //    [rippleAnimation setDelegate:self];
@@ -73,26 +80,7 @@
     //    [imageViewBackground.layer addAnimation:rippleAnimation forKey:@"rippleEffect"];
     
     [self addSubview:imageViewBackground];
-    
-    
-    
-    // TODO: Make this a property so that we can conditinally add and remove this pulsating effect.
-    //image 2
-    //    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 320, 330, 285/2)];
-    //    imageView.image = [UIImage imageNamed:@"speaker2@2x.png"];
-    //    
-    //    //setting up animation
-    //    CABasicAnimation *pulseAnimation;
-    //    pulseAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    //    pulseAnimation.duration = 1.0;
-    //    pulseAnimation.repeatCount = MAXFLOAT;
-    //    pulseAnimation.autoreverses = YES;
-    //    pulseAnimation.fromValue = [NSNumber numberWithFloat:1.0];
-    //    pulseAnimation.toValue = [NSNumber numberWithFloat:0.0];
-    //    [imageView.layer addAnimation:pulseAnimation forKey:@"animatePulse"];
-    //    
-    //    [self.view addSubview:imageView];
-    
+        
 }
 
 /*
@@ -103,5 +91,40 @@
     // Drawing code
 }
 */
+
+- (void)playPressed {
+    //setting up animation
+    NSLog(@"Play Pressed... ");
+    
+    CABasicAnimation *pulseAnimation;
+    pulseAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    pulseAnimation.duration = 0.35;
+    pulseAnimation.repeatCount = 0;
+    pulseAnimation.autoreverses = NO;
+    pulseAnimation.fromValue = [NSNumber numberWithFloat:0.0];
+    pulseAnimation.toValue = [NSNumber numberWithFloat:1.0];
+    [self.grillActive.layer addAnimation:pulseAnimation forKey:@"animatePulse"];  
+    [self addSubview:self.grillActive];
+    self.grillActive.layer.zPosition = 1;
+    
+    [self.controller playAudio];
+  
+}
+
+- (void)pausePressed {
+    NSLog(@"Pause Pressed...");
+    //setting up animation for grill
+    CABasicAnimation *pulseAnimation;
+    pulseAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    pulseAnimation.duration = 0.35;
+    pulseAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    pulseAnimation.toValue = [NSNumber numberWithFloat:0.0];
+    pulseAnimation.fillMode = kCAFillModeForwards;
+    pulseAnimation.removedOnCompletion = NO;
+    [self.grillActive.layer addAnimation:pulseAnimation forKey:@"animatePulse"];    
+
+}
+
+
 
 @end

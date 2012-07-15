@@ -1,5 +1,5 @@
 //
-//  NXWViewController.m
+//  MJViewController.m
 //  MegaJam
 //
 //  Created by Dave Shanley on 7/7/12.
@@ -8,25 +8,25 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import <AVFoundation/AVAudioSession.h>
-#import "NXWViewController.h"
+#import "MJViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
-#import "NXWBlueBackgroundView.h"
+#import "MJBlueBackgroundView.h"
 
 
-@interface NXWViewController ()
+@interface MJViewController ()
 
 
 @end
 
 
-@implementation NXWViewController
+@implementation MJViewController
 
 
 - (void)loadView {
     [super loadView];
     
-    NXWBlueBackgroundView *blueTemplate = [[NXWBlueBackgroundView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    MJBlueBackgroundView *blueTemplate = [[MJBlueBackgroundView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     [self.view addSubview:blueTemplate];
     
     
