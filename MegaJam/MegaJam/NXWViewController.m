@@ -29,7 +29,7 @@
     //Vibrate
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background@2x"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bkg-blue"]];
     
     //Play Button
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -60,16 +60,26 @@
     
     [self.view addSubview:volumeSlider];
     
-    //title
+    
+    //bluetooth symbol
     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
-    titleImage.image = [UIImage imageNamed:@"title.png"];
+    titleImage.image = [UIImage imageNamed:@"bluetooth-connected"];
     [self.view addSubview:titleImage];
     
-    
-    //image 1
+    //Speaker Grill Image
     UIImageView *imageViewBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 320, 330, 285/2)];
-    imageViewBackground.image = [UIImage imageNamed:@"speaker1@2x"];
+    imageViewBackground.image = [UIImage imageNamed:@"fpo-grill"];
+    
+//    CATransition *rippleAnimation = [CATransition animation];
+//    [rippleAnimation setDelegate:self];
+//    [rippleAnimation setDuration:2.0f];
+//    [rippleAnimation setRepeatCount:MAXFLOAT];
+//    [rippleAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+//    [rippleAnimation setType:@"rippleEffect"];
+//    [imageViewBackground.layer addAnimation:rippleAnimation forKey:@"rippleEffect"];
+    
     [self.view addSubview:imageViewBackground];
+    
     
     
     // TODO: Make this a property so that we can conditinally add and remove this pulsating effect.
