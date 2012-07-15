@@ -13,6 +13,9 @@
 
 @synthesize controller = _controller;
 @synthesize grillActive = _grillActive;
+@synthesize grillFlat = _grillFlat;
+@synthesize pauseButton = _pauseButton;
+@synthesize playButton = _playButton;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -22,6 +25,9 @@
         
         self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
         self.grillActive.image = [UIImage imageNamed:@"fpo-grill"];
+        
+        self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
+        self.grillFlat.image = [UIImage imageNamed:@"blue-grill-flat"];
     }
     return self;
 }
@@ -34,21 +40,27 @@
     [self addSubview:backgoundImage];
     
     //Play Button
-    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    playButton.frame = CGRectMake(164, 144, 100, 100);
-    [playButton setImage:[UIImage imageNamed:@"play-up"] forState:UIControlStateNormal];
-    [playButton addTarget:self action:@selector(playPressed) forControlEvents:UIControlEventTouchUpInside];
-    [playButton sizeToFit];
+    self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.playButton.frame = CGRectMake(164, 144, 100, 100);
+    [self.playButton setImage:[UIImage imageNamed:@"play-up"] forState:UIControlStateNormal];
+    [self.playButton setImage:[UIImage imageNamed:@"play-down"] forState:UIControlStateHighlighted | UIControlStateSelected];
+    [self.playButton setImage:[UIImage imageNamed:@"play-down"] forState:UIControlStateNormal | UIControlStateHighlighted];
+    [self.playButton setImage:[UIImage imageNamed:@"play-down"] forState:UIControlStateSelected];
+    [self.playButton addTarget:self action:@selector(playPressed) forControlEvents:UIControlEventTouchUpInside];
     
-    [self addSubview:playButton];
+    [self addSubview:self.playButton];
     
     //Pause Button
-    UIButton *pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    pauseButton.frame = CGRectMake(56, 144, 100, 100);
-    [pauseButton setImage:[UIImage imageNamed:@"pause-down"] forState:UIControlStateNormal];
-    [pauseButton addTarget:self action:@selector(pausePressed) forControlEvents:UIControlEventTouchUpInside];
+    self.pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.pauseButton.frame = CGRectMake(56, 144, 100, 100);
+    [self.pauseButton setImage:[UIImage imageNamed:@"pause-up"] forState:UIControlStateNormal];
+    [self.pauseButton setImage:[UIImage imageNamed:@"pause-down"] forState:UIControlStateHighlighted | UIControlStateSelected];
+    [self.pauseButton setImage:[UIImage imageNamed:@"pause-down"] forState:UIControlStateNormal | UIControlStateHighlighted];
+    [self.pauseButton setImage:[UIImage imageNamed:@"pause-down"] forState:UIControlStateSelected];
+    self.pauseButton.selected = YES;
+    [self.pauseButton addTarget:self action:@selector(pausePressed) forControlEvents:UIControlEventTouchUpInside];
     
-    [self addSubview:pauseButton];
+    [self addSubview:self.pauseButton];
     
     //Volume Slider
     CGRect frame = CGRectMake(40, 270, 240, 10);
@@ -65,21 +77,14 @@
     //bluetooth symbol
     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
     titleImage.image = [UIImage imageNamed:@"bluetooth-connected"];
+    
     [self addSubview:titleImage];
     
-    //Speaker Grill Image
-    UIImageView *imageViewBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-    imageViewBackground.image = [UIImage imageNamed:@"blue-grill-flat"];
+    //Speaker Grill Images
+    [self addSubview:self.grillActive];
+    [self addSubview:self.grillFlat];
     
-    //    CATransition *rippleAnimation = [CATransition animation];
-    //    [rippleAnimation setDelegate:self];
-    //    [rippleAnimation setDuration:2.0f];
-    //    [rippleAnimation setRepeatCount:MAXFLOAT];
-    //    [rippleAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
-    //    [rippleAnimation setType:@"rippleEffect"];
-    //    [imageViewBackground.layer addAnimation:rippleAnimation forKey:@"rippleEffect"];
     
-    [self addSubview:imageViewBackground];
         
 }
 
@@ -96,34 +101,48 @@
     //setting up animation
     NSLog(@"Play Pressed... ");
     
+    self.pauseButton.selected = NO;
+    self.playButton.selected = YES;
+    
     CABasicAnimation *pulseAnimation;
     pulseAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     pulseAnimation.duration = 0.35;
     pulseAnimation.repeatCount = 0;
     pulseAnimation.autoreverses = NO;
-    pulseAnimation.fromValue = [NSNumber numberWithFloat:0.0];
-    pulseAnimation.toValue = [NSNumber numberWithFloat:1.0];
-    [self.grillActive.layer addAnimation:pulseAnimation forKey:@"animatePulse"];  
-    [self addSubview:self.grillActive];
-    self.grillActive.layer.zPosition = 1;
+    pulseAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    pulseAnimation.toValue = [NSNumber numberWithFloat:0.0];
+    pulseAnimation.fillMode = kCAFillModeForwards;
+    pulseAnimation.removedOnCompletion = NO;
+    [self.grillFlat.layer addAnimation:pulseAnimation forKey:@"animatePulse"];  
     
-    [self.controller playAudio];
+    
+    //[self.controller playAudio];
   
 }
 
 - (void)pausePressed {
     NSLog(@"Pause Pressed...");
+    
+    self.pauseButton.selected = YES;
+    self.playButton.selected = NO;
+    
     //setting up animation for grill
     CABasicAnimation *pulseAnimation;
     pulseAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     pulseAnimation.duration = 0.35;
-    pulseAnimation.fromValue = [NSNumber numberWithFloat:1.0];
-    pulseAnimation.toValue = [NSNumber numberWithFloat:0.0];
-    pulseAnimation.fillMode = kCAFillModeForwards;
-    pulseAnimation.removedOnCompletion = NO;
-    [self.grillActive.layer addAnimation:pulseAnimation forKey:@"animatePulse"];    
+    pulseAnimation.fromValue = [NSNumber numberWithFloat:0.0];
+    pulseAnimation.toValue = [NSNumber numberWithFloat:1.0];
+    [self.grillFlat.layer addAnimation:pulseAnimation forKey:@"animatePulse"];    
 
 }
+
+//    CATransition *rippleAnimation = [CATransition animation];
+//    [rippleAnimation setDelegate:self];
+//    [rippleAnimation setDuration:2.0f];
+//    [rippleAnimation setRepeatCount:MAXFLOAT];
+//    [rippleAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+//    [rippleAnimation setType:@"rippleEffect"];
+//    [imageViewBackground.layer addAnimation:rippleAnimation forKey:@"rippleEffect"];
 
 
 
