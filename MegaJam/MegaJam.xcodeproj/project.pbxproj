@@ -272,6 +272,8 @@
 			children = (
 				C92F45E915BA17570030E5BB /* blue-bkg.png */,
 				C92F45EA15BA17570030E5BB /* blue-bkg@2x.png */,
+				C97D9A7915B35A65005A6028 /* blue-grill-flat.png */,
+				C97D9A7A15B35A65005A6028 /* blue-grill-flat@2x.png */,
 				C92F45EB15BA17570030E5BB /* blue-pause-down.png */,
 				C92F45EC15BA17570030E5BB /* blue-pause-down@2x.png */,
 				C92F45ED15BA17570030E5BB /* blue-pause-up.png */,
@@ -338,8 +340,6 @@
 				C92F462A15BA17570030E5BB /* stone-play-down@2x.png */,
 				C92F462B15BA17570030E5BB /* stone-play-up.png */,
 				C92F462C15BA17570030E5BB /* stone-play-up@2x.png */,
-				C97D9A7915B35A65005A6028 /* blue-grill-flat.png */,
-				C97D9A7A15B35A65005A6028 /* blue-grill-flat@2x.png */,
 				F4B7454A15A8BAF500312F63 /* you_talkin.aiff */,
 			);
 			path = Resources;

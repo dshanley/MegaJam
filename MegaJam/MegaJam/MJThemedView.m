@@ -27,7 +27,6 @@
 
 @implementation MJThemedView
 
-//static NSString *viewTheme;
 
 @synthesize controller = _controller;
 @synthesize grillActive = _grillActive;
@@ -40,17 +39,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.controller = [[MJViewController alloc] init];
-        [self setupThemedView];
     }
     return self;
 }
 
 - (void)setupThemedView {
-    
-}
-
-- (void) layoutSubviews {
-    
     //Background
     UIImageView *backgoundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 330)];
     backgoundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kBackgroundBase]];
@@ -90,24 +83,31 @@
     
     [self addSubview:volumeSlider];
     
-    
     //bluetooth symbol
-    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
-    titleImage.image = [UIImage imageNamed:@"gr-bluetooth-connected"];
+    UIImageView *bluetoothImage = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
+    bluetoothImage.image = [UIImage imageNamed:@"gr-bluetooth-disconnected"];
+    
+    [self addSubview:bluetoothImage];
+    
+    //MegaJam Title Image
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,0,0)];
+    titleImage.image = [UIImage imageNamed:@"gr-megajam"];
     
     [self addSubview:titleImage];
     
     //Speaker Grill Images
-    self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-    self.grillActive.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillActiveBase]];
-    
     self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
     self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillFlatBase]];
     
+    self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
+    self.grillActive.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillActiveBase]];
+    
     [self addSubview:self.grillActive];
     [self addSubview:self.grillFlat];
-    
-    
+}
+
+- (void) layoutSubviews {
+    //custom layout?
         
 }
 
@@ -160,7 +160,7 @@
 
 }
 
-+ (MJThemedView *)viewWithTheme:(int)theme andFrame:(CGRect)frame {
++ (MJThemedView *)viewWithTheme:(MJTheme)theme andFrame:(CGRect)frame {
     
     MJThemedView *newView = [[MJThemedView alloc] initWithFrame:frame];
     
@@ -184,6 +184,8 @@
             newView.viewTheme = @"blue";
             break;
     }
+    
+    [newView setupThemedView];
     return newView;
 }
 

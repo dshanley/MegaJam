@@ -26,9 +26,8 @@
 - (void)loadView {
     [super loadView];
     MJThemedView *themedView = [MJThemedView viewWithTheme:MJThemeBlue andFrame:CGRectMake(0, 0, 320, 480)];
+    
     [self.view addSubview:themedView];
-    
-    
 }
 
 - (void)viewDidLoad
@@ -50,7 +49,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+        return (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown || interfaceOrientation == UIInterfaceOrientationPortrait);
     } else {
         return YES;
     }
@@ -101,8 +100,6 @@
     AudioServicesPlaySystemSound (soundFileObject);     // should play into headset
     
     AudioServicesAddSystemSoundCompletion(soundFileObject, NULL, NULL, playSoundFinished, (__bridge_retained void *)self);
-    
-    // TODO: Start pulsating here
 }
 
 - (void)pauseAudio {
@@ -121,8 +118,6 @@ static void playSoundFinished (SystemSoundID soundID, void *data) {
     //Cleanup
     AudioServicesRemoveSystemSoundCompletion(soundID);
     AudioServicesDisposeSystemSoundID(soundID);
-    
-    // TODO: Stop Pulsating
 }
 
 ////////////////////////////////////////////////////////////////////////////////////

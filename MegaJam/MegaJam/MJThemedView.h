@@ -21,7 +21,7 @@ typedef enum {
 
 @property (nonatomic, strong) MJViewController *controller;
 
-+ (MJThemedView *)viewWithTheme:(int)theme andFrame:(CGRect)frame;
++ (MJThemedView *)viewWithTheme:(MJTheme)theme andFrame:(CGRect)frame;
 
 
 @end
