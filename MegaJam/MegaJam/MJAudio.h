@@ -41,5 +41,6 @@ typedef struct {
 - (void) configureAndInitializeAudioProcessingGraph;
 - (void) printASBD: (AudioStreamBasicDescription) asbd;
 - (void) printErrorMessage: (NSString *) errorString withStatus: (OSStatus) result;
+- (void) startAUGraph;
 
 @end

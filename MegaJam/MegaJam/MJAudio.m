@@ -89,6 +89,7 @@ static OSStatus inputRenderCallback (
                                      //        responsibility is to fill the buffer(s) in the
                                      //        AudioBufferList.
                                      ) {
+    NSLog(@"HERE!");
     
     soundStructPtr    soundStructPointerArray   = (soundStructPtr) inRefCon;
     UInt32            frameTotalForSound        = soundStructPointerArray[inBusNumber].frameCount;
@@ -111,6 +112,7 @@ static OSStatus inputRenderCallback (
     
     outSamplesChannelLeft                 = (AudioUnitSampleType *) ioData->mBuffers[0].mData;
     if (isStereo) outSamplesChannelRight  = (AudioUnitSampleType *) ioData->mBuffers[1].mData;
+    
     
     // Get the sample number, as an index into the sound stored in memory,
     //    to start reading data from.
@@ -505,21 +507,21 @@ static OSStatus inputRenderCallback (
     
     if (noErr != result) {[self printErrorMessage: @"AudioUnitSetProperty (set mixer unit output stream format)" withStatus: result]; return;}
     
-    /*
+    
     //............................................................................
     // Connect the nodes of the audio processing graph
     NSLog (@"Connecting the mixer output to the input of the I/O unit output element");
     
     result = AUGraphConnectNodeInput (
                                       processingGraph,
-                                      mixerNode,         // source node
-                                      0,                 // source node output bus number
+                                      iONode,         // source node
+                                      inputBus,                 // source node output bus number
                                       iONode,            // destination node
-                                      0                  // desintation node input bus number
+                                      outputBus                  // desintation node input bus number
                                       );
     
     if (noErr != result) {[self printErrorMessage: @"AUGraphConnectNodeInput" withStatus: result]; return;}
-    */
+    
     
     //............................................................................
     // Initialize audio processing graph
@@ -575,6 +577,13 @@ static OSStatus inputRenderCallback (
            errorString,
            (char*) &resultString
            );
+}
+
+- (void) startAUGraph  {
+    
+    NSLog (@"Starting audio processing graph");
+    OSStatus result = AUGraphStart (processingGraph);
+    if (noErr != result) {[self printErrorMessage: @"AUGraphStart" withStatus: result]; return;}
 }
 
 @end

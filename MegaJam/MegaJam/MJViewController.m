@@ -13,6 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MJBlueBackgroundView.h"
 
+#import "MJAudio.h"
 
 @interface MJViewController ()
 
@@ -39,7 +40,9 @@
     //Vibrate
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
-
+    MJAudio *audioObject = [[MJAudio alloc] init];
+    [audioObject configureAndInitializeAudioProcessingGraph];
+    [audioObject startAUGraph];
 }
 
 - (void)didReceiveMemoryWarning
