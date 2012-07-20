@@ -20,11 +20,6 @@ typedef enum {
 @interface MJThemedView : UIView
 
 @property (nonatomic, strong) MJViewController *controller;
-@property (nonatomic, strong) UIImageView *grillActive;
-@property (nonatomic, strong) UIImageView *grillFlat;
-@property (nonatomic, strong) UIButton *pauseButton;
-@property (nonatomic, strong) UIButton *playButton;
-@property (nonatomic, strong) NSString *viewTheme;
 
 + (MJThemedView *)viewWithTheme:(int)theme andFrame:(CGRect)frame;
 

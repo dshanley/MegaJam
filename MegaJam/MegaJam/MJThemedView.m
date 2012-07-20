@@ -13,6 +13,18 @@
 #import "MJConstants.h"
 #import <QuartzCore/QuartzCore.h>
 
+@interface MJThemedView ()
+
+@property (nonatomic, strong) UIImageView *grillActive;
+@property (nonatomic, strong) UIImageView *grillFlat;
+@property (nonatomic, strong) UIButton *pauseButton;
+@property (nonatomic, strong) UIButton *playButton;
+@property (nonatomic, strong) NSString *viewTheme;
+
+@property (nonatomic, strong) UIGestureRecognizer *singleTapRecognizer;
+
+@end
+
 @implementation MJThemedView
 
 //static NSString *viewTheme;
@@ -24,13 +36,17 @@
 @synthesize playButton = _playButton;
 @synthesize viewTheme = _viewTheme;
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.controller = [[MJViewController alloc] init];
+        [self setupThemedView];
     }
     return self;
+}
+
+- (void)setupThemedView {
+    
 }
 
 - (void) layoutSubviews {
