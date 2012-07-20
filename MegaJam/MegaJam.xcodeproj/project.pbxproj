@@ -149,7 +149,6 @@
 			children = (
 				29B9873E15BA17770037CF82 /* MJAudio.h */,
 				29B9873F15BA17770037CF82 /* MJAudio.m */,
-				5AF4C56515A820A20055D1A0 /* Resources */,
 				5AF4C55415A81ED00055D1A0 /* MJAppDelegate.h */,
 				5AF4C55515A81ED00055D1A0 /* MJAppDelegate.m */,
 				C97D9A2A15B3446D005A6028 /* MJBlueBackgroundView.h */,
@@ -158,6 +157,7 @@
 				5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */,
 				5AF4C55D15A81ED00055D1A0 /* MJViewController.h */,
 				5AF4C55E15A81ED00055D1A0 /* MJViewController.m */,
+				5AF4C56515A820A20055D1A0 /* Resources */,
 				5AF4C54C15A81ED00055D1A0 /* Supporting Files */,
 			);
 			path = MegaJam;
