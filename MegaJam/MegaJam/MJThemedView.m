@@ -29,12 +29,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.controller = [[MJViewController alloc] init];
-        
-        self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-        self.grillActive.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillActiveBase]];
-        
-        self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-        self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillFlatBase]];
     }
     return self;
 }
@@ -60,10 +54,10 @@
     //Pause Button
     self.pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.pauseButton.frame = CGRectMake(56, 144, 100, 100);
-    [self.pauseButton setImage:[UIImage imageNamed:@"pause-up"] forState:UIControlStateNormal];
-    [self.pauseButton setImage:[UIImage imageNamed:@"pause-down"] forState:UIControlStateHighlighted | UIControlStateSelected];
-    [self.pauseButton setImage:[UIImage imageNamed:@"pause-down"] forState:UIControlStateNormal | UIControlStateHighlighted];
-    [self.pauseButton setImage:[UIImage imageNamed:@"pause-down"] forState:UIControlStateSelected];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseUpBase]] forState:UIControlStateNormal];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseDownBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseDownBase]] forState:UIControlStateSelected];
     self.pauseButton.selected = YES;
     [self.pauseButton addTarget:self action:@selector(pausePressed) forControlEvents:UIControlEventTouchUpInside];
     
@@ -83,11 +77,17 @@
     
     //bluetooth symbol
     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
-    titleImage.image = [UIImage imageNamed:@"bluetooth-connected"];
+    titleImage.image = [UIImage imageNamed:@"gr-bluetooth-connected"];
     
     [self addSubview:titleImage];
     
     //Speaker Grill Images
+    self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
+    self.grillActive.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillActiveBase]];
+    
+    self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
+    self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillFlatBase]];
+    
     [self addSubview:self.grillActive];
     [self addSubview:self.grillFlat];
     
