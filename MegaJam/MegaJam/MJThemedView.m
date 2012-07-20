@@ -1,21 +1,28 @@
 //
-//  MJBlueBackgroundView.m
+//  MJThemedView.m
 //  MegaJam
 //
 //  Created by Robert Corlett on 7/15/12.
 //  Copyright (c) 2012 CrowdComapss. All rights reserved.
 //
 
-#import "MJBlueBackgroundView.h"
+//Themes: red, blue, green, stone, charcoal
+//Graphics: -bgk, -grill-flat, -grill-active, -play-up, -play-down, -pause-up, -pause-down
+
+#import "MJThemedView.h"
+#import "MJConstants.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation MJBlueBackgroundView
+@implementation MJThemedView
+
+//static NSString *viewTheme;
 
 @synthesize controller = _controller;
 @synthesize grillActive = _grillActive;
 @synthesize grillFlat = _grillFlat;
 @synthesize pauseButton = _pauseButton;
 @synthesize playButton = _playButton;
+@synthesize viewTheme = _viewTheme;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -24,10 +31,10 @@
         self.controller = [[MJViewController alloc] init];
         
         self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-        self.grillActive.image = [UIImage imageNamed:@"fpo-grill"];
+        self.grillActive.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillActiveBase]];
         
         self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-        self.grillFlat.image = [UIImage imageNamed:@"blue-grill-flat"];
+        self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillFlatBase]];
     }
     return self;
 }
@@ -36,16 +43,16 @@
     
     //Background
     UIImageView *backgoundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 330)];
-    backgoundImage.image = [UIImage imageNamed:@"bkg-blue"];
+    backgoundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kBackgroundBase]];
     [self addSubview:backgoundImage];
     
     //Play Button
     self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.playButton.frame = CGRectMake(164, 144, 100, 100);
-    [self.playButton setImage:[UIImage imageNamed:@"play-up"] forState:UIControlStateNormal];
-    [self.playButton setImage:[UIImage imageNamed:@"play-down"] forState:UIControlStateHighlighted | UIControlStateSelected];
-    [self.playButton setImage:[UIImage imageNamed:@"play-down"] forState:UIControlStateNormal | UIControlStateHighlighted];
-    [self.playButton setImage:[UIImage imageNamed:@"play-down"] forState:UIControlStateSelected];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayUpBase]] forState:UIControlStateNormal];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayUpBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayDownBase]] forState:UIControlStateSelected];
     [self.playButton addTarget:self action:@selector(playPressed) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:self.playButton];
@@ -116,7 +123,7 @@
     [self.grillFlat.layer addAnimation:pulseAnimation forKey:@"animatePulse"];  
     
     
-    //[self.controller playAudio];
+    [self.controller playAudio];
   
 }
 
@@ -132,8 +139,36 @@
     pulseAnimation.duration = 0.35;
     pulseAnimation.fromValue = [NSNumber numberWithFloat:0.0];
     pulseAnimation.toValue = [NSNumber numberWithFloat:1.0];
-    [self.grillFlat.layer addAnimation:pulseAnimation forKey:@"animatePulse"];    
+    [self.grillFlat.layer addAnimation:pulseAnimation forKey:@"animatePulse"]; 
 
+
+}
+
++ (MJThemedView *)viewWithTheme:(int)theme andFrame:(CGRect)frame {
+    
+    MJThemedView *newView = [[MJThemedView alloc] initWithFrame:frame];
+    
+    switch (theme) {
+        case MJThemeRed:
+            newView.viewTheme = @"red";   
+            break;
+        case MJThemeBlue:
+            newView.viewTheme = @"blue";
+            break;
+        case MJThemeGreen:
+            newView.viewTheme = @"green";
+            break;
+        case MJThemeStone:
+            newView.viewTheme = @"stone";
+            break;
+        case MJThemeCharcoal:
+            newView.viewTheme = @"charcoal";
+            break;
+        default:
+            newView.viewTheme = @"blue";
+            break;
+    }
+    return newView;
 }
 
 //    CATransition *rippleAnimation = [CATransition animation];

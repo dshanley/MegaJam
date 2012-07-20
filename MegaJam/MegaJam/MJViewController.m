@@ -11,7 +11,7 @@
 #import "MJViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
-#import "MJBlueBackgroundView.h"
+#import "MJThemedView.h"
 
 
 @interface MJViewController ()
@@ -21,13 +21,12 @@
 
 
 @implementation MJViewController
-
+@synthesize viewTheme = _viewTheme;
 
 - (void)loadView {
     [super loadView];
-    
-    MJBlueBackgroundView *blueTemplate = [[MJBlueBackgroundView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    [self.view addSubview:blueTemplate];
+    MJThemedView *themedView = [MJThemedView viewWithTheme:MJThemeBlue andFrame:CGRectMake(0, 0, 320, 480)];
+    [self.view addSubview:themedView];
     
     
 }

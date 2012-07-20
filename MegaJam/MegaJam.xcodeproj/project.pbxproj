@@ -37,7 +37,7 @@
 		C97D99DB15B33D89005A6028 /* volume-high@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D99D315B33D89005A6028 /* volume-high@2x.png */; };
 		C97D99DC15B33D89005A6028 /* volume-low.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D99D415B33D89005A6028 /* volume-low.png */; };
 		C97D99DD15B33D89005A6028 /* volume-low@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D99D515B33D89005A6028 /* volume-low@2x.png */; };
-		C97D9A2C15B3446D005A6028 /* MJBlueBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D9A2B15B3446D005A6028 /* MJBlueBackgroundView.m */; };
+		C97D9A2C15B3446D005A6028 /* MJThemedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D9A2B15B3446D005A6028 /* MJThemedView.m */; };
 		C97D9A7B15B35A65005A6028 /* blue-grill-flat.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D9A7915B35A65005A6028 /* blue-grill-flat.png */; };
 		C97D9A7C15B35A65005A6028 /* blue-grill-flat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D9A7A15B35A65005A6028 /* blue-grill-flat@2x.png */; };
 		C9D575F715B4CC5500BEBFDB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C9D575F515B4CC5500BEBFDB /* Icon.png */; };
@@ -66,6 +66,7 @@
 		5AF4C56815A820E00055D1A0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5AF4C56A15A826310055D1A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5AF4C56B15A826310055D1A0 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		C92F45E215B9E2020030E5BB /* MJConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MJConstants.h; path = MegaJam/MJConstants.h; sourceTree = SOURCE_ROOT; };
 		C97D99BA15B33C2A005A6028 /* bkg-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bkg-blue.png"; sourceTree = "<group>"; };
 		C97D99BB15B33C2A005A6028 /* fpo-grill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fpo-grill.png"; sourceTree = "<group>"; };
 		C97D99BC15B33C2A005A6028 /* pause-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-down.png"; sourceTree = "<group>"; };
@@ -84,8 +85,8 @@
 		C97D99D315B33D89005A6028 /* volume-high@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-high@2x.png"; sourceTree = "<group>"; };
 		C97D99D415B33D89005A6028 /* volume-low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-low.png"; sourceTree = "<group>"; };
 		C97D99D515B33D89005A6028 /* volume-low@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-low@2x.png"; sourceTree = "<group>"; };
-		C97D9A2A15B3446D005A6028 /* MJBlueBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBlueBackgroundView.h; sourceTree = "<group>"; };
-		C97D9A2B15B3446D005A6028 /* MJBlueBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBlueBackgroundView.m; sourceTree = "<group>"; };
+		C97D9A2A15B3446D005A6028 /* MJThemedView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MJThemedView.h; sourceTree = "<group>"; };
+		C97D9A2B15B3446D005A6028 /* MJThemedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJThemedView.m; sourceTree = "<group>"; };
 		C97D9A7915B35A65005A6028 /* blue-grill-flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-grill-flat.png"; sourceTree = "<group>"; };
 		C97D9A7A15B35A65005A6028 /* blue-grill-flat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-grill-flat@2x.png"; sourceTree = "<group>"; };
 		C9D575F515B4CC5500BEBFDB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -149,10 +150,11 @@
 			isa = PBXGroup;
 			children = (
 				5AF4C56515A820A20055D1A0 /* Resources */,
+				C92F45E215B9E2020030E5BB /* MJConstants.h */,
 				5AF4C55415A81ED00055D1A0 /* MJAppDelegate.h */,
 				5AF4C55515A81ED00055D1A0 /* MJAppDelegate.m */,
-				C97D9A2A15B3446D005A6028 /* MJBlueBackgroundView.h */,
-				C97D9A2B15B3446D005A6028 /* MJBlueBackgroundView.m */,
+				C97D9A2A15B3446D005A6028 /* MJThemedView.h */,
+				C97D9A2B15B3446D005A6028 /* MJThemedView.m */,
 				5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */,
 				5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */,
 				5AF4C55D15A81ED00055D1A0 /* MJViewController.h */,
@@ -298,7 +300,7 @@
 				5AF4C55215A81ED00055D1A0 /* main.m in Sources */,
 				5AF4C55615A81ED00055D1A0 /* MJAppDelegate.m in Sources */,
 				5AF4C55F15A81ED00055D1A0 /* MJViewController.m in Sources */,
-				C97D9A2C15B3446D005A6028 /* MJBlueBackgroundView.m in Sources */,
+				C97D9A2C15B3446D005A6028 /* MJThemedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
