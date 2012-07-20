@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29B9874015BA17770037CF82 /* MJAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9873F15BA17770037CF82 /* MJAudio.m */; };
 		5AF4C54615A81ED00055D1A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54515A81ED00055D1A0 /* UIKit.framework */; };
 		5AF4C54815A81ED00055D1A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54715A81ED00055D1A0 /* Foundation.framework */; };
 		5AF4C54A15A81ED00055D1A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54915A81ED00055D1A0 /* CoreGraphics.framework */; };
@@ -47,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29B9873E15BA17770037CF82 /* MJAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJAudio.h; sourceTree = "<group>"; };
+		29B9873F15BA17770037CF82 /* MJAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJAudio.m; sourceTree = "<group>"; };
 		5AF4C54115A81ED00055D1A0 /* MegaJam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MegaJam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF4C54515A81ED00055D1A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5AF4C54715A81ED00055D1A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,6 +147,8 @@
 		5AF4C54B15A81ED00055D1A0 /* MegaJam */ = {
 			isa = PBXGroup;
 			children = (
+				29B9873E15BA17770037CF82 /* MJAudio.h */,
+				29B9873F15BA17770037CF82 /* MJAudio.m */,
 				5AF4C56515A820A20055D1A0 /* Resources */,
 				5AF4C55415A81ED00055D1A0 /* MJAppDelegate.h */,
 				5AF4C55515A81ED00055D1A0 /* MJAppDelegate.m */,
@@ -291,6 +296,7 @@
 				5AF4C55615A81ED00055D1A0 /* MJAppDelegate.m in Sources */,
 				5AF4C55F15A81ED00055D1A0 /* MJViewController.m in Sources */,
 				C97D9A2C15B3446D005A6028 /* MJBlueBackgroundView.m in Sources */,
+				29B9874015BA17770037CF82 /* MJAudio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
