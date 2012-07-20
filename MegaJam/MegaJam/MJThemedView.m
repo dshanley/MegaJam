@@ -21,7 +21,9 @@
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) NSString *viewTheme;
 
-@property (nonatomic, strong) UIGestureRecognizer *singleTapRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *singleTapRecognizer;
+
+- (void)handleSingleTap;
 
 @end
 
@@ -47,6 +49,10 @@
 
 - (void)setupThemedView {
     
+    //add the gesture recognizer
+    _grillFlat.userInteractionEnabled = YES;
+    self.singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap)];
+    [self.grillFlat addGestureRecognizer:_singleTapRecognizer];
 }
 
 - (void) layoutSubviews {
@@ -194,6 +200,19 @@
 //    [rippleAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
 //    [rippleAnimation setType:@"rippleEffect"];
 //    [imageViewBackground.layer addAnimation:rippleAnimation forKey:@"rippleEffect"];
+
+////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Animations
+
+- (void)handleSingleTap {
+//    CATransition *animation = [CATransition animation];
+//    [animation setDelegate:self];
+//    [animation setDuration:2.0f];
+//    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+//    [animation setType:@"rippleEffect" ];
+//    [_grillFlat.layer addAnimation:animation forKey:NULL];
+}
 
 
 
