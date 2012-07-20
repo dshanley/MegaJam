@@ -28,7 +28,7 @@ void audioRouteChangeListenerCallback (
     // This callback, being outside the implementation block, needs a reference to the MixerHostAudio
     //   object, which it receives in the inUserData parameter. You provide this reference when
     //   registering this callback (see the call to AudioSessionAddPropertyListener).
-    MJAudio *audioObject = (MJAudio *) inUserData;
+    MJAudio *audioObject = (__bridge MJAudio *) inUserData;
     
     // if application sound is not playing, there's nothing to do, so return.
     if (NO == audioObject.playing) {
@@ -199,9 +199,9 @@ static OSStatus inputRenderCallback (
     }
     
     // Request the desired hardware sample rate.
-    self.graphSampleRate = 44100.0;    // Hertz
+    _graphSampleRate = 44100.0;    // Hertz
     
-    [mySession setPreferredHardwareSampleRate: self.graphSampleRate
+    [mySession setPreferredHardwareSampleRate: _graphSampleRate
                                         error: &audioSessionError];
     
     if (audioSessionError != nil) {
@@ -227,7 +227,7 @@ static OSStatus inputRenderCallback (
     AudioSessionAddPropertyListener (
                                      kAudioSessionProperty_AudioRouteChange,
                                      audioRouteChangeListenerCallback,
-                                     self
+                                     (__bridge void *)(self)
                                      );
 }
 
