@@ -18,17 +18,19 @@
 
 @implementation MJNetworkClient
 
-@synthesize browser = _browser;
-@synthesize timeoutTimer = _timeoutTimer;
+@synthesize wijourno = _wijourno;
+
+@synthesize status = _status;
+
 
 - (id)init {
     
     self = [super init];
     if (self) {
-        _browser = [[NSNetServiceBrowser alloc] init];
-        _browser.delegate = self;
-        
-        _timeoutTimer = nil;
+        Wijourno *wj  = [[Wijourno alloc] init];
+        wj.delegate = self;
+        _wijourno = wj;
+        _status = MJNetworkStatusDisconnected;
     }
     
     return self;
@@ -37,34 +39,23 @@
 - (void)findMegaJams {
     
     //PRECONDITIONS
-    if (self.isSeeking) return;
-    
-    if (self.timeoutTimer) {
-        [self.timeoutTimer invalidate];
-        self.timeoutTimer = nil;
-    }
-    
-    self.seeking = YES;
     
     //start seeking
-    [self.browser searchForServicesOfType:@"_MJServer._tcp." inDomain:@"local."];
-    
-    //setup timer
-    self.timeoutTimer = [NSTimer timerWithTimeInterval:kServerSeekTimeoutInterval target:self selector:@selector(timerDidTimeout) userInfo:nil repeats:NO];
-    [[NSRunLoop currentRunLoop] addTimer:self.timeoutTimer forMode:NSRunLoopCommonModes];
+    [self.wijourno initClientWithServiceName:@"MJServer" dictionary:nil];
 }
 
-- (void)timerDidTimeout {
+- (void) didReadCommand:(NSString *)command dictionary:(NSDictionary *)dictionary isServer:(BOOL)isServer {
     
-    [self.timeoutTimer invalidate];
-    self.timeoutTimer = nil;
-    
-    [self.browser stop];
-    
-    self.seeking = YES;
 }
-
-
+- (void) connectionStarted:(NSString *)host {
+    
+}
+- (void) connectionFinished:(NSString *)details {
+    
+}
+- (void) readTimedOut {
+    
+}
 
 
 @end

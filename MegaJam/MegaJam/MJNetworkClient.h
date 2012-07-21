@@ -10,12 +10,18 @@
 
 #import "Wijourno.h"
 
-@interface MJNetworkClient : NSObject <NSNetServiceBrowserDelegate>
+typedef enum {
+    MJNetworkStatusDisconnected,
+    MJNetworkStatusSeeking,
+    MJNetworStatusConnecting,
+    MJNetworkStatusConnected
+} MJNetworkStatus;
 
-@property (nonatomic, strong) NSNetServiceBrowser *browser;
-@property (nonatomic, strong) NSTimer *timeoutTimer;
+@interface MJNetworkClient : NSObject <WijournoDelegate>
 
-@property (nonatomic, assign, getter = isSeeking) BOOL seeking;
+@property (nonatomic, strong) Wijourno *wijourno;
+
+@property (nonatomic, assign) MJNetworkStatus status;
 
 - (void)findMegaJams;
 - (void)sendData:(NSData *)data;
