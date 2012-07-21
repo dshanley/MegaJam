@@ -7,14 +7,21 @@
 //
 
 #import "MJAppDelegate.h"
+#import "MJScrollViewController.h"
 
 @implementation MJAppDelegate
-
+@synthesize scrollViewController = _scrollViewController;
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    if(!self.window) {
+        self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    }
+    self.scrollViewController = [[MJScrollViewController alloc] init];
+    [self.window addSubview:self.scrollViewController.view];
+	[self.window makeKeyAndVisible];
+    
     return YES;
 }
 							

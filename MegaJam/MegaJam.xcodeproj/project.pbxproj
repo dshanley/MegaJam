@@ -14,8 +14,6 @@
 		5AF4C55015A81ED00055D1A0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AF4C54E15A81ED00055D1A0 /* InfoPlist.strings */; };
 		5AF4C55215A81ED00055D1A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55115A81ED00055D1A0 /* main.m */; };
 		5AF4C55615A81ED00055D1A0 /* MJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55515A81ED00055D1A0 /* MJAppDelegate.m */; };
-		5AF4C55915A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */; };
-		5AF4C55C15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */; };
 		5AF4C55F15A81ED00055D1A0 /* MJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55E15A81ED00055D1A0 /* MJViewController.m */; };
 		5AF4C56915A820E00055D1A0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56815A820E00055D1A0 /* AVFoundation.framework */; };
 		5AF4C56C15A826310055D1A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56A15A826310055D1A0 /* AudioToolbox.framework */; };
@@ -117,8 +115,6 @@
 		5AF4C55315A81ED00055D1A0 /* MegaJam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MegaJam-Prefix.pch"; sourceTree = "<group>"; };
 		5AF4C55415A81ED00055D1A0 /* MJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJAppDelegate.h; sourceTree = "<group>"; };
 		5AF4C55515A81ED00055D1A0 /* MJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJAppDelegate.m; sourceTree = "<group>"; };
-		5AF4C55815A81ED00055D1A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		5AF4C55B15A81ED00055D1A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		5AF4C55D15A81ED00055D1A0 /* MJViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJViewController.h; sourceTree = "<group>"; };
 		5AF4C55E15A81ED00055D1A0 /* MJViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJViewController.m; sourceTree = "<group>"; };
 		5AF4C56815A820E00055D1A0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -270,8 +266,6 @@
 				29B9873F15BA17770037CF82 /* MJAudio.m */,
 				5AF4C55415A81ED00055D1A0 /* MJAppDelegate.h */,
 				5AF4C55515A81ED00055D1A0 /* MJAppDelegate.m */,
-				5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */,
-				5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */,
 				5AF4C55D15A81ED00055D1A0 /* MJViewController.h */,
 				5AF4C55E15A81ED00055D1A0 /* MJViewController.m */,
 				C9B96C2015BA753A0045257B /* MJScrollViewController.h */,
@@ -432,8 +426,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF4C55015A81ED00055D1A0 /* InfoPlist.strings in Resources */,
-				5AF4C55915A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard in Resources */,
-				5AF4C55C15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard in Resources */,
 				F4B7454B15A8BAF500312F63 /* you_talkin.aiff in Resources */,
 				C97D9A7B15B35A65005A6028 /* blue-grill-flat.png in Resources */,
 				C97D9A7C15B35A65005A6028 /* blue-grill-flat@2x.png in Resources */,
@@ -541,22 +533,6 @@
 				5AF4C54F15A81ED00055D1A0 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5AF4C55815A81ED00055D1A0 /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5AF4C55B15A81ED00055D1A0 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

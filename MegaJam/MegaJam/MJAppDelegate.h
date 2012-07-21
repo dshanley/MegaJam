@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJScrollViewController.h"
 
 @interface MJAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) MJScrollViewController *scrollViewController;
 
 @end

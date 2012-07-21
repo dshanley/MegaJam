@@ -13,6 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "MJAudio.h"
+#import "MJScrollViewController.h"
 
 @interface MJViewController ()
 
@@ -24,8 +25,10 @@
 
 - (void)loadView {
     [super loadView];
-    CGRect fullScreenRect = [[UIScreen mainScreen] applicationFrame];
-    MJThemedView *themedView = [MJThemedView viewWithTheme:self.viewTheme andFrame:fullScreenRect];
+//    CGRect fullScreenRect = CGRectMake(0, 0, 320, 480);
+//    MJScrollViewController *scrollView = [[MJScrollViewController alloc] init];
+//    
+//    [self.view addSubview:scrollView.view];
 }
 
 - (void)viewDidLoad

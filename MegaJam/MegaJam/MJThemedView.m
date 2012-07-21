@@ -21,7 +21,7 @@
 @property (nonatomic, strong) UIImageView *grillFlat;
 @property (nonatomic, strong) UIButton *pauseButton;
 @property (nonatomic, strong) UIButton *playButton;
-@property (nonatomic, strong) NSString *viewTheme;
+@property (nonatomic, strong) NSString *viewThemeString;
 @property (nonatomic, strong) UIImageView *bluetoothImageOff;
 @property (nonatomic, strong) UIImageView *bluetoothImageOn;
 @property (nonatomic, strong) UIImageView *bluetoothImageWhite;
@@ -50,16 +50,16 @@
 
     //Background
     UIImageView *backgoundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 330)];
-    backgoundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kBackgroundBase]];
+    backgoundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kBackgroundBase]];
     [self addSubview:backgoundImage];
     
     //Play Button
     self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.playButton.frame = CGRectMake(164, 144, 100, 100);
-    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayUpBase]] forState:UIControlStateNormal];
-    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
-    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayUpBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
-    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayDownBase]] forState:UIControlStateSelected];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayUpBase]] forState:UIControlStateNormal];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayUpBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayDownBase]] forState:UIControlStateSelected];
     [self.playButton addTarget:self action:@selector(playPressed) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:self.playButton];
@@ -67,10 +67,10 @@
     //Pause Button
     self.pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.pauseButton.frame = CGRectMake(56, 144, 100, 100);
-    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseUpBase]] forState:UIControlStateNormal];
-    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
-    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseDownBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
-    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseDownBase]] forState:UIControlStateSelected];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseUpBase]] forState:UIControlStateNormal];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateSelected];
     self.pauseButton.selected = YES;
     [self.pauseButton addTarget:self action:@selector(pausePressed) forControlEvents:UIControlEventTouchUpInside];
     
@@ -113,7 +113,7 @@
     
     //Speaker Grill Images
     self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-    self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillFlatBase]];
+    self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kGrillFlatBase]];
     
     self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
     
@@ -169,22 +169,22 @@
     
     switch (theme) {
         case MJThemeRed:
-            newView.viewTheme = @"red";   
+            newView.viewThemeString = @"red";
             break;
         case MJThemeBlue:
-            newView.viewTheme = @"blue";
+            newView.viewThemeString = @"blue";
             break;
         case MJThemeGreen:
-            newView.viewTheme = @"green";
+            newView.viewThemeString = @"green";
             break;
         case MJThemeStone:
-            newView.viewTheme = @"stone";
+            newView.viewThemeString = @"stone";
             break;
         case MJThemeCharcoal:
-            newView.viewTheme = @"charcoal";
+            newView.viewThemeString = @"charcoal";
             break;
         default:
-            newView.viewTheme = @"blue";
+            newView.viewThemeString = @"blue";
             break;
     }
     

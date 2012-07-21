@@ -13,25 +13,24 @@
 
 @interface MJScrollViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, retain) NSMutableArray *viewControllers;
+@property (nonatomic, retain) NSMutableArray *themedViews;
 @end
 
 @implementation MJScrollViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (id)init {
+    self = [super init];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
 
 - (void)loadView {
-    CGRect fullScreenRect = [[UIScreen mainScreen] applicationFrame];
+    CGRect fullScreenRect = CGRectMake(0, 0, 320, 480);
     self.scrollView = [[UIScrollView alloc] initWithFrame:fullScreenRect];
     
-    [self.view addSubview:self.scrollView];
+    self.view = self.scrollView;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * kNumberOfPages, self.scrollView.frame.size.height);
     self.scrollView.showsHorizontalScrollIndicator = NO;
@@ -48,22 +47,21 @@
     if (page >= kNumberOfPages)
         return;
     
-    MJViewController *controller = [self.viewControllers objectAtIndex:page];
-    if ((NSNull *)controller == [NSNull null])
+    MJThemedView *themedView = [self.themedViews objectAtIndex:page];
+    if ((NSNull *)themedView == [NSNull null])
     {
-        controller = [[MJViewController alloc] init];
-        controller.viewTheme = page;
-        [self.viewControllers replaceObjectAtIndex:page withObject:controller];
+        themedView = [MJThemedView viewWithTheme:page andFrame:CGRectMake(0, 0, 320, 480)];
+        [self.themedViews replaceObjectAtIndex:page withObject:themedView];
     }
     
     // add the controller's view to the scroll view
-    if (controller.view.superview == nil)
+    if (themedView == nil)
     {
         CGRect frame = self.scrollView.frame;
         frame.origin.x = frame.size.width * page;
         frame.origin.y = 0;
-        controller.view.frame = frame;
-        [self.scrollView addSubview:controller.view];
+        themedView = [MJThemedView viewWithTheme:page andFrame:frame];
+        [self.scrollView addSubview:themedView];
     }
     
 }
@@ -82,16 +80,8 @@
 }
 
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 @end
