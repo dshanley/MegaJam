@@ -20,6 +20,9 @@
 @property (nonatomic, strong) UIButton *pauseButton;
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) NSString *viewTheme;
+@property (nonatomic, strong) UIImageView *bluetoothImageOff;
+@property (nonatomic, strong) UIImageView *bluetoothImageOn;
+@property (nonatomic, strong) UIImageView *bluetoothImageWhite;
 
 @property (nonatomic, strong) UIGestureRecognizer *singleTapRecognizer;
 
@@ -27,13 +30,15 @@
 
 @implementation MJThemedView
 
-
 @synthesize controller = _controller;
 @synthesize grillActive = _grillActive;
 @synthesize grillFlat = _grillFlat;
 @synthesize pauseButton = _pauseButton;
 @synthesize playButton = _playButton;
 @synthesize viewTheme = _viewTheme;
+@synthesize bluetoothImageOn = _bluetoothImageOn;
+@synthesize bluetoothImageOff = _bluetoothImageOff;
+@synthesize bluetoothImageWhite = _bluetoothImageWhite;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -84,13 +89,25 @@
     [self addSubview:volumeSlider];
     
     //bluetooth symbol
-    UIImageView *bluetoothImage = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
-    bluetoothImage.image = [UIImage imageNamed:@"gr-bluetooth-disconnected"];
+    self.bluetoothImageOff = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
+    self.bluetoothImageOff.image = [UIImage imageNamed:@"gr-bluetooth-disconnected"];
     
-    [self addSubview:bluetoothImage];
+    self.bluetoothImageOn = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
+    self.bluetoothImageOn.image = [UIImage imageNamed:@"gr-bluetooth-connected"];
+    
+    self.bluetoothImageWhite = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
+    self.bluetoothImageWhite.image = [UIImage imageNamed:@"gr-bluetooth-pulse"];
+
+    [self addSubview:self.bluetoothImageWhite];
+    [self addSubview:self.bluetoothImageOn];
+    [self addSubview:self.bluetoothImageOff];
+    
+    //Hiding bluetooth
+    [self makeViewInvisible:self.bluetoothImageOn];
+    [self makeViewInvisible:self.bluetoothImageWhite];
     
     //MegaJam Title Image
-    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,0,0)];
+    UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(112,72,100,26)];
     titleImage.image = [UIImage imageNamed:@"gr-megajam"];
     
     [self addSubview:titleImage];
@@ -100,10 +117,14 @@
     self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillFlatBase]];
     
     self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-    self.grillActive.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillActiveBase]];
+    self.grillActive.image = [UIImage imageNamed:@"gr-grill-arrows"];
     
-    [self addSubview:self.grillActive];
     [self addSubview:self.grillFlat];
+    [self addSubview:self.grillActive];
+    
+    //Hide active grill
+    [self makeViewInvisible:self.grillActive];
+    
 }
 
 - (void) layoutSubviews {
@@ -127,19 +148,9 @@
     self.pauseButton.selected = NO;
     self.playButton.selected = YES;
     
-    CABasicAnimation *pulseAnimation;
-    pulseAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    pulseAnimation.duration = 0.35;
-    pulseAnimation.repeatCount = 0;
-    pulseAnimation.autoreverses = NO;
-    pulseAnimation.fromValue = [NSNumber numberWithFloat:1.0];
-    pulseAnimation.toValue = [NSNumber numberWithFloat:0.0];
-    pulseAnimation.fillMode = kCAFillModeForwards;
-    pulseAnimation.removedOnCompletion = NO;
-    [self.grillFlat.layer addAnimation:pulseAnimation forKey:@"animatePulse"];  
+    [self bluetoothOnEffect];
     
-    
-    [self.controller playAudio];
+//  [self.controller playAudio];
   
 }
 
@@ -148,16 +159,8 @@
     
     self.pauseButton.selected = YES;
     self.playButton.selected = NO;
-    
-    //setting up animation for grill
-    CABasicAnimation *pulseAnimation;
-    pulseAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    pulseAnimation.duration = 0.35;
-    pulseAnimation.fromValue = [NSNumber numberWithFloat:0.0];
-    pulseAnimation.toValue = [NSNumber numberWithFloat:1.0];
-    [self.grillFlat.layer addAnimation:pulseAnimation forKey:@"animatePulse"]; 
 
-
+    [self bluetoothOffEffect];
 }
 
 + (MJThemedView *)viewWithTheme:(MJTheme)theme andFrame:(CGRect)frame {
@@ -187,6 +190,82 @@
     
     [newView setupThemedView];
     return newView;
+}
+
+- (void)bluetoothOnEffect {
+    [self makeViewInvisible:self.bluetoothImageOff];
+    [self makeViewVisible:self.bluetoothImageWhite];
+    [self makeViewVisible:self.bluetoothImageOn];
+    [self makeViewStrobe:self.bluetoothImageOn];
+    
+    CABasicAnimation *showGrill;
+    showGrill = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    showGrill.duration = 0.30;
+    showGrill.repeatCount = 0;
+    showGrill.autoreverses = NO;
+    showGrill.fromValue = [NSNumber numberWithFloat:0.0];
+    showGrill.toValue = [NSNumber numberWithFloat:1.0];
+    showGrill.fillMode = kCAFillModeForwards;
+    showGrill.removedOnCompletion = NO;
+    [self.grillActive.layer addAnimation:showGrill forKey:@"animateImage"];
+}
+
+- (void)bluetoothOffEffect {
+    [self makeViewInvisible:self.bluetoothImageOn];
+    [self makeViewInvisible:self.bluetoothImageWhite];
+    [self makeViewVisible:self.bluetoothImageOff];
+    
+    CABasicAnimation *hideGrill;
+    hideGrill = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    hideGrill.duration = 0.30;
+    hideGrill.repeatCount = 0;
+    hideGrill.autoreverses = NO;
+    hideGrill.fromValue = [NSNumber numberWithFloat:1.0];
+    hideGrill.toValue = [NSNumber numberWithFloat:0.0];
+    hideGrill.fillMode = kCAFillModeForwards;
+    hideGrill.removedOnCompletion = NO;
+    [self.grillActive.layer addAnimation:hideGrill forKey:@"animateImage"];
+    
+
+}
+
+- (void)makeViewInvisible:(UIImageView *)view {
+    CABasicAnimation *hideAnimation;
+    hideAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    hideAnimation.duration = 0.0;
+    hideAnimation.repeatCount = 0;
+    hideAnimation.autoreverses = NO;
+    hideAnimation.fromValue = [NSNumber numberWithFloat:0.0];
+    hideAnimation.toValue = [NSNumber numberWithFloat:0.0];
+    hideAnimation.fillMode = kCAFillModeForwards;
+    hideAnimation.removedOnCompletion = NO;
+    [view.layer addAnimation:hideAnimation forKey:@"animateImage"];
+    
+}
+
+- (void)makeViewVisible:(UIImageView *)view {
+    CABasicAnimation *showAnimation;
+    showAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    showAnimation.duration = 0.0;
+    showAnimation.repeatCount = 0;
+    showAnimation.autoreverses = NO;
+    showAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    showAnimation.toValue = [NSNumber numberWithFloat:1.0];
+    showAnimation.fillMode = kCAFillModeForwards;
+    showAnimation.removedOnCompletion = NO;
+    [view.layer addAnimation:showAnimation forKey:@"animateImage"];
+    
+}
+
+- (void)makeViewStrobe:(UIImageView *)view {
+    CABasicAnimation *strobeAnimation;
+    strobeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    strobeAnimation.duration = 0.40;
+    strobeAnimation.repeatCount = MAXFLOAT;
+    strobeAnimation.autoreverses = YES;
+    strobeAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    strobeAnimation.toValue = [NSNumber numberWithFloat:0.0];
+    [view.layer addAnimation:strobeAnimation forKey:@"animateImage"];
 }
 
 //    CATransition *rippleAnimation = [CATransition animation];

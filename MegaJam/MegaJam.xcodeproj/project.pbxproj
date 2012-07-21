@@ -19,6 +19,12 @@
 		5AF4C56915A820E00055D1A0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56815A820E00055D1A0 /* AVFoundation.framework */; };
 		5AF4C56C15A826310055D1A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56A15A826310055D1A0 /* AudioToolbox.framework */; };
 		5AF4C56D15A826310055D1A0 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56B15A826310055D1A0 /* CoreAudio.framework */; };
+		C903347815BA302C00D19144 /* gr-grill-arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = C903347415BA302C00D19144 /* gr-grill-arrows.png */; };
+		C903347915BA302C00D19144 /* gr-grill-wavy.png in Resources */ = {isa = PBXBuildFile; fileRef = C903347515BA302C00D19144 /* gr-grill-wavy.png */; };
+		C903347A15BA302C00D19144 /* gr-grill-wavy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C903347615BA302C00D19144 /* gr-grill-wavy@2x.png */; };
+		C903347B15BA302C00D19144 /* gr-grill-arrows@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C903347715BA302C00D19144 /* gr-grill-arrows@2x.png */; };
+		C903347F15BA588000D19144 /* gr-bluetooth-pulse.png in Resources */ = {isa = PBXBuildFile; fileRef = C903347D15BA588000D19144 /* gr-bluetooth-pulse.png */; };
+		C903348015BA588000D19144 /* gr-bluetooth-pulse@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C903347E15BA588000D19144 /* gr-bluetooth-pulse@2x.png */; };
 		C92F462D15BA17570030E5BB /* blue-bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = C92F45E915BA17570030E5BB /* blue-bkg.png */; };
 		C92F462E15BA17570030E5BB /* blue-bkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C92F45EA15BA17570030E5BB /* blue-bkg@2x.png */; };
 		C92F462F15BA17570030E5BB /* blue-pause-down.png in Resources */ = {isa = PBXBuildFile; fileRef = C92F45EB15BA17570030E5BB /* blue-pause-down.png */; };
@@ -112,6 +118,12 @@
 		5AF4C56815A820E00055D1A0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5AF4C56A15A826310055D1A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5AF4C56B15A826310055D1A0 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		C903347415BA302C00D19144 /* gr-grill-arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gr-grill-arrows.png"; sourceTree = "<group>"; };
+		C903347515BA302C00D19144 /* gr-grill-wavy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gr-grill-wavy.png"; sourceTree = "<group>"; };
+		C903347615BA302C00D19144 /* gr-grill-wavy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gr-grill-wavy@2x.png"; sourceTree = "<group>"; };
+		C903347715BA302C00D19144 /* gr-grill-arrows@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gr-grill-arrows@2x.png"; sourceTree = "<group>"; };
+		C903347D15BA588000D19144 /* gr-bluetooth-pulse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gr-bluetooth-pulse.png"; sourceTree = "<group>"; };
+		C903347E15BA588000D19144 /* gr-bluetooth-pulse@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gr-bluetooth-pulse@2x.png"; sourceTree = "<group>"; };
 		C92F45E215B9E2020030E5BB /* MJConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MJConstants.h; path = MegaJam/MJConstants.h; sourceTree = SOURCE_ROOT; };
 		C92F45E915BA17570030E5BB /* blue-bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-bkg.png"; sourceTree = "<group>"; };
 		C92F45EA15BA17570030E5BB /* blue-bkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-bkg@2x.png"; sourceTree = "<group>"; };
@@ -270,6 +282,12 @@
 		5AF4C56515A820A20055D1A0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C903347D15BA588000D19144 /* gr-bluetooth-pulse.png */,
+				C903347E15BA588000D19144 /* gr-bluetooth-pulse@2x.png */,
+				C903347415BA302C00D19144 /* gr-grill-arrows.png */,
+				C903347515BA302C00D19144 /* gr-grill-wavy.png */,
+				C903347615BA302C00D19144 /* gr-grill-wavy@2x.png */,
+				C903347715BA302C00D19144 /* gr-grill-arrows@2x.png */,
 				C92F45E915BA17570030E5BB /* blue-bkg.png */,
 				C92F45EA15BA17570030E5BB /* blue-bkg@2x.png */,
 				C97D9A7915B35A65005A6028 /* blue-grill-flat.png */,
@@ -471,6 +489,12 @@
 				C92F466E15BA17570030E5BB /* stone-play-down@2x.png in Resources */,
 				C92F466F15BA17570030E5BB /* stone-play-up.png in Resources */,
 				C92F467015BA17570030E5BB /* stone-play-up@2x.png in Resources */,
+				C903347815BA302C00D19144 /* gr-grill-arrows.png in Resources */,
+				C903347915BA302C00D19144 /* gr-grill-wavy.png in Resources */,
+				C903347A15BA302C00D19144 /* gr-grill-wavy@2x.png in Resources */,
+				C903347B15BA302C00D19144 /* gr-grill-arrows@2x.png in Resources */,
+				C903347F15BA588000D19144 /* gr-bluetooth-pulse.png in Resources */,
+				C903348015BA588000D19144 /* gr-bluetooth-pulse@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
