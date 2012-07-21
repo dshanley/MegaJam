@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVAudioSession.h>
+#import "MJThemedView.h"
 
 @interface MJViewController : UIViewController <AVAudioSessionDelegate>
-@property (nonatomic, strong) id viewTheme;
+@property (nonatomic, unsafe_unretained) int viewTheme;
 
 - (void)playAudio;
 

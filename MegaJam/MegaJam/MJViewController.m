@@ -11,7 +11,6 @@
 #import "MJViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
-#import "MJThemedView.h"
 
 #import "MJAudio.h"
 
@@ -26,7 +25,7 @@
 - (void)loadView {
     [super loadView];
     CGRect fullScreenRect = [[UIScreen mainScreen] applicationFrame];
-    MJThemedView *themedView = [MJThemedView viewWithTheme:MJThemeStone andFrame:fullScreenRect];
+    MJThemedView *themedView = [MJThemedView viewWithTheme:self.viewTheme andFrame:fullScreenRect];
 }
 
 - (void)viewDidLoad

@@ -19,8 +19,6 @@ typedef enum {
 
 @interface MJThemedView : UIView
 
-@property (nonatomic, strong) MJViewController *controller;
-
 + (MJThemedView *)viewWithTheme:(MJTheme)theme andFrame:(CGRect)frame;
 
 

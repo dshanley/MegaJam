@@ -16,7 +16,7 @@
 #define kNumberOfGrills     3
 
 @interface MJThemedView ()
-
+@property (nonatomic, strong) MJViewController *controller;
 @property (nonatomic, strong) UIImageView *grillActive;
 @property (nonatomic, strong) UIImageView *grillFlat;
 @property (nonatomic, strong) UIButton *pauseButton;
@@ -25,7 +25,6 @@
 @property (nonatomic, strong) UIImageView *bluetoothImageOff;
 @property (nonatomic, strong) UIImageView *bluetoothImageOn;
 @property (nonatomic, strong) UIImageView *bluetoothImageWhite;
-
 @property (nonatomic, strong) UITapGestureRecognizer *singleTapRecognizer;
 
 - (void)handleSingleTap;
