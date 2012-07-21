@@ -17,7 +17,6 @@
 
 @interface MJViewController ()
 
-
 @end
 
 
@@ -26,9 +25,8 @@
 
 - (void)loadView {
     [super loadView];
-    MJThemedView *themedView = [MJThemedView viewWithTheme:MJThemeStone andFrame:CGRectMake(0, 0, 320, 480)];
-    
-    [self.view addSubview:themedView];
+    CGRect fullScreenRect = [[UIScreen mainScreen] applicationFrame];
+    MJThemedView *themedView = [MJThemedView viewWithTheme:MJThemeStone andFrame:fullScreenRect];
 }
 
 - (void)viewDidLoad

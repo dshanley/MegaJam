@@ -98,6 +98,7 @@
 		C9B96BCB15BA6C9C0045257B /* red-play-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9B96B7F15BA6C9C0045257B /* red-play-down@2x.png */; };
 		C9B96BCC15BA6C9C0045257B /* red-play-up.png in Resources */ = {isa = PBXBuildFile; fileRef = C9B96B8015BA6C9C0045257B /* red-play-up.png */; };
 		C9B96BCD15BA6C9C0045257B /* red-play-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9B96B8115BA6C9C0045257B /* red-play-up@2x.png */; };
+		C9B96C2215BA753A0045257B /* MJScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B96C2115BA753A0045257B /* MJScrollViewController.m */; };
 		C9F32FC415ABD78E00B460DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F32FC315ABD78E00B460DE /* QuartzCore.framework */; };
 		F488E31515BA568E007B6A0B /* MJThemedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F488E31415BA568E007B6A0B /* MJThemedView.m */; };
 		F4B7454B15A8BAF500312F63 /* you_talkin.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F4B7454A15A8BAF500312F63 /* you_talkin.aiff */; };
@@ -201,6 +202,8 @@
 		C9B96B7F15BA6C9C0045257B /* red-play-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-play-down@2x.png"; sourceTree = "<group>"; };
 		C9B96B8015BA6C9C0045257B /* red-play-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-play-up.png"; sourceTree = "<group>"; };
 		C9B96B8115BA6C9C0045257B /* red-play-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-play-up@2x.png"; sourceTree = "<group>"; };
+		C9B96C2015BA753A0045257B /* MJScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJScrollViewController.h; sourceTree = "<group>"; };
+		C9B96C2115BA753A0045257B /* MJScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJScrollViewController.m; sourceTree = "<group>"; };
 		C9F32FC315ABD78E00B460DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F488E31215BA568E007B6A0B /* MJConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConstants.h; sourceTree = "<group>"; };
 		F488E31315BA568E007B6A0B /* MJThemedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJThemedView.h; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */,
 				5AF4C55D15A81ED00055D1A0 /* MJViewController.h */,
 				5AF4C55E15A81ED00055D1A0 /* MJViewController.m */,
+				C9B96C2015BA753A0045257B /* MJScrollViewController.h */,
+				C9B96C2115BA753A0045257B /* MJScrollViewController.m */,
 				5AF4C56515A820A20055D1A0 /* Resources */,
 				5AF4C54C15A81ED00055D1A0 /* Supporting Files */,
 			);
@@ -523,6 +528,7 @@
 				5AF4C55F15A81ED00055D1A0 /* MJViewController.m in Sources */,
 				29B9874015BA17770037CF82 /* MJAudio.m in Sources */,
 				F488E31515BA568E007B6A0B /* MJThemedView.m in Sources */,
+				C9B96C2215BA753A0045257B /* MJScrollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
