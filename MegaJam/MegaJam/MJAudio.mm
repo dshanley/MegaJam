@@ -39,9 +39,9 @@ void audioRouteChangeListenerCallback (
     } else {
         
         // Determine the specific type of audio route change that occurred.
-        CFDictionaryRef routeChangeDictionary = inPropertyValue;
+        CFDictionaryRef routeChangeDictionary = (CFDictionaryRef)inPropertyValue;
         
-        CFNumberRef routeChangeReasonRef =
+        CFNumberRef routeChangeReasonRef = (CFNumberRef)
         CFDictionaryGetValue (
                               routeChangeDictionary,
                               CFSTR (kAudioSession_AudioRouteChangeKey_Reason)
@@ -195,7 +195,7 @@ static OSStatus inputRenderCallback (
     }
     else {
         NSLog(@"input device not available...");
-        [mySession setCategory: AVAudioSessionCategoryPlayback
+        [mySession setCategory: AVAudioSessionCategoryRecord
                          error: &audioSessionError];
         
     }

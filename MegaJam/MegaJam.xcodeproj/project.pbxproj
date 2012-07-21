@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29B9874015BA17770037CF82 /* MJAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9873F15BA17770037CF82 /* MJAudio.m */; };
+		29B9874015BA17770037CF82 /* MJAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B9873F15BA17770037CF82 /* MJAudio.mm */; };
 		5AF4C54615A81ED00055D1A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54515A81ED00055D1A0 /* UIKit.framework */; };
 		5AF4C54815A81ED00055D1A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54715A81ED00055D1A0 /* Foundation.framework */; };
 		5AF4C54A15A81ED00055D1A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54915A81ED00055D1A0 /* CoreGraphics.framework */; };
@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		29B9873E15BA17770037CF82 /* MJAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJAudio.h; sourceTree = "<group>"; };
-		29B9873F15BA17770037CF82 /* MJAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJAudio.m; sourceTree = "<group>"; };
+		29B9873F15BA17770037CF82 /* MJAudio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MJAudio.mm; sourceTree = "<group>"; };
 		5AF4C54115A81ED00055D1A0 /* MegaJam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MegaJam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF4C54515A81ED00055D1A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5AF4C54715A81ED00055D1A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,6 +71,9 @@
 		C9F32FC315ABD78E00B460DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C9F32FD215ABF1F900B460DE /* bkg-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bkg-blue@2x.png"; sourceTree = "<group>"; };
 		C9F32FD415ABF2EC00B460DE /* fpo-grill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fpo-grill@2x.png"; sourceTree = "<group>"; };
+		F457F15415BA854A0097FFB9 /* CABitOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CABitOperations.h; sourceTree = "<group>"; };
+		F457F15615BA85950097FFB9 /* CAAutoDisposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAutoDisposer.h; sourceTree = "<group>"; };
+		F457F15715BA85E30097FFB9 /* CAAtomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAtomic.h; sourceTree = "<group>"; };
 		F488E31215BA568E007B6A0B /* MJConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConstants.h; sourceTree = "<group>"; };
 		F488E31315BA568E007B6A0B /* MJThemedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJThemedView.h; sourceTree = "<group>"; };
 		F488E31415BA568E007B6A0B /* MJThemedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJThemedView.m; sourceTree = "<group>"; };
@@ -136,7 +139,7 @@
 				F488E31315BA568E007B6A0B /* MJThemedView.h */,
 				F488E31415BA568E007B6A0B /* MJThemedView.m */,
 				29B9873E15BA17770037CF82 /* MJAudio.h */,
-				29B9873F15BA17770037CF82 /* MJAudio.m */,
+				29B9873F15BA17770037CF82 /* MJAudio.mm */,
 				5AF4C55415A81ED00055D1A0 /* MJAppDelegate.h */,
 				5AF4C55515A81ED00055D1A0 /* MJAppDelegate.m */,
 				5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */,
@@ -201,6 +204,9 @@
 		F488E33A15BA73BC007B6A0B /* apple */ = {
 			isa = PBXGroup;
 			children = (
+				F457F15715BA85E30097FFB9 /* CAAtomic.h */,
+				F457F15615BA85950097FFB9 /* CAAutoDisposer.h */,
+				F457F15415BA854A0097FFB9 /* CABitOperations.h */,
 				F488E33B15BA73BC007B6A0B /* CARingBuffer.cpp */,
 				F488E33C15BA73BC007B6A0B /* CARingBuffer.h */,
 			);
@@ -279,7 +285,7 @@
 				5AF4C55215A81ED00055D1A0 /* main.m in Sources */,
 				5AF4C55615A81ED00055D1A0 /* MJAppDelegate.m in Sources */,
 				5AF4C55F15A81ED00055D1A0 /* MJViewController.m in Sources */,
-				29B9874015BA17770037CF82 /* MJAudio.m in Sources */,
+				29B9874015BA17770037CF82 /* MJAudio.mm in Sources */,
 				F488E31515BA568E007B6A0B /* MJThemedView.m in Sources */,
 				F488E33D15BA73BC007B6A0B /* CARingBuffer.cpp in Sources */,
 			);
