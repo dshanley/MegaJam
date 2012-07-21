@@ -29,9 +29,9 @@
 
 - (void)loadView {
     [super loadView];
-    MJThemedView *themedView = [MJThemedView viewWithTheme:MJThemeStone andFrame:CGRectMake(0, 0, 320, 480)];
+    //MJThemedView *themedView = [MJThemedView viewWithTheme:MJThemeStone andFrame:CGRectMake(0, 0, 320, 480)];
     
-    [self.view addSubview:themedView];
+   // [self.view addSubview:themedView];
 }
 
 - (void)viewDidLoad

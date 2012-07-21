@@ -44,9 +44,9 @@
     //PRECONDITIONS
     if (self.status == MJNetworkStatusSeeking) return;
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [self.bonjourBrowser searchForServicesOfType:@"_MJServer._udp." inDomain:@""];
-    });
+    //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [self.bonjourBrowser searchForServicesOfType:@"_MJServerTEST._udp." inDomain:@""];
+    //});
 }
 
 
