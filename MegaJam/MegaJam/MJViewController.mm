@@ -13,7 +13,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MJThemedView.h"
 
+
+//DEBUG, probably?
 #import "MJAudio.h"
+#import "MJNetworkClient.h"
 
 @interface MJViewController ()
 
@@ -37,6 +40,9 @@
     
     //Vibrate
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    
+    MJNetworkClient *net = [[MJNetworkClient alloc] init];
+    [net findMegaJams];
     
     MJAudio *audioObject = [[MJAudio alloc] init];
     [audioObject configureAndInitializeAudioProcessingGraph];

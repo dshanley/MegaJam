@@ -10,6 +10,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
+#include "CARingBuffer.h"
+
 #define NUM_FILES 2                         // number of audio files read in by old method
 
 // Data structure for mono or stereo sound, to pass to the application's render callback function,

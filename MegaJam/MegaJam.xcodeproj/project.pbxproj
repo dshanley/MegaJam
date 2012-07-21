@@ -12,17 +12,24 @@
 		5AF4C54815A81ED00055D1A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54715A81ED00055D1A0 /* Foundation.framework */; };
 		5AF4C54A15A81ED00055D1A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54915A81ED00055D1A0 /* CoreGraphics.framework */; };
 		5AF4C55015A81ED00055D1A0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AF4C54E15A81ED00055D1A0 /* InfoPlist.strings */; };
-		5AF4C55215A81ED00055D1A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55115A81ED00055D1A0 /* main.m */; };
+		5AF4C55215A81ED00055D1A0 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55115A81ED00055D1A0 /* main.mm */; };
 		5AF4C55615A81ED00055D1A0 /* MJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55515A81ED00055D1A0 /* MJAppDelegate.m */; };
 		5AF4C55915A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */; };
 		5AF4C55C15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */; };
-		5AF4C55F15A81ED00055D1A0 /* MJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55E15A81ED00055D1A0 /* MJViewController.m */; };
+		5AF4C55F15A81ED00055D1A0 /* MJViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5AF4C55E15A81ED00055D1A0 /* MJViewController.mm */; };
 		5AF4C56915A820E00055D1A0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56815A820E00055D1A0 /* AVFoundation.framework */; };
 		5AF4C56C15A826310055D1A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56A15A826310055D1A0 /* AudioToolbox.framework */; };
 		5AF4C56D15A826310055D1A0 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C56B15A826310055D1A0 /* CoreAudio.framework */; };
 		C97D9A7B15B35A65005A6028 /* blue-grill-flat.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D9A7915B35A65005A6028 /* blue-grill-flat.png */; };
 		C97D9A7C15B35A65005A6028 /* blue-grill-flat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D9A7A15B35A65005A6028 /* blue-grill-flat@2x.png */; };
 		C9F32FC415ABD78E00B460DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F32FC315ABD78E00B460DE /* QuartzCore.framework */; };
+		F457F15A15BA87F70097FFB9 /* MJNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F457F15915BA87F70097FFB9 /* MJNetworkClient.m */; };
+		F457F16615BA8C680097FFB9 /* HHService.m in Sources */ = {isa = PBXBuildFile; fileRef = F457F15D15BA8C680097FFB9 /* HHService.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F457F16715BA8C680097FFB9 /* HHServiceBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = F457F15F15BA8C680097FFB9 /* HHServiceBrowser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F457F16815BA8C680097FFB9 /* HHServicePublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = F457F16115BA8C680097FFB9 /* HHServicePublisher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F457F16915BA8C680097FFB9 /* HHServiceSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = F457F16315BA8C680097FFB9 /* HHServiceSupport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F457F16A15BA8C680097FFB9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F457F16415BA8C680097FFB9 /* LICENSE */; };
+		F457F16B15BA8C680097FFB9 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = F457F16515BA8C680097FFB9 /* README.markdown */; };
 		F488E31515BA568E007B6A0B /* MJThemedView.m in Sources */ = {isa = PBXBuildFile; fileRef = F488E31415BA568E007B6A0B /* MJThemedView.m */; };
 		F488E33D15BA73BC007B6A0B /* CARingBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F488E33B15BA73BC007B6A0B /* CARingBuffer.cpp */; };
 		F4B7454B15A8BAF500312F63 /* you_talkin.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F4B7454A15A8BAF500312F63 /* you_talkin.aiff */; };
@@ -37,14 +44,14 @@
 		5AF4C54915A81ED00055D1A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5AF4C54D15A81ED00055D1A0 /* MegaJam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MegaJam-Info.plist"; sourceTree = "<group>"; };
 		5AF4C54F15A81ED00055D1A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5AF4C55115A81ED00055D1A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5AF4C55115A81ED00055D1A0 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		5AF4C55315A81ED00055D1A0 /* MegaJam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MegaJam-Prefix.pch"; sourceTree = "<group>"; };
 		5AF4C55415A81ED00055D1A0 /* MJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJAppDelegate.h; sourceTree = "<group>"; };
 		5AF4C55515A81ED00055D1A0 /* MJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJAppDelegate.m; sourceTree = "<group>"; };
 		5AF4C55815A81ED00055D1A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		5AF4C55B15A81ED00055D1A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		5AF4C55D15A81ED00055D1A0 /* MJViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJViewController.h; sourceTree = "<group>"; };
-		5AF4C55E15A81ED00055D1A0 /* MJViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJViewController.m; sourceTree = "<group>"; };
+		5AF4C55E15A81ED00055D1A0 /* MJViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MJViewController.mm; sourceTree = "<group>"; };
 		5AF4C56815A820E00055D1A0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5AF4C56A15A826310055D1A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5AF4C56B15A826310055D1A0 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -74,6 +81,18 @@
 		F457F15415BA854A0097FFB9 /* CABitOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CABitOperations.h; sourceTree = "<group>"; };
 		F457F15615BA85950097FFB9 /* CAAutoDisposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAutoDisposer.h; sourceTree = "<group>"; };
 		F457F15715BA85E30097FFB9 /* CAAtomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAtomic.h; sourceTree = "<group>"; };
+		F457F15815BA87F70097FFB9 /* MJNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJNetworkClient.h; sourceTree = "<group>"; };
+		F457F15915BA87F70097FFB9 /* MJNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJNetworkClient.m; sourceTree = "<group>"; };
+		F457F15C15BA8C680097FFB9 /* HHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHService.h; sourceTree = "<group>"; };
+		F457F15D15BA8C680097FFB9 /* HHService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHService.m; sourceTree = "<group>"; };
+		F457F15E15BA8C680097FFB9 /* HHServiceBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHServiceBrowser.h; sourceTree = "<group>"; };
+		F457F15F15BA8C680097FFB9 /* HHServiceBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHServiceBrowser.m; sourceTree = "<group>"; };
+		F457F16015BA8C680097FFB9 /* HHServicePublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHServicePublisher.h; sourceTree = "<group>"; };
+		F457F16115BA8C680097FFB9 /* HHServicePublisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHServicePublisher.m; sourceTree = "<group>"; };
+		F457F16215BA8C680097FFB9 /* HHServiceSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHServiceSupport.h; sourceTree = "<group>"; };
+		F457F16315BA8C680097FFB9 /* HHServiceSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHServiceSupport.m; sourceTree = "<group>"; };
+		F457F16415BA8C680097FFB9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F457F16515BA8C680097FFB9 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		F488E31215BA568E007B6A0B /* MJConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConstants.h; sourceTree = "<group>"; };
 		F488E31315BA568E007B6A0B /* MJThemedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJThemedView.h; sourceTree = "<group>"; };
 		F488E31415BA568E007B6A0B /* MJThemedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJThemedView.m; sourceTree = "<group>"; };
@@ -145,7 +164,9 @@
 				5AF4C55715A81ED00055D1A0 /* MainStoryboard_iPhone.storyboard */,
 				5AF4C55A15A81ED00055D1A0 /* MainStoryboard_iPad.storyboard */,
 				5AF4C55D15A81ED00055D1A0 /* MJViewController.h */,
-				5AF4C55E15A81ED00055D1A0 /* MJViewController.m */,
+				5AF4C55E15A81ED00055D1A0 /* MJViewController.mm */,
+				F457F15815BA87F70097FFB9 /* MJNetworkClient.h */,
+				F457F15915BA87F70097FFB9 /* MJNetworkClient.m */,
 				5AF4C56515A820A20055D1A0 /* Resources */,
 				5AF4C54C15A81ED00055D1A0 /* Supporting Files */,
 			);
@@ -157,7 +178,7 @@
 			children = (
 				5AF4C54D15A81ED00055D1A0 /* MegaJam-Info.plist */,
 				5AF4C54E15A81ED00055D1A0 /* InfoPlist.strings */,
-				5AF4C55115A81ED00055D1A0 /* main.m */,
+				5AF4C55115A81ED00055D1A0 /* main.mm */,
 				5AF4C55315A81ED00055D1A0 /* MegaJam-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -193,9 +214,28 @@
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
 		};
+		F457F15B15BA8C670097FFB9 /* HHServices */ = {
+			isa = PBXGroup;
+			children = (
+				F457F15C15BA8C680097FFB9 /* HHService.h */,
+				F457F15D15BA8C680097FFB9 /* HHService.m */,
+				F457F15E15BA8C680097FFB9 /* HHServiceBrowser.h */,
+				F457F15F15BA8C680097FFB9 /* HHServiceBrowser.m */,
+				F457F16015BA8C680097FFB9 /* HHServicePublisher.h */,
+				F457F16115BA8C680097FFB9 /* HHServicePublisher.m */,
+				F457F16215BA8C680097FFB9 /* HHServiceSupport.h */,
+				F457F16315BA8C680097FFB9 /* HHServiceSupport.m */,
+				F457F16415BA8C680097FFB9 /* LICENSE */,
+				F457F16515BA8C680097FFB9 /* README.markdown */,
+			);
+			name = HHServices;
+			path = external_src/HHServices;
+			sourceTree = "<group>";
+		};
 		F488E33815BA73A0007B6A0B /* external_source */ = {
 			isa = PBXGroup;
 			children = (
+				F457F15B15BA8C670097FFB9 /* HHServices */,
 				F488E33A15BA73BC007B6A0B /* apple */,
 			);
 			name = external_source;
@@ -272,6 +312,8 @@
 				F4B7454B15A8BAF500312F63 /* you_talkin.aiff in Resources */,
 				C97D9A7B15B35A65005A6028 /* blue-grill-flat.png in Resources */,
 				C97D9A7C15B35A65005A6028 /* blue-grill-flat@2x.png in Resources */,
+				F457F16A15BA8C680097FFB9 /* LICENSE in Resources */,
+				F457F16B15BA8C680097FFB9 /* README.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,12 +324,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AF4C55215A81ED00055D1A0 /* main.m in Sources */,
+				5AF4C55215A81ED00055D1A0 /* main.mm in Sources */,
 				5AF4C55615A81ED00055D1A0 /* MJAppDelegate.m in Sources */,
-				5AF4C55F15A81ED00055D1A0 /* MJViewController.m in Sources */,
+				5AF4C55F15A81ED00055D1A0 /* MJViewController.mm in Sources */,
 				29B9874015BA17770037CF82 /* MJAudio.mm in Sources */,
 				F488E31515BA568E007B6A0B /* MJThemedView.m in Sources */,
 				F488E33D15BA73BC007B6A0B /* CARingBuffer.cpp in Sources */,
+				F457F15A15BA87F70097FFB9 /* MJNetworkClient.m in Sources */,
+				F457F16615BA8C680097FFB9 /* HHService.m in Sources */,
+				F457F16715BA8C680097FFB9 /* HHServiceBrowser.m in Sources */,
+				F457F16815BA8C680097FFB9 /* HHServicePublisher.m in Sources */,
+				F457F16915BA8C680097FFB9 /* HHServiceSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +418,7 @@
 		5AF4C56315A81ED00055D1A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MegaJam/MegaJam-Prefix.pch";
 				INFOPLIST_FILE = "MegaJam/MegaJam-Info.plist";
@@ -383,6 +431,7 @@
 		5AF4C56415A81ED00055D1A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MegaJam/MegaJam-Prefix.pch";
 				INFOPLIST_FILE = "MegaJam/MegaJam-Info.plist";
