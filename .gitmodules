@@ -1,3 +1,3 @@
-[submodule "MegaJam/lib/wijourno"]
-	path = MegaJam/lib/wijourno
-	url = git://github.com/RobotGrrl/Wijourno.git
+[submodule "MegaJam/lib/asyncSocket"]
+	path = MegaJam/lib/asyncSocket
+	url = git://github.com/robbiehanson/CocoaAsyncSocket.git

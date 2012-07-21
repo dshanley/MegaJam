@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Wijourno.h"
+#import "AsyncUdpSocket.h"
 
 typedef enum {
     MJNetworkStatusDisconnected,
@@ -17,11 +17,13 @@ typedef enum {
     MJNetworkStatusConnected
 } MJNetworkStatus;
 
-@interface MJNetworkClient : NSObject <WijournoDelegate>
-
-@property (nonatomic, strong) Wijourno *wijourno;
+@interface MJNetworkClient : NSObject <NSNetServiceBrowserDelegate, NSNetServiceDelegate, AsyncUdpSocketDelegate>
 
 @property (nonatomic, assign) MJNetworkStatus status;
+
+@property (nonatomic, strong) NSNetServiceBrowser *bonjourBrowser;
+
+@property (nonatomic, strong) AsyncUdpSocket *socket;
 
 - (void)findMegaJams;
 - (void)sendData:(NSData *)data;
