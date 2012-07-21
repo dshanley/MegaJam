@@ -47,7 +47,7 @@
     self.seeking = YES;
     
     //start seeking
-    [self.browser searchForServicesOfType:@"_x-MJServerStream._tcp." inDomain:@"local."];
+    [self.browser searchForServicesOfType:@"_MJServer._tcp." inDomain:@"local."];
     
     //setup timer
     self.timeoutTimer = [NSTimer timerWithTimeInterval:kServerSeekTimeoutInterval target:self selector:@selector(timerDidTimeout) userInfo:nil repeats:NO];
@@ -62,32 +62,6 @@
     [self.browser stop];
     
     self.seeking = YES;
-}
-
-- (void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser {
-    
-    int debug = 1;
-}
-
-- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didNotSearch:(NSDictionary *)errorDict {
-    
-    int debug = 1;
-}
-
-- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing {
-    
-    int debug = 1;
-}
-
-- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindDomain:(NSString *)domainString moreComing:(BOOL)moreComing {
-    
-    int debug = 1;
-}
-
-- (void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)aNetServiceBrowser {
-    
-    int debug = 1;
-    
 }
 
 

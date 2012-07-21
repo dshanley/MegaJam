@@ -1,0 +1,3 @@
+[submodule "MegaJam/lib/wijourno"]
+	path = MegaJam/lib/wijourno
+	url = git://github.com/RobotGrrl/Wijourno.git

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "HHServiceBrowser.h"
+#import "Wijourno.h"
 
 @interface MJNetworkClient : NSObject <NSNetServiceBrowserDelegate>
 
