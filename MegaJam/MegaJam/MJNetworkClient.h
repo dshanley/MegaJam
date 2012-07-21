@@ -22,6 +22,7 @@ typedef enum {
 @property (nonatomic, assign) MJNetworkStatus status;
 
 @property (nonatomic, strong) NSNetServiceBrowser *bonjourBrowser;
+@property (nonatomic, strong) NSNetService *foundService;
 
 @property (nonatomic, strong) AsyncUdpSocket *socket;
 

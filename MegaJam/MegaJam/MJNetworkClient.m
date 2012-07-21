@@ -44,7 +44,9 @@
     //PRECONDITIONS
     if (self.status == MJNetworkStatusSeeking) return;
     
-    [self.bonjourBrowser searchForServicesOfType:@"_MJServer._udp" inDomain:@""];    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [self.bonjourBrowser searchForServicesOfType:@"_MJServer._udp." inDomain:@""];
+    });
 }
 
 
@@ -64,14 +66,17 @@
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing {
     
-
     self.status = MJNetworStatusConnecting;
     
     if (self.socket) {
         self.socket = nil;
     }
     
-    [aNetService resolveWithTimeout:10.0f];
+    //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+    aNetService.delegate = self;
+    self.foundService = aNetService;
+    [self.foundService resolveWithTimeout:10.0f];
+   // });
     
 }
 

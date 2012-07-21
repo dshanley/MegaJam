@@ -43,10 +43,11 @@
     
     MJNetworkClient *net = [[MJNetworkClient alloc] init];
     [net findMegaJams];
-    
+    /*
     MJAudio *audioObject = [[MJAudio alloc] init];
     [audioObject configureAndInitializeAudioProcessingGraph];
     [audioObject startAUGraph];
+     */
 }
 
 - (void)didReceiveMemoryWarning
