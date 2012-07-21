@@ -10,9 +10,9 @@
 
 #import "HHServiceBrowser.h"
 
-@interface MJNetworkClient : NSObject <HHServiceBrowserDelegate>
+@interface MJNetworkClient : NSObject <NSNetServiceBrowserDelegate>
 
-@property (nonatomic, strong) HHServiceBrowser *browser;
+@property (nonatomic, strong) NSNetServiceBrowser *browser;
 @property (nonatomic, strong) NSTimer *timeoutTimer;
 
 @property (nonatomic, assign, getter = isSeeking) BOOL seeking;
