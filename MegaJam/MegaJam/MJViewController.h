@@ -13,5 +13,6 @@
 @property (nonatomic, strong) id viewTheme;
 
 - (void)playAudio;
+- (void)playAudioThroughSpeakerWithName:(NSString *)fileName;
 
 @end
