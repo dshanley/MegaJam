@@ -13,6 +13,8 @@
 #import "MJConstants.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define kNumberOfGrills     3
+
 @interface MJThemedView ()
 
 @property (nonatomic, strong) UIImageView *grillActive;
@@ -31,16 +33,6 @@
 @end
 
 @implementation MJThemedView
-
-@synthesize controller = _controller;
-@synthesize grillActive = _grillActive;
-@synthesize grillFlat = _grillFlat;
-@synthesize pauseButton = _pauseButton;
-@synthesize playButton = _playButton;
-@synthesize viewTheme = _viewTheme;
-@synthesize bluetoothImageOn = _bluetoothImageOn;
-@synthesize bluetoothImageOff = _bluetoothImageOff;
-@synthesize bluetoothImageWhite = _bluetoothImageWhite;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -125,7 +117,6 @@
     self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillFlatBase]];
     
     self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-    self.grillActive.image = [UIImage imageNamed:@"gr-grill-arrows"];
     
     [self addSubview:self.grillFlat];
     [self addSubview:self.grillActive];
@@ -157,6 +148,7 @@
     self.pauseButton.selected = NO;
     self.playButton.selected = YES;
     
+    [self chooseRandomGrill];
     [self bluetoothOnEffect];
     
 //  [self.controller playAudio];
@@ -269,12 +261,32 @@
 - (void)makeViewStrobe:(UIImageView *)view {
     CABasicAnimation *strobeAnimation;
     strobeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    strobeAnimation.duration = 0.40;
+    strobeAnimation.duration = 1.0;
     strobeAnimation.repeatCount = MAXFLOAT;
     strobeAnimation.autoreverses = YES;
     strobeAnimation.fromValue = [NSNumber numberWithFloat:1.0];
-    strobeAnimation.toValue = [NSNumber numberWithFloat:0.0];
+    strobeAnimation.toValue = [NSNumber numberWithFloat:0.25];
     [view.layer addAnimation:strobeAnimation forKey:@"animateImage"];
+}
+
+- (void)chooseRandomGrill {
+    NSString *grillName;
+    int grillChoice = rand() % (kNumberOfGrills +1);
+    switch (grillChoice) {
+        case 1:
+            grillName = @"gr-grill-hexagon";
+            break;
+        case 2:
+            grillName = @"gr-grill-arrows";
+            break;
+        case 3:
+            grillName = @"gr-grill-wavy";
+            break;
+        default:
+            grillName = @"gr-grill-wavy";
+            break;
+    }
+    self.grillActive.image = [UIImage imageNamed:grillName];
 }
 
 //    CATransition *rippleAnimation = [CATransition animation];

@@ -96,6 +96,8 @@
 		C97D9A2C15B3446D005A6028 /* MJThemedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C97D9A2B15B3446D005A6028 /* MJThemedView.m */; };
 		C97D9A7B15B35A65005A6028 /* blue-grill-flat.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D9A7915B35A65005A6028 /* blue-grill-flat.png */; };
 		C97D9A7C15B35A65005A6028 /* blue-grill-flat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C97D9A7A15B35A65005A6028 /* blue-grill-flat@2x.png */; };
+		C9B96B2715BA5FCB0045257B /* gr-grill-hexagon.png in Resources */ = {isa = PBXBuildFile; fileRef = C9B96B2515BA5FCB0045257B /* gr-grill-hexagon.png */; };
+		C9B96B2815BA5FCB0045257B /* gr-grill-hexagon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9B96B2615BA5FCB0045257B /* gr-grill-hexagon@2x.png */; };
 		C9F32FC415ABD78E00B460DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F32FC315ABD78E00B460DE /* QuartzCore.framework */; };
 		F4B7454B15A8BAF500312F63 /* you_talkin.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F4B7454A15A8BAF500312F63 /* you_talkin.aiff */; };
 /* End PBXBuildFile section */
@@ -197,6 +199,8 @@
 		C97D9A2B15B3446D005A6028 /* MJThemedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJThemedView.m; sourceTree = "<group>"; };
 		C97D9A7915B35A65005A6028 /* blue-grill-flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-grill-flat.png"; sourceTree = "<group>"; };
 		C97D9A7A15B35A65005A6028 /* blue-grill-flat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-grill-flat@2x.png"; sourceTree = "<group>"; };
+		C9B96B2515BA5FCB0045257B /* gr-grill-hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gr-grill-hexagon.png"; sourceTree = "<group>"; };
+		C9B96B2615BA5FCB0045257B /* gr-grill-hexagon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gr-grill-hexagon@2x.png"; sourceTree = "<group>"; };
 		C9F32FC315ABD78E00B460DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F4B7454A15A8BAF500312F63 /* you_talkin.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = you_talkin.aiff; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,6 +286,8 @@
 		5AF4C56515A820A20055D1A0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C9B96B2515BA5FCB0045257B /* gr-grill-hexagon.png */,
+				C9B96B2615BA5FCB0045257B /* gr-grill-hexagon@2x.png */,
 				C903347D15BA588000D19144 /* gr-bluetooth-pulse.png */,
 				C903347E15BA588000D19144 /* gr-bluetooth-pulse@2x.png */,
 				C903347415BA302C00D19144 /* gr-grill-arrows.png */,
@@ -495,6 +501,8 @@
 				C903347B15BA302C00D19144 /* gr-grill-arrows@2x.png in Resources */,
 				C903347F15BA588000D19144 /* gr-bluetooth-pulse.png in Resources */,
 				C903348015BA588000D19144 /* gr-bluetooth-pulse@2x.png in Resources */,
+				C9B96B2715BA5FCB0045257B /* gr-grill-hexagon.png in Resources */,
+				C9B96B2815BA5FCB0045257B /* gr-grill-hexagon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
