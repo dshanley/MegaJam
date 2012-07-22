@@ -48,12 +48,11 @@
     size_t floatSize = sizeof(float);
     
     NSData *toSend = [NSData dataWithBytes:data length:(NSUInteger)dataSize];
-    NSTimeInterval unixTimeInterval = [[NSDate date] timeIntervalSince1970];
-    float theData = *data;
-    
-    NSLog(@"DOWN THE WIRE: data=%f | tag=%f", theData, unixTimeInterval);
+//    float theData = *data;
+//    NSTimeInterval unixTimeInterval = [[NSDate date] timeIntervalSince1970];
+//    NSLog(@"DOWN THE WIRE: data=%f | tag=%f", theData, unixTimeInterval);
     dispatch_async(dispatch_get_main_queue(), ^ {
-        [self.socket sendData:toSend toAddress:self.socketAddress withTimeout:1.0 tag:unixTimeInterval];
+        [self.socket sendData:toSend toAddress:self.socketAddress withTimeout:1.0 tag:0/*unixTimeInterval*/];
     });
     
      

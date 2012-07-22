@@ -426,8 +426,8 @@ static Novocaine *audioManager = nil;
     self.samplingRate = inputFormat.mSampleRate;
     self.numBytesPerSample = inputFormat.mBitsPerChannel / 8;
     
-    self.numInputChannels = inputFormat.mChannelsPerFrame;
-    self.numOutputChannels = outputFormat.mChannelsPerFrame;
+    self.numInputChannels = 1;//DS Hack: inputFormat.mChannelsPerFrame;
+    self.numOutputChannels = 1; //DS Hack: outputFormat.mChannelsPerFrame;
     
     propertySize = sizeof(AudioStreamBasicDescription);
 	CheckError(AudioUnitSetProperty(inputUnit,
