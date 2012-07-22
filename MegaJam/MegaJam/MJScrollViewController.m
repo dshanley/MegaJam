@@ -135,7 +135,7 @@
         for (int i = 0; i < kNumberOfPages; ++i) {
             MJThemedView *currentView = [self.themedViews objectAtIndex:i];
             if ([currentView isKindOfClass:[MJThemedView class]]) {
-                currentView.rotatorPlate.frame = CGRectMake(0, 133, 320, 317);
+                currentView.rotatorPlate.frame = CGRectMake(0, 138, 320, 317);
                 currentView.backgroundPlate.layer.transform = CATransform3DMakeRotation(angle, 0, 0, 1.0);
             }
         }

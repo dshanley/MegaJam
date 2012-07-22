@@ -64,7 +64,7 @@
     
     //Play Button
     self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.playButton.frame = CGRectMake(164, 144, 100, 100);
+    self.playButton.frame = CGRectMake(164, 134, 100, 100);
     [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayUpBase]] forState:UIControlStateNormal];
     [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
     [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayUpBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
@@ -75,7 +75,7 @@
     
     //Pause Button
     self.pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.pauseButton.frame = CGRectMake(56, 144, 100, 100);
+    self.pauseButton.frame = CGRectMake(56, 134, 100, 100);
     [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseUpBase]] forState:UIControlStateNormal];
     [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
     [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
@@ -106,9 +106,17 @@
     [volumeSlider setThumbImage:thumbImage forState:UIControlStateNormal];
     [volumeSlider setThumbImage:thumbImage forState:UIControlStateHighlighted];
     
-    
-    
     [self.rotatorPlate addSubview:volumeSlider];
+    
+    //Volume icons
+    UIImageView *volumeIconLow = [[UIImageView alloc] initWithFrame:CGRectMake(19, 269, 26, 26)];
+    volumeIconLow.image = [UIImage imageNamed:@"gr-volume-low"];
+    [self.rotatorPlate addSubview:volumeIconLow];
+    
+    UIImageView *volumeIconHigh = [[UIImageView alloc] initWithFrame:CGRectMake(282, 269, 26, 26)];
+    volumeIconHigh.image = [UIImage imageNamed:@"gr-volume-high"];
+    [self.rotatorPlate addSubview:volumeIconHigh];
+    
     
     //bluetooth symbol
     self.bluetoothImageOff = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
