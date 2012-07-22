@@ -83,7 +83,7 @@
 
 - (void)closeConnectionWithMessage:(NSString *)message {
     NSLog(@"closeConnection %@", message);
-    [[NSNotificationCenter defaultCenter] postNotification:kNotificationPeerDisConnected];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPeerDisConnected object:self];
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     self.chatSession.delegate = nil;
     self.chatSession = nil;
@@ -115,7 +115,7 @@
     
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     //let everyone know we are connected!
-    [[NSNotificationCenter defaultCenter] postNotification:kNotificationPeerConnected];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPeerConnected object:self];
     NSLog(@"peer connected: %@", peerID);
     [picker dismiss];
 }
