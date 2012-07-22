@@ -75,7 +75,8 @@
         frame.origin.x = frame.size.width * page;
         frame.origin.y = 0;
         themedView = [MJThemedView viewWithTheme:page andFrame:frame];
-        [themedView.delegates addObject:self.audioIn];
+        //DS deprecated
+//        [themedView.delegates addObject:self.audioIn];
         [self.themedViews insertObject:themedView atIndex:page];
         [self.scrollView addSubview:themedView];
     }

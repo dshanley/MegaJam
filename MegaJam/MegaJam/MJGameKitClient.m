@@ -143,6 +143,7 @@
                 
             case GKPeerStateConnected:
                 NSLog(@"GKPeerStateConnected");
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPeerConnected object:self];
                 break;
                 
             case GKPeerStateDisconnected:
