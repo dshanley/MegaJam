@@ -18,14 +18,23 @@ typedef enum {
     MJThemeCharcoal
 } MJTheme;
 
+
+typedef enum {
+    MJThemedViewStateNone,
+    MJThemedViewStatePlaying,
+    MJThemedViewStatePaused
+} MJThemedViewState;
+
 @interface MJThemedView : UIView {
-    id <MJPlayPauseDelegate> delegate;
+
 }
-@property (nonatomic, assign)id <MJPlayPauseDelegate> delegate;
+
 @property (nonatomic, strong) UIButton *pauseButton;
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) UIView *rotatorPlate;
 @property (nonatomic, strong) UIView *backgroundPlate;
+@property (nonatomic, assign) MJThemedViewState currentState;
+@property (nonatomic, strong) NSMutableArray *delegates; /* MJPlayPauseDelegates quick hack should have accessors*/
 
 + (MJThemedView *)viewWithTheme:(MJTheme)theme andFrame:(CGRect)frame;
 
