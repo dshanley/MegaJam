@@ -45,7 +45,7 @@
     if (self.status == MJNetworkStatusSeeking) return;
     
     //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [self.bonjourBrowser searchForServicesOfType:@"_MJServerTEST._udp." inDomain:@""];
+        [self.bonjourBrowser searchForServicesOfType:@"_MJServer._udp." inDomain:@""];
     //});
 }
 
@@ -98,7 +98,6 @@
 #pragma mark UDP Socket
 
 - (void)setupSocketWithNetService:(NSNetService *)service {
-    
     AsyncUdpSocket *socket = [[AsyncUdpSocket alloc] initWithDelegate:self];
     
     NSData *anAddress = [service.addresses objectAtIndex:0];
@@ -107,7 +106,7 @@
     struct sockaddr anAddrValue;
     [valueForAddy getValue:&anAddrValue];
     
-  //  [socket bindToAddress:<#(NSString *)#> port:(UInt16)anAddrValue.ad error:<#(NSError *__autoreleasing *)#>]
+    //  [socket bindToAddress:<#(NSString *)#> port:(UInt16)anAddrValue.ad error:<#(NSError *__autoreleasing *)#>]
     
     int debug = 1;
     //[socket bindToAddress port:service.port error:nil];

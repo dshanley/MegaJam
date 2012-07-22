@@ -15,6 +15,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    MJNetworkClient *client = [[MJNetworkClient alloc] init];
+    [client findMegaJams];
+    self.client = client;
+    
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+   
+    
     return YES;
 }
 							

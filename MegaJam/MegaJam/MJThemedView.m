@@ -37,7 +37,6 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.controller = [[MJViewController alloc] init];
     }
     return self;
 }
@@ -80,7 +79,7 @@
     //Volume Slider
     CGRect frame = CGRectMake(40, 270, 240, 10);
     UISlider *volumeSlider = [[UISlider alloc] initWithFrame:frame];
-    [volumeSlider addTarget:self.controller action:@selector(adjustVolume:) forControlEvents:UIControlEventValueChanged];
+   // [volumeSlider addTarget:self.controller action:@selector(adjustVolume:) forControlEvents:UIControlEventValueChanged];
     [volumeSlider setBackgroundColor:[UIColor clearColor]];
     volumeSlider.minimumValue = 0.0;
     volumeSlider.maximumValue = 100.0;

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJViewController.h"
+
 
 typedef enum {
 	MJThemeRed, 
@@ -18,8 +18,6 @@ typedef enum {
 } MJTheme;
 
 @interface MJThemedView : UIView
-
-@property (nonatomic, strong) MJViewController *controller;
 
 + (MJThemedView *)viewWithTheme:(MJTheme)theme andFrame:(CGRect)frame;
 
