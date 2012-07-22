@@ -108,7 +108,7 @@ static BOOL isOn = FALSE;
         frame.origin.y = 0;
         themedView = [MJThemedView viewWithTheme:page andFrame:frame];
         //DS deprecated
-//        [themedView.delegates addObject:self.audioIn];
+        [themedView.delegates addObject:self];
         [self.themedViews insertObject:themedView atIndex:page];
         [self.scrollView addSubview:themedView];
     } else [self.scrollView addSubview:[self.themedViews objectAtIndex:0]];
