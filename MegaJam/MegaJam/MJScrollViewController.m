@@ -41,6 +41,7 @@ static BOOL isOn = FALSE;
 }
 
 - (void)loadView {
+    [super loadView];
     
     CGRect fullScreenRect = self.view.bounds;
     self.scrollView = [[UIScrollView alloc] initWithFrame:fullScreenRect];
@@ -51,6 +52,8 @@ static BOOL isOn = FALSE;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.delegate = self;
+    
+    [self.scrollView setContentOffset:CGPointMake(320.0, 0.0)];
     
     //load our switch view from nib
     UIView *switchView;
