@@ -37,14 +37,18 @@
     self.audioInitd = YES;
 }
 
-- (void)playingAudio:(BOOL)isPlaying {
-    
-    if (isPlaying) {
-        if (!self.audioInitd) [self startRecord];
-        else [[Novocaine audioManager] play];
-    } else {
-        [[Novocaine audioManager] pause];
-    }
+////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark MJPlayPauseDelegate
+
+- (void)playPauseDelegateDidPlay:(id)delegate {
+    if (!self.audioInitd) [self startRecord];
+    else [[Novocaine audioManager] play];
 }
+
+- (void)playPauseDelegateDidPause:(id)delegate {
+    [[Novocaine audioManager] pause];
+}
+
 
 @end

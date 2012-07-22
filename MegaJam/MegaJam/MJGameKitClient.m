@@ -9,6 +9,7 @@
 #import "MJGameKitClient.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "MJConstants.h"
 
 #define kMegaJamClientName @"MegaJam"
 #define kMegaJamServerName @"MegaJam Server"
@@ -82,6 +83,7 @@
 
 - (void)closeConnectionWithMessage:(NSString *)message {
     NSLog(@"closeConnection %@", message);
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPeerDisConnected object:self];
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     self.chatSession.delegate = nil;
     self.chatSession = nil;
@@ -112,6 +114,8 @@
                                                                             error:nil];
     
     [UIApplication sharedApplication].idleTimerDisabled = YES;
+    //let everyone know we are connected!
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPeerConnected object:self];
     NSLog(@"peer connected: %@", peerID);
     [picker dismiss];
 }

@@ -75,7 +75,7 @@
         frame.origin.x = frame.size.width * page;
         frame.origin.y = 0;
         themedView = [MJThemedView viewWithTheme:page andFrame:frame];
-        themedView.delegate = self.audioIn;
+        [themedView.delegates addObject:self.audioIn];
         [self.themedViews insertObject:themedView atIndex:page];
         [self.scrollView addSubview:themedView];
     }
@@ -105,7 +105,7 @@
 {
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        //[UIView setAnimationsEnabled:NO];
+//        [UIView setAnimationsEnabled:NO];
         return (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
     } else {
         return YES;
@@ -158,4 +158,50 @@
     }
 }
 
+
+////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark MJPlayPauseDelegate
+
+- (void)playPauseDelegateDidPlay:(id<MJPlayPauseDelegate>)delegate {
+    
+}
+
+- (void)playPauseDelegateDidPause:(id<MJPlayPauseDelegate>)delegate {
+    
+}
+
+
+
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

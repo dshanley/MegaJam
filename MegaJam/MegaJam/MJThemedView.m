@@ -34,7 +34,6 @@
 @end
 
 @implementation MJThemedView
-@synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -50,6 +49,11 @@
                                                    object:nil];
          
          */
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(peerConnected) name:kNotificationSocketDisconnected object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(peerDisconnected) name:kNotificationSocketDisconnected object:nil];
+        
+        self.delegates = [NSMutableArray array];
     }
     return self;
 }
@@ -210,11 +214,21 @@
     //setting up animation
     NSLog(@"Play Pressed... ");
     
-    if ([self.delegate respondsToSelector:@selector(playingAudio:)]) {
-        [self.delegate playingAudio:true];
+    if (self.currentState == MJThemedViewStatePlaying) return;
+    
+    self.currentState = MJThemedViewStatePlaying;
+    //disable the button
+    self.playButton.enabled = NO;
+    
+    
+    for (id<MJPlayPauseDelegate>delegate in _delegates) {
+        if ([delegate respondsToSelector:@selector(playPauseDelegateDidPlay:)]) {
+            [delegate playPauseDelegateDidPlay:self];
+        }
     }
     
     self.pauseButton.selected = NO;
+    self.pauseButton.enabled = YES;
     self.playButton.selected = YES;
     
     [self chooseRandomGrill];
@@ -227,19 +241,25 @@
 - (void)pausePressed {
     NSLog(@"Pause Pressed...");
     
+    if (self.currentState == MJThemedViewStatePaused) return;
+    
+    self.currentState = MJThemedViewStatePaused;
+    //disable the button
+    self.pauseButton.enabled = NO;
+    
+    for (id<MJPlayPauseDelegate>delegate in _delegates) {
+        if ([delegate respondsToSelector:@selector(playPauseDelegateDidPlay:)]) {
+            [delegate playPauseDelegateDidPlay:self];
+        }
+    }
+    
     MJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate.gkClient showPicker];
     
-    if ([self.delegate respondsToSelector:@selector(playingAudio:)]) {
-        [self.delegate playingAudio:false];
-    }
-    
-    if ([self.delegate respondsToSelector:@selector(playingAudio:)]) {
-        [self.delegate playingAudio:false];
-    }
-    
+        
     self.pauseButton.selected = YES;
     self.playButton.selected = NO;
+    self.playButton.enabled = YES;
 
     [self bluetoothOffEffect];
     //[self.controller playAudioThroughSpeakerWithName:@"button.mp3"];
@@ -392,11 +412,20 @@
 }
 
 - (void)socketConnected {
-    [self bluetoothOnEffect];
+    NSLog(@"socket connected");
 }
 
 - (void)socketDisconnected {
+    NSLog(@"socket disconnected");
+}
+
+- (void)peerConnected {
+    [self bluetoothOnEffect];
+}
+
+- (void)peerDisconnected {
     [self bluetoothOffEffect];
 }
+
 
 @end

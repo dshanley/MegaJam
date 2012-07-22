@@ -10,6 +10,9 @@
 
 @protocol MJPlayPauseDelegate <NSObject>
 
-- (void)playingAudio:(BOOL)isPlaying;
+@optional
+
+- (void)playPauseDelegateDidPlay:(id)delegate;
+- (void)playPauseDelegateDidPause:(id)delegate;
 
 @end
