@@ -13,11 +13,11 @@
 #import <AVFoundation/AVFoundation.h>
 
 typedef enum {
-	MJThemeRed, 
-	MJThemeBlue,
-    MJThemeGreen,
-    MJThemeStone,
-    MJThemeCharcoal
+	MJThemeRed = 1,
+	MJThemeBlue = 2,
+    MJThemeGreen = 3,
+    MJThemeStone = 4,
+    MJThemeCharcoal = 5
 } MJTheme;
 
 

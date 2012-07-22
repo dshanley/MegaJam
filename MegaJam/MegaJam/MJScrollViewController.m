@@ -81,6 +81,10 @@ static BOOL isOn = FALSE;
     
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
+    [self loadScrollViewWithPage:2];
+    [self loadScrollViewWithPage:3];
+    [self loadScrollViewWithPage:4];
+    [self loadScrollViewWithPage:5];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -124,16 +128,16 @@ static BOOL isOn = FALSE;
     int page = floor((self.scrollView.contentOffset.x - 320 / 2) / 320) + 1;
 
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-    [self loadScrollViewWithPage:page - 1];
-    [self loadScrollViewWithPage:page];
-    [self loadScrollViewWithPage:page + 1];
-    
-    //TODO: optimize orientation issues in some other way then constantly reloading everything.
-    //Tripple checking things are in correct orientation
-    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if (orientation == UIDeviceOrientationPortraitUpsideDown) {
-        [self makeUpsideDown];
-    }else [self makeRightSideUp];
+//    [self loadScrollViewWithPage:page - 1];
+//    [self loadScrollViewWithPage:page];
+//    [self loadScrollViewWithPage:page + 1];
+//    
+//    //TODO: optimize orientation issues in some other way then constantly reloading everything.
+//    //Tripple checking things are in correct orientation
+//    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+//    if (orientation == UIDeviceOrientationPortraitUpsideDown) {
+//        [self makeUpsideDown];
+//    }else [self makeRightSideUp];
     
     // A possible optimization would be to unload the views+controllers which are no longer visible
 }
