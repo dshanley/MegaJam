@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "MJPlayPauseDelegate.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 
 typedef enum {
 	MJThemeRed, 

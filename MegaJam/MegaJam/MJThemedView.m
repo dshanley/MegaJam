@@ -14,6 +14,8 @@
 #import "MJConstants.h"
 #import "MJAppDelegate.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+
 #define kNumberOfGrills     3
 
 @interface MJThemedView ()
@@ -24,6 +26,8 @@
 @property (nonatomic, strong) UIImageView *bluetoothImageOn;
 @property (nonatomic, strong) UIImageView *bluetoothImageWhite;
 @property (nonatomic, strong) UITapGestureRecognizer *singleTapRecognizer;
+@property (nonatomic, strong) MPVolumeView *volumeView;
+@property (nonatomic, strong) UISlider *volumeSlider;
 
 - (void)handleSingleTap;
 
@@ -37,6 +41,15 @@
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(socketConnected) name:kNotificationSocketConnected object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(socketDisconnected) name:kNotificationSocketDisconnected object:nil];
+        
+        /* Not needed unless we want to use the volume for something later
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(volumeChanged:)
+                                                     name:@"AVSystemController_SystemVolumeDidChangeNotification"
+                                                   object:nil];
+         
+         */
     }
     return self;
 }
@@ -90,12 +103,17 @@
     
     [self.rotatorPlate addSubview:self.pauseButton];
     
-    //Volume slider init
-    CGRect frame = CGRectMake(40, 270, 240, 10);
-    UISlider *volumeSlider = [[UISlider alloc] initWithFrame:frame];
     
-    [volumeSlider setBackgroundColor:[UIColor clearColor]];
-    //[volumeSlider addTarget:self.controller action:@selector(adjustVolume:) forControlEvents:UIControlEventValueChanged];
+    
+    self.volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(40, 270, 240, 10)];
+    self.volumeView.showsRouteButton = NO;
+    
+    UISlider *volumeSlider;
+    
+    // Finding the MPVolumeView's UISlider in the view hierarchy and having our way with it...ohhhh baby!
+    for (UIView *view in [self.volumeView subviews])
+        if ([[[view class] description] isEqualToString:@"MPVolumeSlider"]) volumeSlider = (UISlider *)view;
+
     volumeSlider.minimumValue = 0.0;
     volumeSlider.maximumValue = 1.0;
     volumeSlider.value = 0.25;
@@ -113,7 +131,7 @@
     [volumeSlider setThumbImage:thumbImage forState:UIControlStateNormal];
     [volumeSlider setThumbImage:thumbImage forState:UIControlStateHighlighted];
     
-    [self.rotatorPlate addSubview:volumeSlider];
+    [self.rotatorPlate addSubview:self.volumeView];
     
     //Volume icons
     UIImageView *volumeIconLow = [[UIImageView alloc] initWithFrame:CGRectMake(19, 269, 26, 26)];
@@ -123,7 +141,6 @@
     UIImageView *volumeIconHigh = [[UIImageView alloc] initWithFrame:CGRectMake(282, 269, 26, 26)];
     volumeIconHigh.image = [UIImage imageNamed:@"gr-volume-high"];
     [self.rotatorPlate addSubview:volumeIconHigh];
-    
     
     //bluetooth symbol
     self.bluetoothImageOff = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
@@ -163,10 +180,33 @@
     
     //Hide active grill
     [self makeViewInvisible:self.grillActive];
-    
 }
 
+/*
+    We don't need this now since we're actually modifying the MPVolumeView directly
+ 
+- (void) volumeChanged:(NSNotification *)notify
+{
+    UISlider *volumeViewSlider;
+    
+    // Find the MPVolumeSlider
+    for (UIView *view in [self.volumeView subviews])
+    {
+        if ([[[view class] description] isEqualToString:@"MPVolumeSlider"])
+        {
+            volumeViewSlider = (UISlider *)view;
+        }
+    }
+    
+    NSLog(@"value: %f", volumeViewSlider.value);
+    
+    self.volumeSlider.value = volumeViewSlider.value;
+}
+*/
+
 - (void)playPressed {
+//    if (self.audioPlayer) NSLog(@"volume changed: %f", self.audioPlayer.volume);
+    
     //setting up animation
     NSLog(@"Play Pressed... ");
     
