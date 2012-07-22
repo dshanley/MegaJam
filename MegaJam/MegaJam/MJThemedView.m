@@ -166,7 +166,9 @@
     [self chooseRandomGrill];
     [self bluetoothOnEffect];
     
-//  [self.controller playAudio];
+    [self.controller playAudio];
+    [self.controller playAudioThroughSpeakerWithName:@"button-46.mp3"];
+
   
 }
 
@@ -184,6 +186,7 @@
     self.playButton.selected = NO;
 
     [self bluetoothOffEffect];
+    [self.controller playAudioThroughSpeakerWithName:@"quick-blip.mp3"];
 }
 
 + (MJThemedView *)viewWithTheme:(MJTheme)theme andFrame:(CGRect)frame {

@@ -37,6 +37,7 @@
     
     //Vibrate
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    [self playAudioThroughSpeakerWithName:@"CinematicBoom.mp3"];
     
     MJAudio *audioObject = [[MJAudio alloc] init];
     [audioObject configureAndInitializeAudioProcessingGraph];
@@ -78,6 +79,14 @@
                                              );
      */
    // NSLog(@"status = %x", stat);    // problem if this is not zero
+    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;  
+    
+    AudioSessionSetProperty (
+                             kAudioSessionProperty_OverrideAudioRoute,                         
+                             sizeof (audioRouteOverride),                                      
+                             &audioRouteOverride                                               
+                             );
+    
     
     // check the audio route
     UInt32 size = sizeof(CFStringRef);
@@ -93,7 +102,7 @@
     SystemSoundID   soundFileObject;
     //soundFileURLRef  = CFBundleCopyResourceURL (mainBundle,CFSTR ("you_talkin"),CFSTR ("wav"),NULL);
     NSString *const resourceDir = [[NSBundle mainBundle] resourcePath];
-    NSString *const fullPath = [resourceDir stringByAppendingPathComponent:@"you_talkin.aiff"];
+    NSString *const fullPath = [resourceDir stringByAppendingPathComponent:@"multimedia_button_click_029.mp3"];
     NSURL *const url = [NSURL fileURLWithPath:fullPath];
     //BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:url.absoluteString];
     NSError *error = nil;
@@ -121,6 +130,39 @@ static void playSoundFinished (SystemSoundID soundID, void *data) {
     //Cleanup
     AudioServicesRemoveSystemSoundCompletion(soundID);
     AudioServicesDisposeSystemSoundID(soundID);
+}
+
+- (void)playAudioThroughSpeakerWithName:(NSString *)fileName {
+    NSLog(@"Playing Audio");
+    // create and set up the audio session
+    AVAudioSession* audioSession = [AVAudioSession sharedInstance];
+    [audioSession setDelegate:self];
+    
+    NSError *setupError = nil;
+    [audioSession setCategory: AVAudioSessionCategoryPlayAndRecord error:&setupError];
+    
+    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+    
+    AudioSessionSetProperty (
+                             kAudioSessionProperty_OverrideAudioRoute,
+                             sizeof (audioRouteOverride),
+                             &audioRouteOverride
+                             );
+    
+    // now, play a quick sound we put in the bundle (bomb.wav)
+    CFBundleRef mainBundle = CFBundleGetMainBundle();
+    CFURLRef        soundFileURLRef;
+    SystemSoundID   soundFileObject;
+    NSString *const resourceDir = [[NSBundle mainBundle] resourcePath];
+    NSString *const fullPath = [resourceDir stringByAppendingPathComponent:fileName];
+    NSURL *const url = [NSURL fileURLWithPath:fullPath];
+    NSError *error = nil;
+    BOOL exists = [url checkResourceIsReachableAndReturnError:&error];
+    OSStatus err = AudioServicesCreateSystemSoundID ((__bridge CFURLRef)url,&soundFileObject);
+    NSError *playError = [NSError errorWithDomain:NSOSStatusErrorDomain code:err userInfo:nil];
+    AudioServicesPlaySystemSound (soundFileObject);     // should play into headset
+    
+    AudioServicesAddSystemSoundCompletion(soundFileObject, NULL, NULL, playSoundFinished, (__bridge_retained void *)self);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////

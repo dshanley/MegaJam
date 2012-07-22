@@ -14,5 +14,6 @@
 @property (nonatomic, unsafe_unretained) int viewTheme;
 
 - (void)playAudio;
+- (void)playAudioThroughSpeakerWithName:(NSString *)fileName;
 
 @end
