@@ -237,6 +237,10 @@
     [self chooseRandomGrill];
     [self bluetoothOnEffect];
     
+    //DS shitty hack - fix the delegates
+    MJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.gkClient setMuted:NO];
+    
    // [self.controller playAudio];
     //[self.controller playAudioThroughSpeakerWithName:@"button.mp3"];
 }
@@ -257,6 +261,9 @@
     self.pauseButton.selected = YES;
     self.playButton.selected = NO;
 
+    MJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.gkClient setMuted:YES];
+    
 
     [self bluetoothOffEffect];
     //[self.controller playAudioThroughSpeakerWithName:@"button.mp3"];
