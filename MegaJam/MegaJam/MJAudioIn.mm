@@ -10,16 +10,16 @@
 
 @implementation MJAudioIn
 
-- (id)init {
-    self = [super init];
-    
-    if (self) {
-        _networkClient = [[MJNetworkClient alloc] init];
-        _audioInitd = NO;
-    }
-    
-    return self;
-}
+//- (id)init {
+//    self = [super init];
+//    
+//    if (self) {
+//        _networkClient = [[MJNetworkClient alloc] init];
+//        _audioInitd = NO;
+//    }
+//    
+//    return self;
+//}
 
 - (void)startRecord {
     

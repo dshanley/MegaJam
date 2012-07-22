@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MJScrollViewController.h"
+#import "MJGameKitClient.h"
 
 #import "MJAudioIn.h"
 
@@ -16,5 +17,6 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (nonatomic, strong) MJScrollViewController *scrollViewController;
+@property (nonatomic, strong) MJGameKitClient *gkClient;
 
 @end

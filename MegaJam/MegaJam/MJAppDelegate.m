@@ -32,8 +32,10 @@ void uncaughtException(NSException *exception) {
     self.scrollViewController = [[MJScrollViewController alloc] init];
     self.window.rootViewController = self.scrollViewController;
 	[self.window makeKeyAndVisible];
-    
 
+    self.gkClient = [[MJGameKitClient alloc] init];
+    [_gkClient startUp];
+    
     return YES;
 }
 							
@@ -56,7 +58,7 @@ void uncaughtException(NSException *exception) {
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

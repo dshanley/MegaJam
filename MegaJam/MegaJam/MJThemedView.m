@@ -10,8 +10,9 @@
 //Graphics: -bgk, -grill-flat, -grill-active, -play-up, -play-down, -pause-up, -pause-down
 
 #import "MJThemedView.h"
-#import "MJConstants.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MJConstants.h"
+#import "MJAppDelegate.h"
 
 #define kNumberOfGrills     3
 
@@ -185,6 +186,10 @@
 
 - (void)pausePressed {
     NSLog(@"Pause Pressed...");
+    
+    MJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.gkClient showPicker];
+    
     if ([self.delegate respondsToSelector:@selector(playingAudio:)]) {
         [self.delegate playingAudio:false];
     }
