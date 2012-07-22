@@ -26,6 +26,8 @@ static BOOL isOn = FALSE;
 @property (strong, nonatomic) UIImageView *bluetoothImageOff;
 @property (strong, nonatomic) UIImageView *bluetoothImageWhite;
 
+- (void)toggleOff;
+
 @end
 
 @implementation MJScrollViewController
@@ -38,6 +40,7 @@ static BOOL isOn = FALSE;
             [self.themedViews addObject:[NSNull null]];
             
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didConnect) name:kNotificationPeerConnected object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleOff) name:kNotificationClientCanceled object:nil];
         }
     }
     return self;
@@ -247,6 +250,15 @@ static BOOL isOn = FALSE;
     strobeAnimation.fromValue = [NSNumber numberWithFloat:1.0];
     strobeAnimation.toValue = [NSNumber numberWithFloat:0.25];
     [view.layer addAnimation:strobeAnimation forKey:@"animateImage"];
+}
+
+- (void)toggleOff {
+    [self makeViewVisible:self.rockerOff.imageView];
+    [self makeViewVisible:self.bluetoothImageOff];
+    [self makeViewInvisible:self.bluetoothImageWhite];
+    [self makeViewInvisible:self.bluetoothImageOn];
+    isOn = FALSE;
+    [self playAudioThroughSpeakerWithName:@"button.mp3"];
 }
 
 - (IBAction)toggleOnOff:(UIButton *)sender {
