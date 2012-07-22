@@ -112,6 +112,8 @@
                                                                             error:nil];
     
     [UIApplication sharedApplication].idleTimerDisabled = YES;
+    NSLog(@"peer connected: %@", peerID);
+    [picker dismiss];
 }
 
 - (void)peerPickerControllerDidCancel:(GKPeerPickerController *)picker {

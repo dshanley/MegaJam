@@ -105,7 +105,7 @@
 {
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        [UIView setAnimationsEnabled:NO];
+        //[UIView setAnimationsEnabled:NO];
         return (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
     } else {
         return YES;
