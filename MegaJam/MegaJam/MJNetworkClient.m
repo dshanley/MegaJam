@@ -42,17 +42,21 @@
 }
 
 - (void)sendData:(float *)data {
+    
+    
     size_t dataSize = sizeof(data);
     size_t floatSize = sizeof(float);
     
-    NSData *toSend = [NSData dataWithBytes:&data length:(NSUInteger)dataSize];
+    NSData *toSend = [NSData dataWithBytes:data length:(NSUInteger)dataSize];
     NSTimeInterval unixTimeInterval = [[NSDate date] timeIntervalSince1970];
-    long tag = (long)unixTimeInterval;
     float theData = *data;
     
-    NSLog(@"DOWN THE WIRE: data=%f | tag=%l", theData, tag);
-    //[self.socket sendData:toSend toAddress:self.socketAddress withTimeout:1.0 tag:tag];
-    [self.socket sendData:[@"ASPARAGUS" dataUsingEncoding:NSUTF8StringEncoding] toAddress:self.socketAddress withTimeout:1.0 tag:1234];
+    NSLog(@"DOWN THE WIRE: data=%f | tag=%f", theData, unixTimeInterval);
+    dispatch_async(dispatch_get_main_queue(), ^ {
+        [self.socket sendData:toSend toAddress:self.socketAddress withTimeout:1.0 tag:unixTimeInterval];
+    });
+    
+     
 }
 
 #pragma mark -
@@ -122,11 +126,12 @@
     if (!service.addresses.count >= 1) {
         [NSException raise:NSInternalInconsistencyException format:@"Has to be addys"];
     }
-    
+    /*
     for (NSData *data in service.addresses) {
         NSString *string = [self readableAddressWithData:data];
         int debug = 1;
     }
+     */
     NSData *anAddress = [service.addresses objectAtIndex:0];
     
     self.socketAddress = anAddress;
@@ -148,7 +153,7 @@
 }
 
 - (void)onUdpSocket:(AsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error {
-    
+    NSLog(@"Sending FAIL");
 }
 
 - (void)onUdpSocket:(AsyncUdpSocket *)sock didSendDataWithTag:(long)tag {
@@ -171,10 +176,9 @@
     struct sockaddr addy;
     
     [value getValue:&addy];
-    const char *constString = (const char *)&addy.sa_data;
-   // NSString *toReturn = [NSString stringWithCharacters:&addy.sa_data length:sizeof(&addy.sa_data)/sizeof(char)];
-    //NSString *toReturn = [[NSString alloc] initWithBytes:&addy.sa_data length:14 encoding:NSUTF8StringEncoding];
-    NSString *toReturn = [[NSString alloc] initWithCString:constString encoding:NSUTF8StringEncoding];
+    const char *constString = NULL;
+
+    NSString *toReturn = [NSString stringWithUTF8String:addy.sa_data];
     return toReturn;
 }
 

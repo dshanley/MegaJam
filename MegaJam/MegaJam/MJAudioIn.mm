@@ -27,6 +27,7 @@
     Novocaine *audioManager = [Novocaine audioManager];
     
     audioManager.numInputChannels = 1;
+    [audioManager checkSessionProperties];
     
     __block MJNetworkClient *clientPtr = self.networkClient;
     
