@@ -41,7 +41,7 @@ static BOOL isOn = FALSE;
 }
 
 - (void)loadView {
-    [super loadView];
+    
     CGRect fullScreenRect = self.view.bounds;
     self.scrollView = [[UIScrollView alloc] initWithFrame:fullScreenRect];
     
@@ -125,12 +125,10 @@ static BOOL isOn = FALSE;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        //[UIView setAnimationsEnabled:NO];
-        return (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
-    } else {
+    if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
         return YES;
+    } else {
+        return NO;
     }
 }
 
