@@ -84,10 +84,10 @@
 
 - (void)setMuted:(BOOL)isMuted {
     if (!_isMuted) {
-        self.isMuted = YES;
+        _isMuted = YES;
         [[GKVoiceChatService defaultVoiceChatService] setMicrophoneMuted:YES];
     } else {
-        self.isMuted = NO;
+        _isMuted = NO;
         [[GKVoiceChatService defaultVoiceChatService] setMicrophoneMuted:NO];
     }
 }
