@@ -11,6 +11,7 @@
 #import "MJAudioIn.h"
 
 @interface MJScrollViewController : UIViewController <UIScrollViewDelegate>
+- (IBAction)toggleOnOff:(UIButton *)sender;
 
 @property (nonatomic, strong) MJAudioIn *audioIn;
 

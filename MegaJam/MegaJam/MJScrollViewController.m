@@ -7,14 +7,23 @@
 //
 
 #import "MJScrollViewController.h"
-
 #import "MJConstants.h"
+#import <QuartzCore/QuartzCore.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVAudioSession.h>
+
+static BOOL isOn = FALSE;
 
 #define kNumberOfPages  5
 
 @interface MJScrollViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *themedViews;
+
+@property (strong, nonatomic) UIButton *rockerOff;
+@property (strong, nonatomic) UIImageView *bluetoothImageOn;
+@property (strong, nonatomic) UIImageView *bluetoothImageOff;
+@property (strong, nonatomic) UIImageView *bluetoothImageWhite;
 
 @end
 
@@ -42,6 +51,19 @@
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.delegate = self;
+    
+    //load our switch view from nib
+    UIView *switchView;
+    NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"MJSwitchView" owner:self options:nil];
+    if (nibArray) {
+        switchView = [nibArray objectAtIndex:0];
+        self.rockerOff = (UIButton *)[switchView viewWithTag:50];
+        [self.rockerOff addTarget:self action:@selector(toggleOnOff:) forControlEvents:UIControlEventTouchUpInside];
+        self.bluetoothImageOff = (UIImageView *)[switchView viewWithTag:60];
+        self.bluetoothImageOn = (UIImageView *)[switchView viewWithTag:61];
+        self.bluetoothImageWhite = (UIImageView *)[switchView viewWithTag:62];
+    }
+    [self.themedViews insertObject:switchView atIndex:0];
     
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
@@ -157,5 +179,105 @@
         }
     }
 }
+
+
+////////////
+//MJSwitchView
+- (void)makeViewInvisible:(UIImageView *)view {
+    CABasicAnimation *hideAnimation;
+    hideAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    hideAnimation.duration = 0.0;
+    hideAnimation.repeatCount = 0;
+    hideAnimation.autoreverses = NO;
+    hideAnimation.fromValue = [NSNumber numberWithFloat:0.0];
+    hideAnimation.toValue = [NSNumber numberWithFloat:0.0];
+    hideAnimation.fillMode = kCAFillModeForwards;
+    hideAnimation.removedOnCompletion = NO;
+    [view.layer addAnimation:hideAnimation forKey:@"animateImage"];
+    
+}
+
+- (void)makeViewVisible:(UIImageView *)view {
+    CABasicAnimation *showAnimation;
+    showAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    showAnimation.duration = 0.0;
+    showAnimation.repeatCount = 0;
+    showAnimation.autoreverses = NO;
+    showAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    showAnimation.toValue = [NSNumber numberWithFloat:1.0];
+    showAnimation.fillMode = kCAFillModeForwards;
+    showAnimation.removedOnCompletion = NO;
+    [view.layer addAnimation:showAnimation forKey:@"animateImage"];
+    
+}
+
+- (void)makeViewStrobe:(UIImageView *)view {
+    CABasicAnimation *strobeAnimation;
+    strobeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    strobeAnimation.duration = 1.0;
+    strobeAnimation.repeatCount = MAXFLOAT;
+    strobeAnimation.autoreverses = YES;
+    strobeAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+    strobeAnimation.toValue = [NSNumber numberWithFloat:0.25];
+    [view.layer addAnimation:strobeAnimation forKey:@"animateImage"];
+}
+
+- (IBAction)toggleOnOff:(UIButton *)sender {
+    if (isOn) {
+        [self makeViewVisible:self.rockerOff.imageView];
+        [self makeViewVisible:self.bluetoothImageOff];
+        [self makeViewInvisible:self.bluetoothImageWhite];
+        [self makeViewInvisible:self.bluetoothImageOn];
+        isOn = FALSE;
+    } else {
+        [self makeViewInvisible:self.rockerOff.imageView];
+        [self makeViewVisible:self.bluetoothImageWhite];
+        [self makeViewStrobe:self.bluetoothImageOn];
+        [self makeViewInvisible:self.bluetoothImageOff];
+        isOn = TRUE;
+    }
+    [self playAudioThroughSpeakerWithName:@"button.mp3"];
+}
+
+- (void)playAudioThroughSpeakerWithName:(NSString *)fileName {
+    NSLog(@"Playing Audio");
+    // create and set up the audio session
+    AVAudioSession* audioSession = [AVAudioSession sharedInstance];
+    [audioSession setDelegate:self];
+    
+    NSError *setupError = nil;
+    [audioSession setCategory: AVAudioSessionCategoryPlayAndRecord error:&setupError];
+    
+    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+    
+    AudioSessionSetProperty (
+                             kAudioSessionProperty_OverrideAudioRoute,
+                             sizeof (audioRouteOverride),
+                             &audioRouteOverride
+                             );
+    
+    // now, play a quick sound we put in the bundle (bomb.wav)
+    CFBundleRef mainBundle = CFBundleGetMainBundle();
+    CFURLRef        soundFileURLRef;
+    SystemSoundID   soundFileObject;
+    NSString *const resourceDir = [[NSBundle mainBundle] resourcePath];
+    NSString *const fullPath = [resourceDir stringByAppendingPathComponent:fileName];
+    NSURL *const url = [NSURL fileURLWithPath:fullPath];
+    NSError *error = nil;
+    BOOL exists = [url checkResourceIsReachableAndReturnError:&error];
+    OSStatus err = AudioServicesCreateSystemSoundID ((__bridge CFURLRef)url,&soundFileObject);
+    NSError *playError = [NSError errorWithDomain:NSOSStatusErrorDomain code:err userInfo:nil];
+    AudioServicesPlaySystemSound (soundFileObject);     // should play into headset
+    
+    AudioServicesAddSystemSoundCompletion(soundFileObject, NULL, NULL, playSoundFinished, (__bridge_retained void *)self);
+}
+
+static void playSoundFinished (SystemSoundID soundID, void *data) {
+    //Cleanup
+    AudioServicesRemoveSystemSoundCompletion(soundID);
+    AudioServicesDisposeSystemSoundID(soundID);
+}
+
+
 
 @end
