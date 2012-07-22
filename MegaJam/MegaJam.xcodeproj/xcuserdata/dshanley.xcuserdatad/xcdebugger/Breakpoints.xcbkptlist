@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MegaJam/MJThemedView.m"
-         timestampString = "364675910.507917"
+         timestampString = "364677533.217309"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "423"
-         endingLineNumber = "423"
+         startingLineNumber = "420"
+         endingLineNumber = "420"
          landmarkName = "-peerConnected"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,12 +47,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MegaJam/MJThemedView.m"
-         timestampString = "364675911.454822"
+         timestampString = "364677533.217309"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "427"
-         endingLineNumber = "427"
+         startingLineNumber = "424"
+         endingLineNumber = "424"
          landmarkName = "-peerDisconnected"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MegaJam/MJGameKitClient.m"
+         timestampString = "364677745.537304"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "78"
+         endingLineNumber = "78"
+         landmarkName = "-showPicker"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -12,6 +12,9 @@
 
 @interface MJScrollViewController : UIViewController <UIScrollViewDelegate, MJPlayPauseDelegate>
 
+- (void)toggleOnOff:(UIButton *)sender;
+
+
 @property (nonatomic, strong) MJAudioIn *audioIn;
 
 @end
