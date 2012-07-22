@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVAudioSession.h>
+#import "MJAppDelegate.h"
 
 static BOOL isOn = FALSE;
 
@@ -248,11 +249,15 @@ static BOOL isOn = FALSE;
         [self makeViewInvisible:self.bluetoothImageOn];
         isOn = FALSE;
     } else {
+        //off
         [self makeViewInvisible:self.rockerOff.imageView];
         [self makeViewVisible:self.bluetoothImageWhite];
         [self makeViewStrobe:self.bluetoothImageOn];
         [self makeViewInvisible:self.bluetoothImageOff];
         isOn = TRUE;
+        //look for net clients
+        MJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        [appDelegate.gkClient performSelector:@selector(showPicker) withObject:nil afterDelay:1];
     }
     [self playAudioThroughSpeakerWithName:@"button.mp3"];
 }

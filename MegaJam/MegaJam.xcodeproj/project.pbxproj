@@ -36,6 +36,7 @@
 		29BFA06515BC5F81005E1978 /* red-slider-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29BFA05315BC5F81005E1978 /* red-slider-handle@2x.png */; };
 		29BFA06615BC5F81005E1978 /* stone-slider-handle.png in Resources */ = {isa = PBXBuildFile; fileRef = 29BFA05415BC5F81005E1978 /* stone-slider-handle.png */; };
 		29BFA06715BC5F81005E1978 /* stone-slider-handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29BFA05515BC5F81005E1978 /* stone-slider-handle@2x.png */; };
+		5A00547815BC8856001FC92E /* MJSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A00547715BC8856001FC92E /* MJSwitchView.xib */; };
 		5AA8BFEA15BBE8110090250E /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA8BFE915BBE8110090250E /* GameKit.framework */; };
 		5AA8BFEE15BBE8490090250E /* MJGameKitClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA8BFED15BBE8490090250E /* MJGameKitClient.m */; };
 		5AF4C54615A81ED00055D1A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF4C54515A81ED00055D1A0 /* UIKit.framework */; };
@@ -184,6 +185,7 @@
 		29BFA05315BC5F81005E1978 /* red-slider-handle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-slider-handle@2x.png"; sourceTree = "<group>"; };
 		29BFA05415BC5F81005E1978 /* stone-slider-handle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stone-slider-handle.png"; sourceTree = "<group>"; };
 		29BFA05515BC5F81005E1978 /* stone-slider-handle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stone-slider-handle@2x.png"; sourceTree = "<group>"; };
+		5A00547715BC8856001FC92E /* MJSwitchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJSwitchView.xib; sourceTree = "<group>"; };
 		5AA8BFE915BBE8110090250E /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		5AA8BFEC15BBE8490090250E /* MJGameKitClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJGameKitClient.h; sourceTree = "<group>"; };
 		5AA8BFED15BBE8490090250E /* MJGameKitClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJGameKitClient.m; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 		5AF4C54B15A81ED00055D1A0 /* MegaJam */ = {
 			isa = PBXGroup;
 			children = (
+				5A00547715BC8856001FC92E /* MJSwitchView.xib */,
 				F488E33815BA73A0007B6A0B /* external_source */,
 				F478BD4915BBBDF900EE427E /* MJPlayPauseDelegate.h */,
 				F488E31215BA568E007B6A0B /* MJConstants.h */,
@@ -797,6 +800,7 @@
 				297FD9BE15BC838E00150497 /* mjs-rocker-off@2x.png in Resources */,
 				297FD9BF15BC838E00150497 /* mjs-rocker-on.png in Resources */,
 				297FD9C015BC838E00150497 /* mjs-rocker-on@2x.png in Resources */,
+				5A00547815BC8856001FC92E /* MJSwitchView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
