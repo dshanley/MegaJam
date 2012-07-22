@@ -36,6 +36,8 @@ static BOOL isOn = FALSE;
         self.themedViews = [[NSMutableArray alloc] initWithCapacity:kNumberOfPages];
         for (int i = 0; i < kNumberOfPages; ++i) {
             [self.themedViews addObject:[NSNull null]];
+            
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didConnect) name:kNotificationPeerConnected object:nil];
         }
     }
     return self;
@@ -293,6 +295,15 @@ static BOOL isOn = FALSE;
     AudioServicesPlaySystemSound (soundFileObject);     // should play into headset
     
     AudioServicesAddSystemSoundCompletion(soundFileObject, NULL, NULL, playSoundFinished, (__bridge_retained void *)self);
+}
+
+- (void)didConnect {
+    if (self.scrollView.frame.origin.x < 320.0f) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CGRect scrollTo = CGRectMake(320.0, 0.0, 320.0, 480.0);
+            [self.scrollView scrollRectToVisible:scrollTo animated:YES];
+        });
+    }
 }
 
 static void playSoundFinished (SystemSoundID soundID, void *data) {
