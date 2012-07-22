@@ -22,6 +22,7 @@
 @property (nonatomic, strong) GKPeerPickerController *pickerController;
 @property (nonatomic, strong) GKSession *chatSession;
 
+
 - (void)closeConnectionWithMessage:(NSString *)message;
 
 - (void)preparePeerPicker;
@@ -37,6 +38,7 @@
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     [self preparePeerPicker];
     [self prepareAudioSystem];
+    [self setMuted:YES];
 }
 
 - (void)shutDown {
@@ -80,6 +82,15 @@
     }
 }
 
+- (void)setMuted:(BOOL)isMuted {
+    if (!_isMuted) {
+        _isMuted = YES;
+        [[GKVoiceChatService defaultVoiceChatService] setMicrophoneMuted:YES];
+    } else {
+        _isMuted = NO;
+        [[GKVoiceChatService defaultVoiceChatService] setMicrophoneMuted:NO];
+    }
+}
 
 - (void)closeConnectionWithMessage:(NSString *)message {
     NSLog(@"closeConnection %@", message);

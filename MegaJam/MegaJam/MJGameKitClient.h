@@ -11,6 +11,8 @@
 
 @interface MJGameKitClient : NSObject <GKPeerPickerControllerDelegate, GKSessionDelegate, GKVoiceChatClient>
 
+@property (nonatomic, assign, setter = setMuted:) BOOL isMuted;
+
 - (void)startUp;
 - (void)shutDown;
 - (void)showPicker;

@@ -195,11 +195,13 @@ static BOOL isOn = FALSE;
 #pragma mark MJPlayPauseDelegate
 
 - (void)playPauseDelegateDidPlay:(id<MJPlayPauseDelegate>)delegate {
-    
+    MJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.gkClient setMuted:NO];
 }
 
 - (void)playPauseDelegateDidPause:(id<MJPlayPauseDelegate>)delegate {
-    
+    MJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.gkClient setMuted:YES];
 }
 
 ////////////
