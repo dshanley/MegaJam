@@ -48,7 +48,7 @@
     [self.grillFlat addGestureRecognizer:_singleTapRecognizer];
     
     //Background Plate
-    self.backgroundPlate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+    self.backgroundPlate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     self.backgroundPlate.backgroundColor = [UIColor clearColor];
     [self addSubview:self.backgroundPlate];
 
@@ -124,10 +124,10 @@
     [self.rotatorPlate addSubview:titleImage];
     
     //Speaker Grill Images
-    self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
+    self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 150)];
     self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kGrillFlatBase]];
     
-    self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
+    self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 150)];
     
     [self.backgroundPlate addSubview:self.grillFlat];
     [self.backgroundPlate addSubview:self.grillActive];
