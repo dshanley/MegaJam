@@ -30,7 +30,7 @@
         
         _status = MJNetworkStatusDisconnected;
         
-        _bonjourBrowser = [[NSNetServiceBrowser alloc] init];
+        self.bonjourBrowser = [[NSNetServiceBrowser alloc] init];
         _bonjourBrowser.delegate = self;
     }
     
