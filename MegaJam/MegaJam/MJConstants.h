@@ -19,7 +19,8 @@
 #define kNotificationSocketConnected            @"socketConnected"
 #define kNotificationSocketDisconnected         @"socketDisconnected"
 #define kNotificationPeerConnected              @"peerConnected"
-#define kNotificationPeerDisConnected              @"peerDisonnected"
+#define kNotificationPeerDisConnected           @"peerDisonnected"
+#define kNotificationClientCanceled             @"clientCanceled"
 
 
 

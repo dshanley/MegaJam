@@ -75,6 +75,8 @@
 }
 
 - (void)showPicker {
+    if (!_pickerController) [self preparePeerPicker];
+    
     if (_pickerController) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [_pickerController show];
@@ -132,7 +134,7 @@
 }
 
 - (void)peerPickerControllerDidCancel:(GKPeerPickerController *)picker {
-    [picker dismiss];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationClientCanceled object:self];
 }
 
 #pragma mark -

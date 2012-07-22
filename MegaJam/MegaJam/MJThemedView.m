@@ -52,6 +52,7 @@
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(peerConnected) name:kNotificationSocketDisconnected object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(peerDisconnected) name:kNotificationSocketDisconnected object:nil];
+        
         //start off in paused
         self.currentState = MJThemedViewStatePaused;
         self.delegates = [NSMutableArray array];
