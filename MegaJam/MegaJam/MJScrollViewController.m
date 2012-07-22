@@ -43,6 +43,10 @@ static BOOL isOn = FALSE;
     return self;
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)loadView {
     [super loadView];
     
