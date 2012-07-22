@@ -11,7 +11,9 @@
 #import "Novocaine.h"
 #import "MJNetworkClient.h"
 
-@interface MJAudioIn : NSObject
+#import "MJPlayPauseDelegate.h"
+
+@interface MJAudioIn : NSObject <MJPlayPauseDelegate>
 
 @property (nonatomic, strong) MJNetworkClient *networkClient;
 

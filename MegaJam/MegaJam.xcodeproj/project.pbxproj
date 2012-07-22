@@ -236,6 +236,7 @@
 		F478BCCC15BBB48000EE427E /* stone-play-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stone-play-down@2x.png"; sourceTree = "<group>"; };
 		F478BCCD15BBB48000EE427E /* stone-play-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stone-play-up.png"; sourceTree = "<group>"; };
 		F478BCCE15BBB48000EE427E /* stone-play-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stone-play-up@2x.png"; sourceTree = "<group>"; };
+		F478BD4915BBBDF900EE427E /* MJPlayPauseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPlayPauseDelegate.h; sourceTree = "<group>"; };
 		F488E31215BA568E007B6A0B /* MJConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConstants.h; sourceTree = "<group>"; };
 		F488E31315BA568E007B6A0B /* MJThemedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJThemedView.h; sourceTree = "<group>"; };
 		F488E31415BA568E007B6A0B /* MJThemedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJThemedView.m; sourceTree = "<group>"; };
@@ -329,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				F488E33815BA73A0007B6A0B /* external_source */,
+				F478BD4915BBBDF900EE427E /* MJPlayPauseDelegate.h */,
 				F488E31215BA568E007B6A0B /* MJConstants.h */,
 				F488E31315BA568E007B6A0B /* MJThemedView.h */,
 				F488E31415BA568E007B6A0B /* MJThemedView.m */,

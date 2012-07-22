@@ -8,8 +8,6 @@
 
 #import "MJAudioIn.h"
 
-
-
 @implementation MJAudioIn
 
 - (id)init {
@@ -34,6 +32,10 @@
     audioManager.inputBlock = ^(float *data, UInt32 numFrames, UInt32 numChannels) {
         [clientPtr sendData:data];
     };
+}
+
+- (void)playingAudio:(BOOL)isPlaying {
+    
 }
 
 @end

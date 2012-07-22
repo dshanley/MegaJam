@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MJThemedView.h"
 
-@interface MJScrollViewController : UIViewController <UIScrollViewDelegate, playPauseDelegate>
+@interface MJScrollViewController : UIViewController <UIScrollViewDelegate>
 
 @end
