@@ -10,6 +10,8 @@
 
 #import <netinet/in.h>
 
+#import "MJConstants.h"
+
 #define kServerSeekTimeoutInterval          30.0
 
 
@@ -18,6 +20,8 @@
 - (void)discoveryTimerDidTimeout;
 
 - (void)setupSocketWithNetService:(NSNetService *)service;
+
+- (NSString *)readableAddressWithData:(NSData *)data;
 
 @end
 
@@ -37,6 +41,20 @@
     return self;
 }
 
+- (void)sendData:(float *)data {
+    size_t dataSize = sizeof(data);
+    size_t floatSize = sizeof(float);
+    
+    NSData *toSend = [NSData dataWithBytes:&data length:(NSUInteger)dataSize];
+    NSTimeInterval unixTimeInterval = [[NSDate date] timeIntervalSince1970];
+    long tag = (long)unixTimeInterval;
+    float theData = *data;
+    
+    NSLog(@"DOWN THE WIRE: data=%f | tag=%l", theData, tag);
+    //[self.socket sendData:toSend toAddress:self.socketAddress withTimeout:1.0 tag:tag];
+    [self.socket sendData:[@"ASPARAGUS" dataUsingEncoding:NSUTF8StringEncoding] toAddress:self.socketAddress withTimeout:1.0 tag:1234];
+}
+
 #pragma mark -
 #pragma mark Service discovery
 - (void)findMegaJams {
@@ -44,9 +62,9 @@
     //PRECONDITIONS
     if (self.status == MJNetworkStatusSeeking) return;
     
-    //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [self.bonjourBrowser searchForServicesOfType:@"_MJServer._udp." inDomain:@""];
-    //});
+    
+    [self.bonjourBrowser searchForServicesOfType:@"_MJServer._udp." inDomain:@""];
+    
 }
 
 
@@ -87,7 +105,7 @@
 - (void)netServiceDidResolveAddress:(NSNetService *)sender {
     
     [self setupSocketWithNetService:sender];
-    
+    [self.bonjourBrowser stop];
 }
 
 - (void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict {
@@ -104,22 +122,60 @@
     if (!service.addresses.count >= 1) {
         [NSException raise:NSInternalInconsistencyException format:@"Has to be addys"];
     }
+    
+    for (NSData *data in service.addresses) {
+        NSString *string = [self readableAddressWithData:data];
+        int debug = 1;
+    }
     NSData *anAddress = [service.addresses objectAtIndex:0];
-    NSValue *valueForAddy = [NSValue valueWithBytes:&anAddress objCType:@encode(struct sockaddr)];
     
-    struct sockaddr anAddrValue;
-    [valueForAddy getValue:&anAddrValue];
+    self.socketAddress = anAddress;
     
-    NSData *testData = [@"TOMATO" dataUsingEncoding:NSUTF8StringEncoding];
-    [socket sendData:testData toAddress:anAddress withTimeout:1.0 tag:1234];
+    self.status = MJNetworkStatusConnected;
     
-    //  [socket bindToAddress:<#(NSString *)#> port:(UInt16)anAddrValue.ad error:<#(NSError *__autoreleasing *)#>]
+    NSNotification *socketConnectedNotif = [NSNotification notificationWithName:kNotificationSocketConnected
+                                                                          object:nil];
     
-    int debug = 1;
-    //[socket bindToAddress port:service.port error:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotification:socketConnectedNotif];
 }
 
 
 #pragma mark AsyncUdpSocketDelegate
+
+- (void)onUdpSocket:(AsyncUdpSocket *)sock didNotReceiveDataWithTag:(long)tag dueToError:(NSError *)error {
+    
+}
+
+- (void)onUdpSocket:(AsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error {
+    
+}
+
+- (void)onUdpSocket:(AsyncUdpSocket *)sock didSendDataWithTag:(long)tag {
+    
+}
+
+- (void)onUdpSocketDidClose:(AsyncUdpSocket *)sock {
+    self.status = MJNetworkStatusDisconnected;
+    NSLog(@"SOCKET CLOSED!!!");
+}
+
+#pragma mark -
+#pragma mark Util
+
+- (NSString *)readableAddressWithData:(NSData *)data {
+    
+    if (!data) return nil;
+    
+    NSValue *value = [NSValue valueWithBytes:&data objCType:@encode(struct sockaddr)];
+    struct sockaddr addy;
+    
+    [value getValue:&addy];
+    const char *constString = (const char *)&addy.sa_data;
+   // NSString *toReturn = [NSString stringWithCharacters:&addy.sa_data length:sizeof(&addy.sa_data)/sizeof(char)];
+    //NSString *toReturn = [[NSString alloc] initWithBytes:&addy.sa_data length:14 encoding:NSUTF8StringEncoding];
+    NSString *toReturn = [[NSString alloc] initWithCString:constString encoding:NSUTF8StringEncoding];
+    return toReturn;
+}
 
 @end

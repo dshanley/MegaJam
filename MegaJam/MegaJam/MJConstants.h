@@ -15,4 +15,6 @@
 #define kPauseUpBase        @"-pause-up"
 #define kPauseDownBase      @"-pause-down"
 
+#define kNotificationSocketConnected            @"socketConnected"
+
 

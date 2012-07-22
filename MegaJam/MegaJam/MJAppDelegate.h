@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MJNetworkClient.h"
+#import "MJAudioIn.h"
 
 @interface MJAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) MJNetworkClient *client;
+@property (strong, nonatomic) MJAudioIn *audioIn;
 
 @end

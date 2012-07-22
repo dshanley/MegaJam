@@ -25,8 +25,9 @@ typedef enum {
 @property (nonatomic, strong) NSNetService *foundService;
 
 @property (nonatomic, strong) AsyncUdpSocket *socket;
+@property (nonatomic, strong) NSData *socketAddress;
 
 - (void)findMegaJams;
-- (void)sendData:(NSData *)data;
+- (void)sendData:(float *)data;
 
 @end

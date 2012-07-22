@@ -8,20 +8,31 @@
 
 #import "MJAppDelegate.h"
 
+#import "MJAudioIn.h"
+#import "MJConstants.h"
+
+void uncaughtException(NSException *exception);
+
 @implementation MJAppDelegate
 
 @synthesize window = _window;
 
+void uncaughtException(NSException *exception) {
+    NSLog(@"CRASH: %@", exception);
+    NSLog(@"Stack Trace: %@,", [exception callStackSymbols]);
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    MJNetworkClient *client = [[MJNetworkClient alloc] init];
-    [client findMegaJams];
-    self.client = client;
     
-    CGRect bounds = [[UIScreen mainScreen] bounds];
+    NSSetUncaughtExceptionHandler(&uncaughtException);
+    
+    self.audioIn = [[MJAudioIn alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(socketConnected) name:kNotificationSocketConnected object:nil];
+    
+    [self.audioIn.networkClient findMegaJams];
    
-    
     return YES;
 }
 							
@@ -50,6 +61,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)socketConnected {
+    [self.audioIn startRecord];
+    NSLog(@"We're live...");
 }
 
 @end
