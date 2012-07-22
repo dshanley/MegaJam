@@ -62,7 +62,7 @@
     
     //Play Button
     self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.playButton.frame = CGRectMake(164, 144, 100, 100);
+    self.playButton.frame = CGRectMake(164, 134, 100, 100);
     [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayUpBase]] forState:UIControlStateNormal];
     [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
     [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayUpBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
@@ -73,7 +73,7 @@
     
     //Pause Button
     self.pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.pauseButton.frame = CGRectMake(56, 144, 100, 100);
+    self.pauseButton.frame = CGRectMake(56, 134, 100, 100);
     [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseUpBase]] forState:UIControlStateNormal];
     [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
     [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
@@ -83,16 +83,40 @@
     
     [self.rotatorPlate addSubview:self.pauseButton];
     
-    //Volume Slider
+    //Volume slider init
     CGRect frame = CGRectMake(40, 270, 240, 10);
     UISlider *volumeSlider = [[UISlider alloc] initWithFrame:frame];
-   // [volumeSlider addTarget:self.controller action:@selector(adjustVolume:) forControlEvents:UIControlEventValueChanged];
+    
     [volumeSlider setBackgroundColor:[UIColor clearColor]];
+    //[volumeSlider addTarget:self.controller action:@selector(adjustVolume:) forControlEvents:UIControlEventValueChanged];
     volumeSlider.minimumValue = 0.0;
-    volumeSlider.maximumValue = 100.0;
-    volumeSlider.value = 25.0;
+    volumeSlider.maximumValue = 1.0;
+    volumeSlider.value = 0.25;
+    
+    //Volume slider custom images
+    UIImage *minImage = [UIImage imageNamed:@"gr-slider-fill"];
+    UIImage *maxImage = [UIImage imageNamed:@"gr-slider-track"];
+    UIImage *thumbImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@",self.viewThemeString, kSliderBase]];
+    minImage = [minImage stretchableImageWithLeftCapWidth:8.0 topCapHeight:0.0];
+    maxImage = [maxImage stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0];
+    
+    //Volume slider custom setup
+    [volumeSlider setMinimumTrackImage:minImage forState:UIControlStateNormal];
+    [volumeSlider setMaximumTrackImage:maxImage forState:UIControlStateNormal];
+    [volumeSlider setThumbImage:thumbImage forState:UIControlStateNormal];
+    [volumeSlider setThumbImage:thumbImage forState:UIControlStateHighlighted];
     
     [self.rotatorPlate addSubview:volumeSlider];
+    
+    //Volume icons
+    UIImageView *volumeIconLow = [[UIImageView alloc] initWithFrame:CGRectMake(19, 269, 26, 26)];
+    volumeIconLow.image = [UIImage imageNamed:@"gr-volume-low"];
+    [self.rotatorPlate addSubview:volumeIconLow];
+    
+    UIImageView *volumeIconHigh = [[UIImageView alloc] initWithFrame:CGRectMake(282, 269, 26, 26)];
+    volumeIconHigh.image = [UIImage imageNamed:@"gr-volume-high"];
+    [self.rotatorPlate addSubview:volumeIconHigh];
+    
     
     //bluetooth symbol
     self.bluetoothImageOff = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
@@ -148,7 +172,9 @@
     
     [self chooseRandomGrill];
     [self bluetoothOnEffect];
-  
+    
+   // [self.controller playAudio];
+    //[self.controller playAudioThroughSpeakerWithName:@"button.mp3"];
 }
 
 - (void)pausePressed {
@@ -165,6 +191,7 @@
     self.playButton.selected = NO;
 
     [self bluetoothOffEffect];
+    //[self.controller playAudioThroughSpeakerWithName:@"button.mp3"];
 }
 
 + (MJThemedView *)viewWithTheme:(MJTheme)theme andFrame:(CGRect)frame {
