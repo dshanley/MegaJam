@@ -177,7 +177,6 @@
 		5AF4C54B15A81ED00055D1A0 /* MegaJam */ = {
 			isa = PBXGroup;
 			children = (
-				F489B10915BB197F00F954AA /* New Group */,
 				F488E33815BA73A0007B6A0B /* external_source */,
 				F488E31215BA568E007B6A0B /* MJConstants.h */,
 				F488E31315BA568E007B6A0B /* MJThemedView.h */,
@@ -255,13 +254,6 @@
 			);
 			name = apple;
 			path = external_src/apple;
-			sourceTree = "<group>";
-		};
-		F489B10915BB197F00F954AA /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		F489B12F15BB3ED800F954AA /* async_socket */ = {

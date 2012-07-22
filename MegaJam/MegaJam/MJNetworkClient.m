@@ -99,12 +99,19 @@
 
 - (void)setupSocketWithNetService:(NSNetService *)service {
     AsyncUdpSocket *socket = [[AsyncUdpSocket alloc] initWithDelegate:self];
+    self.socket = socket;
     
+    if (!service.addresses.count >= 1) {
+        [NSException raise:NSInternalInconsistencyException format:@"Has to be addys"];
+    }
     NSData *anAddress = [service.addresses objectAtIndex:0];
     NSValue *valueForAddy = [NSValue valueWithBytes:&anAddress objCType:@encode(struct sockaddr)];
     
     struct sockaddr anAddrValue;
     [valueForAddy getValue:&anAddrValue];
+    
+    NSData *testData = [@"TOMATO" dataUsingEncoding:NSUTF8StringEncoding];
+    [socket sendData:testData toAddress:anAddress withTimeout:1.0 tag:1234];
     
     //  [socket bindToAddress:<#(NSString *)#> port:(UInt16)anAddrValue.ad error:<#(NSError *__autoreleasing *)#>]
     
