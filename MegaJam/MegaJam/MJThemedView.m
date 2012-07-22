@@ -19,8 +19,6 @@
 @property (nonatomic, strong) MJViewController *controller;
 @property (nonatomic, strong) UIImageView *grillActive;
 @property (nonatomic, strong) UIImageView *grillFlat;
-@property (nonatomic, strong) UIButton *pauseButton;
-@property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) NSString *viewThemeString;
 @property (nonatomic, strong) UIImageView *bluetoothImageOff;
 @property (nonatomic, strong) UIImageView *bluetoothImageOn;
@@ -32,6 +30,7 @@
 @end
 
 @implementation MJThemedView
+@synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -47,11 +46,21 @@
     _grillFlat.userInteractionEnabled = YES;
     self.singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap)];
     [self.grillFlat addGestureRecognizer:_singleTapRecognizer];
+    
+    //Background Plate
+    self.backgroundPlate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+    self.backgroundPlate.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.backgroundPlate];
 
+    //Tansparent Rotater Plate For Button Rotation
+    self.rotatorPlate = [[UIView alloc]initWithFrame:CGRectMake(0,0,320,317)];
+    self.rotatorPlate.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.rotatorPlate];
+    
     //Background
     UIImageView *backgoundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 330)];
     backgoundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kBackgroundBase]];
-    [self addSubview:backgoundImage];
+    [self.backgroundPlate addSubview:backgoundImage];
     
     //Play Button
     self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -62,7 +71,7 @@
     [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayDownBase]] forState:UIControlStateSelected];
     [self.playButton addTarget:self action:@selector(playPressed) forControlEvents:UIControlEventTouchUpInside];
     
-    [self addSubview:self.playButton];
+    [self.rotatorPlate addSubview:self.playButton];
     
     //Pause Button
     self.pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -74,7 +83,7 @@
     self.pauseButton.selected = YES;
     [self.pauseButton addTarget:self action:@selector(pausePressed) forControlEvents:UIControlEventTouchUpInside];
     
-    [self addSubview:self.pauseButton];
+    [self.rotatorPlate addSubview:self.pauseButton];
     
     //Volume Slider
     CGRect frame = CGRectMake(40, 270, 240, 10);
@@ -85,7 +94,7 @@
     volumeSlider.maximumValue = 100.0;
     volumeSlider.value = 25.0;
     
-    [self addSubview:volumeSlider];
+    [self.rotatorPlate addSubview:volumeSlider];
     
     //bluetooth symbol
     self.bluetoothImageOff = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
@@ -96,20 +105,23 @@
     
     self.bluetoothImageWhite = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
     self.bluetoothImageWhite.image = [UIImage imageNamed:@"gr-bluetooth-pulse"];
-
-    [self addSubview:self.bluetoothImageWhite];
-    [self addSubview:self.bluetoothImageOn];
-    [self addSubview:self.bluetoothImageOff];
     
-    //Hiding bluetooth
-    [self makeViewInvisible:self.bluetoothImageOn];
+    //Hiding white bluetooth images
     [self makeViewInvisible:self.bluetoothImageWhite];
+    [self makeViewInvisible:self.bluetoothImageOn];
+    
+    [self.rotatorPlate addSubview:self.bluetoothImageWhite];
+    [self.rotatorPlate addSubview:self.bluetoothImageOn];
+
+    [self.rotatorPlate addSubview:self.bluetoothImageOff];
+    
+    
     
     //MegaJam Title Image
     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(112,72,100,26)];
     titleImage.image = [UIImage imageNamed:@"gr-megajam"];
     
-    [self addSubview:titleImage];
+    [self.rotatorPlate addSubview:titleImage];
     
     //Speaker Grill Images
     self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
@@ -117,8 +129,8 @@
     
     self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
     
-    [self addSubview:self.grillFlat];
-    [self addSubview:self.grillActive];
+    [self.backgroundPlate addSubview:self.grillFlat];
+    [self.backgroundPlate addSubview:self.grillActive];
     
     //Hide active grill
     [self makeViewInvisible:self.grillActive];
@@ -144,6 +156,10 @@
     //setting up animation
     NSLog(@"Play Pressed... ");
     
+    if ([self.delegate respondsToSelector:@selector(playingAudio:)]) {
+        [self.delegate playingAudio:true];
+    }
+    
     self.pauseButton.selected = NO;
     self.playButton.selected = YES;
     
@@ -156,6 +172,13 @@
 
 - (void)pausePressed {
     NSLog(@"Pause Pressed...");
+    if ([self.delegate respondsToSelector:@selector(playingAudio:)]) {
+        [self.delegate playingAudio:false];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(playingAudio:)]) {
+        [self.delegate playingAudio:false];
+    }
     
     self.pauseButton.selected = YES;
     self.playButton.selected = NO;

@@ -17,7 +17,20 @@ typedef enum {
     MJThemeCharcoal
 } MJTheme;
 
-@interface MJThemedView : UIView
+@protocol playPauseDelegate <NSObject>
+@required
+- (void)playingAudio:(BOOL)isPlaying;
+
+@end
+
+@interface MJThemedView : UIView {
+    id <playPauseDelegate> delegate;
+}
+@property (nonatomic, assign)id <playPauseDelegate> delegate;
+@property (nonatomic, strong) UIButton *pauseButton;
+@property (nonatomic, strong) UIButton *playButton;
+@property (nonatomic, strong) UIView *rotatorPlate;
+@property (nonatomic, strong) UIView *backgroundPlate;
 
 + (MJThemedView *)viewWithTheme:(MJTheme)theme andFrame:(CGRect)frame;
 

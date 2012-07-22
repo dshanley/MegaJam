@@ -8,12 +8,14 @@
 
 #import "MJScrollViewController.h"
 #import "MJViewController.h"
+#import "MJConstants.h"
 
 #define kNumberOfPages  5
 
 @interface MJScrollViewController ()
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, retain) NSMutableArray *themedViews;
+@property (nonatomic, strong) NSMutableArray *themedViews;
+
 @end
 
 @implementation MJScrollViewController
@@ -21,7 +23,10 @@
 - (id)init {
     self = [super init];
     if (self) {
-        
+        self.themedViews = [[NSMutableArray alloc] initWithCapacity:kNumberOfPages];
+        for (int i = 0; i < kNumberOfPages; ++i) {
+            [self.themedViews addObject:[NSNull null]];
+        }
     }
     return self;
 }
@@ -46,29 +51,34 @@
         return;
     if (page >= kNumberOfPages)
         return;
-    
     MJThemedView *themedView = [self.themedViews objectAtIndex:page];
     if ((NSNull *)themedView == [NSNull null])
     {
-        themedView = [MJThemedView viewWithTheme:page andFrame:CGRectMake(0, 0, 320, 480)];
+        CGRect frame = self.scrollView.frame;
+        frame.origin.x = frame.size.width * page;
+        frame.origin.y = 0;
+        themedView = [MJThemedView viewWithTheme:page andFrame:frame];
+        themedView.delegate = self;
+        [self.themedViews insertObject:themedView atIndex:page];
+        [self.scrollView addSubview:themedView];
         [self.themedViews replaceObjectAtIndex:page withObject:themedView];
     }
     
-    // add the controller's view to the scroll view
     if (themedView == nil)
     {
         CGRect frame = self.scrollView.frame;
         frame.origin.x = frame.size.width * page;
         frame.origin.y = 0;
         themedView = [MJThemedView viewWithTheme:page andFrame:frame];
+        themedView.delegate = self;
+        [self.themedViews insertObject:themedView atIndex:page];
         [self.scrollView addSubview:themedView];
     }
     
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender
-{
-	
+{	
     int page = floor((self.scrollView.contentOffset.x - 320 / 2) / 320) + 1;
 
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
@@ -79,9 +89,45 @@
     // A possible optimization would be to unload the views+controllers which are no longer visible
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [UIView setAnimationsEnabled:NO];
+        return (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
+}
 
-- (void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+
+    float angle = M_PI;
+    for (int i = 0; i < kNumberOfPages; ++i) {
+        MJThemedView *currentView = [self.themedViews objectAtIndex:i];
+        if ([currentView isKindOfClass:[MJThemedView class]]) {
+            if (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+                currentView.rotatorPlate.frame = CGRectMake(0, 133, 320, 317);
+                currentView.backgroundPlate.layer.transform = CATransform3DMakeRotation(angle, 0, 0, 1.0);
+            }else {
+                currentView.rotatorPlate.frame = CGRectMake(0, 0, 320, 317);
+                currentView.backgroundPlate.layer.transform = CATransform3DMakeRotation(0, 0, 0, 1.0);
+            }
+        }
+    }
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [UIView setAnimationsEnabled:YES];
+    self.scrollView.bounces = FALSE;
+}
+
+- (void) playingAudio:(BOOL)isPlaying {
+    if (isPlaying) {
+        self.scrollView.scrollEnabled = FALSE;
+    } else {
+        self.scrollView.scrollEnabled = TRUE;
+    }
 }
 
 @end
