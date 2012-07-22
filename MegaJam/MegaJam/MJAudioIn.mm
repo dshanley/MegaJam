@@ -15,6 +15,7 @@
     
     if (self) {
         _networkClient = [[MJNetworkClient alloc] init];
+        _audioInitd = NO;
     }
     
     return self;
@@ -32,10 +33,18 @@
     audioManager.inputBlock = ^(float *data, UInt32 numFrames, UInt32 numChannels) {
         [clientPtr sendData:data];
     };
+    
+    self.audioInitd = YES;
 }
 
 - (void)playingAudio:(BOOL)isPlaying {
     
+    if (isPlaying) {
+        if (!self.audioInitd) [self startRecord];
+        else [[Novocaine audioManager] play];
+    } else {
+        [[Novocaine audioManager] pause];
+    }
 }
 
 @end

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MJThemedView.h"
+#import "MJAudioIn.h"
 
 @interface MJScrollViewController : UIViewController <UIScrollViewDelegate>
+
+@property (nonatomic, strong) MJAudioIn *audioIn;
 
 @end

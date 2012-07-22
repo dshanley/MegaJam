@@ -34,8 +34,14 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(socketConnected) name:kNotificationSocketConnected object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(socketDisconnected) name:kNotificationSocketDisconnected object:nil];
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setupThemedView {
@@ -340,6 +346,12 @@
 //    [_grillFlat.layer addAnimation:animation forKey:NULL];
 }
 
+- (void)socketConnected {
+    [self bluetoothOnEffect];
+}
 
+- (void)socketDisconnected {
+    [self bluetoothOffEffect];
+}
 
 @end

@@ -17,6 +17,7 @@
 #define kSliderBase         @"-slider-handle"
 
 #define kNotificationSocketConnected            @"socketConnected"
+#define kNotificationSocketDisconnected         @"socketDisconnected"
 
 
 

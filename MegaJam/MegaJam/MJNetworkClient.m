@@ -41,6 +41,15 @@
     return self;
 }
 
+- (void)setStatus:(MJNetworkStatus)status {
+    _status = status;
+    
+    if (status == MJNetworkStatusDisconnected) {
+        NSNotification *disconNotif = [NSNotification notificationWithName:kNotificationSocketDisconnected object:nil];
+        [[NSNotificationCenter defaultCenter] postNotification:disconNotif];
+    }
+}
+
 - (void)sendData:(float *)data {
     
     

@@ -63,7 +63,7 @@
         frame.origin.x = frame.size.width * page;
         frame.origin.y = 0;
         themedView = [MJThemedView viewWithTheme:page andFrame:frame];
-        themedView.delegate = self;
+        themedView.delegate = self.audioIn;
         [self.themedViews insertObject:themedView atIndex:page];
         [self.scrollView addSubview:themedView];
         [self.themedViews replaceObjectAtIndex:page withObject:themedView];
@@ -75,7 +75,7 @@
         frame.origin.x = frame.size.width * page;
         frame.origin.y = 0;
         themedView = [MJThemedView viewWithTheme:page andFrame:frame];
-        themedView.delegate = self;
+        themedView.delegate = self.audioIn;
         [self.themedViews insertObject:themedView atIndex:page];
         [self.scrollView addSubview:themedView];
     }

@@ -15,6 +15,7 @@
 
 @interface MJAudioIn : NSObject <MJPlayPauseDelegate>
 
+@property (nonatomic, assign) BOOL audioInitd;
 @property (nonatomic, strong) MJNetworkClient *networkClient;
 
 - (void)startRecord;
