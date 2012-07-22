@@ -85,14 +85,28 @@
     
     [self.rotatorPlate addSubview:self.pauseButton];
     
-    //Volume Slider
+    //Volume slider init
     CGRect frame = CGRectMake(40, 270, 240, 10);
     UISlider *volumeSlider = [[UISlider alloc] initWithFrame:frame];
     [volumeSlider addTarget:self.controller action:@selector(adjustVolume:) forControlEvents:UIControlEventValueChanged];
-    [volumeSlider setBackgroundColor:[UIColor clearColor]];
     volumeSlider.minimumValue = 0.0;
-    volumeSlider.maximumValue = 100.0;
-    volumeSlider.value = 25.0;
+    volumeSlider.maximumValue = 1.0;
+    volumeSlider.value = 0.25;
+    
+    //Volume slider custom images
+    UIImage *minImage = [UIImage imageNamed:@"gr-slider-fill"];
+    UIImage *maxImage = [UIImage imageNamed:@"gr-slider-track"];
+    UIImage *thumbImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@",self.viewThemeString, kSliderBase]];
+    minImage = [minImage stretchableImageWithLeftCapWidth:8.0 topCapHeight:0.0];
+    maxImage = [maxImage stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0];
+    
+    //Volume slider custom setup
+    [volumeSlider setMinimumTrackImage:minImage forState:UIControlStateNormal];
+    [volumeSlider setMaximumTrackImage:maxImage forState:UIControlStateNormal];
+    [volumeSlider setThumbImage:thumbImage forState:UIControlStateNormal];
+    [volumeSlider setThumbImage:thumbImage forState:UIControlStateHighlighted];
+    
+    
     
     [self.rotatorPlate addSubview:volumeSlider];
     

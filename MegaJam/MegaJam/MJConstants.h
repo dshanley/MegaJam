@@ -14,5 +14,5 @@
 #define kPlayDownBase       @"-play-down"
 #define kPauseUpBase        @"-pause-up"
 #define kPauseDownBase      @"-pause-down"
-
+#define kSliderBase         @"-slider-handle"
 
