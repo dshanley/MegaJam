@@ -91,7 +91,10 @@
     [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
     [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayUpBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
     [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayDownBase]] forState:UIControlStateSelected];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayDownBase]] forState:UIControlStateDisabled];
     [self.playButton addTarget:self action:@selector(playPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.playButton setAdjustsImageWhenDisabled:NO];
+    [self.playButton setAdjustsImageWhenHighlighted:NO];
     
     [self.rotatorPlate addSubview:self.playButton];
     
@@ -102,8 +105,11 @@
     [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
     [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
     [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateSelected];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateDisabled];
     self.pauseButton.selected = YES;
     [self.pauseButton addTarget:self action:@selector(pausePressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.pauseButton setAdjustsImageWhenDisabled:NO];
+    [self.playButton setAdjustsImageWhenHighlighted:NO];
     
     [self.rotatorPlate addSubview:self.pauseButton];
     
@@ -216,10 +222,7 @@
     
     if (self.currentState == MJThemedViewStatePlaying) return;
     
-    self.currentState = MJThemedViewStatePlaying;
-    //disable the button
-    self.playButton.enabled = NO;
-    
+    self.currentState = MJThemedViewStatePlaying;    
     
     for (id<MJPlayPauseDelegate>delegate in _delegates) {
         if ([delegate respondsToSelector:@selector(playPauseDelegateDidPlay:)]) {
@@ -228,7 +231,6 @@
     }
     
     self.pauseButton.selected = NO;
-    self.pauseButton.enabled = YES;
     self.playButton.selected = YES;
     
     [self chooseRandomGrill];
@@ -244,8 +246,6 @@
     if (self.currentState == MJThemedViewStatePaused) return;
     
     self.currentState = MJThemedViewStatePaused;
-    //disable the button
-    self.pauseButton.enabled = NO;
     
     for (id<MJPlayPauseDelegate>delegate in _delegates) {
         if ([delegate respondsToSelector:@selector(playPauseDelegateDidPlay:)]) {
@@ -259,7 +259,7 @@
         
     self.pauseButton.selected = YES;
     self.playButton.selected = NO;
-    self.playButton.enabled = YES;
+
 
     [self bluetoothOffEffect];
     //[self.controller playAudioThroughSpeakerWithName:@"button.mp3"];
@@ -420,11 +420,11 @@
 }
 
 - (void)peerConnected {
-    [self bluetoothOnEffect];
+    [self performSelectorOnMainThread:@selector(bluetoothOnEffect) withObject:nil waitUntilDone:NO];
 }
 
 - (void)peerDisconnected {
-    [self bluetoothOffEffect];
+    [self performSelectorOnMainThread:@selector(bluetoothOffEffect) withObject:nil waitUntilDone:NO];
 }
 
 
