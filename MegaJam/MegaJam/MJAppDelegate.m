@@ -36,6 +36,8 @@ void uncaughtException(NSException *exception) {
     self.gkClient = [[MJGameKitClient alloc] init];
     [_gkClient startUp];
     
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+    
     return YES;
 }
 							
