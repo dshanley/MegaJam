@@ -7,6 +7,7 @@
 //
 
 #import "MJAppDelegate.h"
+#import "MJScrollViewController.h"
 
 #import "MJAudioIn.h"
 #import "MJConstants.h"
@@ -14,7 +15,7 @@
 void uncaughtException(NSException *exception);
 
 @implementation MJAppDelegate
-
+@synthesize scrollViewController = _scrollViewController;
 @synthesize window = _window;
 
 void uncaughtException(NSException *exception) {
@@ -24,15 +25,15 @@ void uncaughtException(NSException *exception) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+    if(!self.window) {
+        self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    }
+    self.scrollViewController = [[MJScrollViewController alloc] init];
+    self.window.rootViewController = self.scrollViewController;
+	[self.window makeKeyAndVisible];
     
-    NSSetUncaughtExceptionHandler(&uncaughtException);
-    
-    self.audioIn = [[MJAudioIn alloc] init];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(socketConnected) name:kNotificationSocketConnected object:nil];
-    
-    [self.audioIn.networkClient findMegaJams];
-   
+
     return YES;
 }
 							
@@ -61,11 +62,6 @@ void uncaughtException(NSException *exception) {
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-- (void)socketConnected {
-    [self.audioIn startRecord];
-    NSLog(@"We're live...");
 }
 
 @end

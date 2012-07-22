@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJScrollViewController.h"
 
 #import "MJAudioIn.h"
 
 @interface MJAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) MJAudioIn *audioIn;
+
+@property (nonatomic, strong) MJScrollViewController *scrollViewController;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MJAudioIn.h"
 
 typedef enum {
 	MJThemeRed, 
@@ -17,7 +18,23 @@ typedef enum {
     MJThemeCharcoal
 } MJTheme;
 
-@interface MJThemedView : UIView
+@protocol playPauseDelegate <NSObject>
+
+@required
+- (void)playingAudio:(BOOL)isPlaying;
+
+@end
+
+@interface MJThemedView : UIView {
+    id <playPauseDelegate> delegate;
+}
+@property (nonatomic, assign)id <playPauseDelegate> delegate;
+@property (nonatomic, strong) UIButton *pauseButton;
+@property (nonatomic, strong) UIButton *playButton;
+@property (nonatomic, strong) UIView *rotatorPlate;
+@property (nonatomic, strong) UIView *backgroundPlate;
+
+@property (nonatomic, strong) MJAudioIn *audioIn;
 
 + (MJThemedView *)viewWithTheme:(MJTheme)theme andFrame:(CGRect)frame;
 

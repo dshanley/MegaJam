@@ -16,16 +16,13 @@
 #define kNumberOfGrills     3
 
 @interface MJThemedView ()
-
+@property (nonatomic, strong) MJViewController *controller;
 @property (nonatomic, strong) UIImageView *grillActive;
 @property (nonatomic, strong) UIImageView *grillFlat;
-@property (nonatomic, strong) UIButton *pauseButton;
-@property (nonatomic, strong) UIButton *playButton;
-@property (nonatomic, strong) NSString *viewTheme;
+@property (nonatomic, strong) NSString *viewThemeString;
 @property (nonatomic, strong) UIImageView *bluetoothImageOff;
 @property (nonatomic, strong) UIImageView *bluetoothImageOn;
 @property (nonatomic, strong) UIImageView *bluetoothImageWhite;
-
 @property (nonatomic, strong) UITapGestureRecognizer *singleTapRecognizer;
 
 - (void)handleSingleTap;
@@ -33,6 +30,7 @@
 @end
 
 @implementation MJThemedView
+@synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -47,34 +45,44 @@
     _grillFlat.userInteractionEnabled = YES;
     self.singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap)];
     [self.grillFlat addGestureRecognizer:_singleTapRecognizer];
+    
+    //Background Plate
+    self.backgroundPlate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    self.backgroundPlate.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.backgroundPlate];
 
+    //Tansparent Rotater Plate For Button Rotation
+    self.rotatorPlate = [[UIView alloc]initWithFrame:CGRectMake(0,0,320,317)];
+    self.rotatorPlate.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.rotatorPlate];
+    
     //Background
     UIImageView *backgoundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 330)];
-    backgoundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kBackgroundBase]];
-    [self addSubview:backgoundImage];
+    backgoundImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kBackgroundBase]];
+    [self.backgroundPlate addSubview:backgoundImage];
     
     //Play Button
     self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.playButton.frame = CGRectMake(164, 144, 100, 100);
-    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayUpBase]] forState:UIControlStateNormal];
-    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
-    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayUpBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
-    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPlayDownBase]] forState:UIControlStateSelected];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayUpBase]] forState:UIControlStateNormal];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayUpBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
+    [self.playButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPlayDownBase]] forState:UIControlStateSelected];
     [self.playButton addTarget:self action:@selector(playPressed) forControlEvents:UIControlEventTouchUpInside];
     
-    [self addSubview:self.playButton];
+    [self.rotatorPlate addSubview:self.playButton];
     
     //Pause Button
     self.pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.pauseButton.frame = CGRectMake(56, 144, 100, 100);
-    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseUpBase]] forState:UIControlStateNormal];
-    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
-    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseDownBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
-    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kPauseDownBase]] forState:UIControlStateSelected];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseUpBase]] forState:UIControlStateNormal];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateHighlighted | UIControlStateSelected];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateNormal | UIControlStateHighlighted];
+    [self.pauseButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kPauseDownBase]] forState:UIControlStateSelected];
     self.pauseButton.selected = YES;
     [self.pauseButton addTarget:self action:@selector(pausePressed) forControlEvents:UIControlEventTouchUpInside];
     
-    [self addSubview:self.pauseButton];
+    [self.rotatorPlate addSubview:self.pauseButton];
     
     //Volume Slider
     CGRect frame = CGRectMake(40, 270, 240, 10);
@@ -85,7 +93,7 @@
     volumeSlider.maximumValue = 100.0;
     volumeSlider.value = 25.0;
     
-    [self addSubview:volumeSlider];
+    [self.rotatorPlate addSubview:volumeSlider];
     
     //bluetooth symbol
     self.bluetoothImageOff = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
@@ -96,29 +104,32 @@
     
     self.bluetoothImageWhite = [[UIImageView alloc] initWithFrame:CGRectMake(147, 35, 25, 25)];
     self.bluetoothImageWhite.image = [UIImage imageNamed:@"gr-bluetooth-pulse"];
-
-    [self addSubview:self.bluetoothImageWhite];
-    [self addSubview:self.bluetoothImageOn];
-    [self addSubview:self.bluetoothImageOff];
     
-    //Hiding bluetooth
-    [self makeViewInvisible:self.bluetoothImageOn];
+    //Hiding white bluetooth images
     [self makeViewInvisible:self.bluetoothImageWhite];
+    [self makeViewInvisible:self.bluetoothImageOn];
+    
+    [self.rotatorPlate addSubview:self.bluetoothImageWhite];
+    [self.rotatorPlate addSubview:self.bluetoothImageOn];
+
+    [self.rotatorPlate addSubview:self.bluetoothImageOff];
+    
+    
     
     //MegaJam Title Image
     UIImageView *titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(112,72,100,26)];
     titleImage.image = [UIImage imageNamed:@"gr-megajam"];
     
-    [self addSubview:titleImage];
+    [self.rotatorPlate addSubview:titleImage];
     
     //Speaker Grill Images
-    self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
-    self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewTheme, kGrillFlatBase]];
+    self.grillFlat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 150)];
+    self.grillFlat.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", self.viewThemeString, kGrillFlatBase]];
     
-    self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 130)];
+    self.grillActive = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, 320, 150)];
     
-    [self addSubview:self.grillFlat];
-    [self addSubview:self.grillActive];
+    [self.backgroundPlate addSubview:self.grillFlat];
+    [self.backgroundPlate addSubview:self.grillActive];
     
     //Hide active grill
     [self makeViewInvisible:self.grillActive];
@@ -144,6 +155,10 @@
     //setting up animation
     NSLog(@"Play Pressed... ");
     
+    if ([self.delegate respondsToSelector:@selector(playingAudio:)]) {
+        [self.delegate playingAudio:true];
+    }
+    
     self.pauseButton.selected = NO;
     self.playButton.selected = YES;
     
@@ -156,6 +171,13 @@
 
 - (void)pausePressed {
     NSLog(@"Pause Pressed...");
+    if ([self.delegate respondsToSelector:@selector(playingAudio:)]) {
+        [self.delegate playingAudio:false];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(playingAudio:)]) {
+        [self.delegate playingAudio:false];
+    }
     
     self.pauseButton.selected = YES;
     self.playButton.selected = NO;
@@ -169,22 +191,22 @@
     
     switch (theme) {
         case MJThemeRed:
-            newView.viewTheme = @"red";   
+            newView.viewThemeString = @"red";
             break;
         case MJThemeBlue:
-            newView.viewTheme = @"blue";
+            newView.viewThemeString = @"blue";
             break;
         case MJThemeGreen:
-            newView.viewTheme = @"green";
+            newView.viewThemeString = @"green";
             break;
         case MJThemeStone:
-            newView.viewTheme = @"stone";
+            newView.viewThemeString = @"stone";
             break;
         case MJThemeCharcoal:
-            newView.viewTheme = @"charcoal";
+            newView.viewThemeString = @"charcoal";
             break;
         default:
-            newView.viewTheme = @"blue";
+            newView.viewThemeString = @"blue";
             break;
     }
     
