@@ -100,7 +100,7 @@ static BOOL isOn = FALSE;
         themedView.delegate = self.audioIn;
         [self.themedViews insertObject:themedView atIndex:page];
         [self.scrollView addSubview:themedView];
-    }
+    } else [self.scrollView addSubview:[self.themedViews objectAtIndex:0]];
     
 }
 
