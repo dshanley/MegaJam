@@ -7,7 +7,7 @@
 //
 
 #import "MJScrollViewController.h"
-#import "MJViewController.h"
+
 #import "MJConstants.h"
 
 #define kNumberOfPages  5
@@ -45,6 +45,10 @@
     
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)loadScrollViewWithPage:(int)page {

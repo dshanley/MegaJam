@@ -16,7 +16,6 @@
 #define kNumberOfGrills     3
 
 @interface MJThemedView ()
-@property (nonatomic, strong) MJViewController *controller;
 @property (nonatomic, strong) UIImageView *grillActive;
 @property (nonatomic, strong) UIImageView *grillFlat;
 @property (nonatomic, strong) NSString *viewThemeString;
@@ -136,21 +135,6 @@
     
 }
 
-- (void) layoutSubviews {
-    [super layoutSubviews];
-    //custom layout?
-        
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
 - (void)playPressed {
     //setting up animation
     NSLog(@"Play Pressed... ");
@@ -164,8 +148,6 @@
     
     [self chooseRandomGrill];
     [self bluetoothOnEffect];
-    
-//  [self.controller playAudio];
   
 }
 
